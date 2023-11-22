@@ -1,0 +1,33 @@
+.banneraccesible h1 {
+  font-size: 40px;
+  text-align: center;
+}
+.banneraccesible p {
+  font-size: 25px;
+}
+.section-banneraccesible {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
+}
+.section-banneraccesible img {
+  width: 60vw;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.text-banneraccesible {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  position: absolute;
+  right: 20px;
+  gap: 10px;
+  padding: 20px;
+  background-color: rgb(237, 237, 237);
+  box-shadow: 0 0 20px rgb(100, 100, 100);
+  border-radius: 20px;
+}

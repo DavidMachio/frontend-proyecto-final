@@ -6,7 +6,7 @@ import { Fade as Hamburger } from 'hamburger-react'
 import "@theme-toggles/react/css/Classic.css"
 import { Classic } from "@theme-toggles/react"
 
-//comente
+
 const Header = () => {
 
   const logo = "https://images.vexels.com/media/users/3/129716/isolated/preview/fac546f594872b2ec3959892f2067dc9-insignia-de-camping-2.png"

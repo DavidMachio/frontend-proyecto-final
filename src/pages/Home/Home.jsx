@@ -2,7 +2,8 @@
 import "./Home.css"
 import Suscripcion from "../../components/Suscripcion/Suscripcion";
 import Seleccion from "../../components/Seleccion/Seleccion";
-import { NavLink } from "react-router-dom";
+import Banneraccesible from "../../components/Banneraccesible/Banneraccesible";
+import Navlink from "../../components/Botones/Navlink/navlink";
 
 const Home = () => {
   return (
@@ -13,11 +14,12 @@ const Home = () => {
           <div className="title-container">
             <h1 className="title">Campcesible</h1>
             <h2 className="subtitle">Living the best experience</h2>
-            <NavLink to="/campings" className="navlink">Discover</NavLink>
+            <Navlink word="Discover" url="/campings" />
           </div>
         </article>
 
       </section>
+      <Banneraccesible />
       <Seleccion />
       <Suscripcion />
     </main>
