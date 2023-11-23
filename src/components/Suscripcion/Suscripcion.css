@@ -2,19 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   margin: 30px;
 }
 .card {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100vw;
   gap: 30px;
-  padding: 40px;
 }
 .article-card {
-  max-width: 500px;
+  max-width: 450px;
   min-width: 350px;
   text-align: center;
   border: 1px solid;
