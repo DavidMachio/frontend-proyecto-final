@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  padding: 20px;
 }
 .banneraccesible h2 {
   padding: 20px;
   font-size: 60px;
   text-transform: uppercase;
+  text-align: center;
 }
 .banneraccesible h3 {
   font-size: 35px;

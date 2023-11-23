@@ -31,7 +31,8 @@ header li {
 .log-sun {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 30px;
 }
 header button {
   display: flex;
@@ -40,9 +41,9 @@ header button {
   color: var(--secondary);
 }
 .profile {
-  height: 40px;
-  width: 40px;
-  padding: 2px;
+  height: 50px;
+  width: 50px;
+  padding: 3px;
   object-fit: cover;
   border: 2px solid rgb(226, 226, 226);
   border-radius: 50%;
