@@ -12,7 +12,7 @@ const CardCategory = ({ imagen, nombre, ciudad, link, word, titulo, subtitulo })
         <img className="card-category-cover" src={imagen} alt="" />
         <div className="card-category-info">
           <div className="card-category-text">
-            <h2>{nombre}</h2>
+            <h2 className="card-category-name">{nombre}</h2>
             <h3>{ciudad}</h3>
             <Enlace url={link} word={word} />
           </div>

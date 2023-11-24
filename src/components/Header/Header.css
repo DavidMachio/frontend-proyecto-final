@@ -1,5 +1,5 @@
 header {
-  
+  font-family: var(--title);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -22,7 +22,6 @@ header {
   color: var(--secondary);
   background-color: var(--primary);
 }
-
 
 header a {
   color: inherit;
@@ -63,11 +62,11 @@ header button {
   border-radius: 50%;
 }
 
-.profileDay{
+.profileDay {
   border: 2px solid rgb(28, 28, 28);
 }
 
-.profileNight{
+.profileNight {
   border: 2px solid rgb(226, 226, 226);
 }
 
@@ -76,7 +75,7 @@ header button {
   width: auto;
 }
 
-.header-logotipoNight{
+.header-logotipoNight {
   filter: invert(1);
 }
 
@@ -145,14 +144,12 @@ header button {
   header li:hover {
     filter: invert(1);
   }
-
 }
-
 
 .solDay {
   filter: invert(1);
 }
 
-.solNight{
+.solNight {
   filter: invert(0);
 }

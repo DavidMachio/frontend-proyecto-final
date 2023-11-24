@@ -25,11 +25,10 @@
   align-items: center;
   gap: 10px;
 }
-.card-category-text h2 {
+.card-category-name {
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   font-size: 5vw;
   text-transform: uppercase;
 }
@@ -50,5 +49,5 @@
   text-align: center;
   padding: 10px 10px;
   width: 70%;
-  height: 200px;
+  height: auto;
 }
