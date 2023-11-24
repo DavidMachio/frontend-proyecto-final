@@ -1,0 +1,21 @@
+.enlaceday:hover {
+  scale: 110%;
+}
+.enlace {
+  box-shadow: 0 0 10px var(--primary);
+  width: 200px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+.enlaceday {
+  color: var(--primary);
+  background-color: yellow;
+}
+
+.enlacenight {
+  background-color: orange;
+  color: var(--secondary);
+}

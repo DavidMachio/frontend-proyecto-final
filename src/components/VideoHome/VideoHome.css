@@ -1,0 +1,32 @@
+.video-container {
+  max-height: calc(100vh - 70px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.video {
+  height: auto;
+  width: 100%;
+}
+.title-container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.title {
+  font-size: 12vw;
+
+  color: var(--secondary);
+  text-shadow: 0px 0px 20px black;
+}
+.subtitle {
+  font-size: 2vw;
+
+  color: var(--secondary);
+  text-shadow: 0px 0px 20px black;
+}

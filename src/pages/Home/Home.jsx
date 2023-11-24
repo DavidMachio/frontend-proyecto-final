@@ -1,27 +1,17 @@
 
 import "./Home.css"
 import Suscripcion from "../../components/Suscripcion/Suscripcion";
-import Seleccion from "../../components/Seleccion/Seleccion";
-import Banneraccesible from "../../components/Banneraccesible/Banneraccesible";
-import Navlink from "../../components/Botones/Navlink/navlink";
+
+import CardCategory from "../../components/CardCategory/CardCategory";
+import VideoHome from "../../components/VideoHome/VideoHome";
 
 const Home = () => {
   return (
     <main className="home">
-      <section>
-        <article className="video-container">
-          <video src="./videohome.mp4" alt="Video promocional de un camping" loop muted autoPlay className="video" />
-          <div className="title-container">
-            <h1 className="title">Campcesible</h1>
-            <h2 className="subtitle">Living the best experience</h2>
-            <Navlink word="Discover" url="/campings" />
-          </div>
-        </article>
-
-      </section>
-      <Banneraccesible />
-      <Seleccion />
+      <VideoHome />
+      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700500207/sn0mrdapsyyaxip3swlw.webp" nombre="CampFun" ciudad="Madrid" link="/campings" word="visitar" titulo="Titulo de la sección" subtitulo="Descripción de la sección" />
       <Suscripcion />
+      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700500207/sn0mrdapsyyaxip3swlw.webp" nombre="CampFun" ciudad="Madrid" link="/campings" word="visitar" titulo="Titulo de la sección" subtitulo="Descripción de la sección" />
     </main>
   )
 }
