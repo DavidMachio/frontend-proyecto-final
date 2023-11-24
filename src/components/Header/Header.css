@@ -1,17 +1,29 @@
 header {
-  color: var(--secondary);
-  background-color: var(--primary);
+  
   position: sticky;
   top: 0;
   z-index: 100;
-  width: 100vw;
+  width: 100%;
   box-shadow: 0 0 12px black;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  transition: 0.2s ease-in-out;
 }
+
+.headerDay {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.headerNight {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+
 header a {
   color: inherit;
 }
@@ -29,6 +41,7 @@ header li {
   color: inherit;
 }
 .log-sun {
+  width: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +49,8 @@ header li {
 }
 header button {
   display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: var(--secondary);
@@ -45,14 +60,26 @@ header button {
   width: 50px;
   padding: 3px;
   object-fit: cover;
-  border: 2px solid rgb(226, 226, 226);
   border-radius: 50%;
 }
+
+.profileDay{
+  border: 2px solid rgb(28, 28, 28);
+}
+
+.profileNight{
+  border: 2px solid rgb(226, 226, 226);
+}
+
 .header-logotipo {
-  filter: invert(1);
   height: 50px;
   width: auto;
 }
+
+.header-logotipoNight{
+  filter: invert(1);
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -100,6 +127,7 @@ header button {
     position: absolute;
     justify-content: center;
     align-items: center;
+    align-items: center;
     left: 0;
     right: 0;
     margin: auto;
@@ -117,4 +145,14 @@ header button {
   header li:hover {
     filter: invert(1);
   }
+
+}
+
+
+.solDay {
+  filter: invert(1);
+}
+
+.solNight{
+  filter: invert(0);
 }
