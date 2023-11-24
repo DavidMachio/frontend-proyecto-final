@@ -5,17 +5,20 @@
   --title: "Josefin Sans", sans-serif;
   --parrafo: "Hind Siliguri", sans-serif;
 }
+main {
+  min-height: calc(100vh - 70px - 50px);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.day {
+.night {
   color: var(--secondary);
   background-color: var(--primary);
   transition: all 0.2s ease-in-out;
 }
-.nigh {
+.day {
   background-color: var(--secondary);
   color: var(--primary);
 }
@@ -34,5 +37,19 @@ p {
   font-family: var(--parrafo);
 }
 .header-ul .active {
-  color: rgb(0, 255, 247);
+  text-decoration: underline;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    scale: 98%;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 100%;
+    scale: 100%;
+    transform: translateY(0);
+  }
 }

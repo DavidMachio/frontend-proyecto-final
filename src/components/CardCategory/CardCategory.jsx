@@ -1,13 +1,9 @@
 import "./CardCategory.css"
 import Enlace from "../Botones/Enlace/Enlace";
-import Titulo from "../../components/Titulo/Titulo";
-import Subtitulo from "../../components/Subtitulo/Subtitulo"
 
-const CardCategory = ({ imagen, nombre, ciudad, link, word, titulo, subtitulo }) => {
+const CardCategory = ({ imagen, nombre, ciudad, link, word, }) => {
   return (
     <article className="card-category-container">
-      <Titulo texto={titulo} />
-      <Subtitulo subtitulo={subtitulo} />
       <section className="card-category">
         <img className="card-category-cover" src={imagen} alt="" />
         <div className="card-category-info">

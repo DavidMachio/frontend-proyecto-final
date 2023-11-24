@@ -7,6 +7,8 @@ import Contacto from './pages/Contacto/Contacto.jsx'
 import Blog from './pages/Blog/Blog.jsx'
 import NotFound from './pages/NotFound/NotFound.jsx'
 import Cuenta from './pages/Cuentas/Cuenta.jsx'
+import Accesibles from './pages/Accesibles/Accesibles.jsx'
+import TodosAccesibles from './pages/TodosAccesibles/TodosAccesibles.jsx'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
@@ -21,6 +23,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/contacto' element={<Contacto />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/cuenta' element={<Cuenta />} />
+          <Route path='/accesibles' element={<Accesibles />} />
+          <Route path='/todosaccesibles' element={<TodosAccesibles />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

@@ -1,10 +1,17 @@
 import "./Categorias.css"
 import CardCategory from "../../components/CardCategory/CardCategory";
+import Titulo from "../../components/Titulo/Titulo";
+import Subtitulo from "../../components/Subtitulo/Subtitulo"
 
 const Categorias = () => {
   return (
-    <main>
-      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700500207/sn0mrdapsyyaxip3swlw.webp" nombre="CampFun" ciudad="Madrid" link="/campings" word="visitar" titulo="Titulo de la sección" subtitulo="Descripcion de la sección" />
+    <main className="categorias">
+      <Titulo texto={"Categorias"} />
+      <Subtitulo subtitulo={"Te lo hemos puesto fácil organizando todos nuestros campings en secciones principales, para que buscar tu lugar de vacaciones sea mucho más cómodo"} />
+      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848342/bungalow20accesible-15_gtqwm3.jpg" nombre="Accesibilidad" ciudad={"Descubre los más de 500 campings adaptados por toda España"} link="/accesibles" word="Ver" />
+      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137174/montan%CC%83aplaya_lj8xmm.jpg" nombre="Entornos" ciudad="Selecciona el entorno en el que quieres disfrutar de tus vacaciones, podrás elegir entre playa, montaña o ciudad" link="/campings" word="Ver" />
+      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848663/mapa_xkginu.jpg" nombre="Comunidades" ciudad="Todos lo campings clasificados por comunidades" link="/campings" word="Ver" />
+      <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848967/portada-parques-acuaticos_tcedde.jpg" nombre="Parques acuáticos" ciudad="Los campings más divertidos, con los mejores parques acuáticos" link="/campings" word="Ver" />
     </main>
   )
 }
