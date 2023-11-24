@@ -4,8 +4,8 @@ export const links = [
     link: "/",
   },
   {
-    name: "Campings",
-    link: "/campings",
+    name: "Categorias",
+    link: "/categorias",
   },
   {
     name: "Blog",
