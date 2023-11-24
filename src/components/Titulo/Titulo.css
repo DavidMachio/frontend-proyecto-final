@@ -2,6 +2,7 @@
   font-size: 60px;
   text-transform: uppercase;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   font-family: var(--title);
+  animation: 0.4s slidein ease;
 }
