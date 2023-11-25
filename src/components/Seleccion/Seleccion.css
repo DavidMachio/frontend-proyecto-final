@@ -1,13 +1,9 @@
 .seleccion {
-  display: flex;
-  flex-direction: column;
   height: calc(100vh - 70px);
   width: auto;
-  border: 2px solid rgb(211, 181, 9);
 }
 .carrousel {
   display: flex;
-  border: 3px solid green;
-  overflow: scroll;
+  flex-direction: column;
   padding: 0 10px;
 }
