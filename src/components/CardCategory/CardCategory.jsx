@@ -9,7 +9,7 @@ const CardCategory = ({ imagen, nombre, ciudad, link, word, }) => {
         <div className="card-category-info">
           <div className="card-category-text">
             <h2 className="card-category-name">{nombre}</h2>
-            <h3>{ciudad}</h3>
+            <h3 className="card-category-city">{ciudad}</h3>
             <Enlace url={link} word={word} />
           </div>
 

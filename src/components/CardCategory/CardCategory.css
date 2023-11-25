@@ -28,20 +28,28 @@
 }
 .card-category-name {
   color: white;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.495);
   display: flex;
   flex-direction: column;
   font-size: 5vw;
   text-transform: uppercase;
 }
-.card-category-text h3 {
+.card-category-city {
   color: white;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.495);
   display: flex;
   flex-direction: column;
   font-size: 20px;
   text-transform: uppercase;
 }
 .card-category-info {
-  background-color: rgba(0, 0, 0, 0.574);
+  /* From https://css.glass */
+  background: rgba(47, 47, 47, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.682);
   border-radius: 20px;
   position: absolute;
   display: flex;
