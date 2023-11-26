@@ -14,6 +14,7 @@ import Entornos from './pages/Entornos/Entornos.jsx'
 import Acuaticos from './pages/Acuaticos/Acuaticos.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
+import Register from './pages/Register/Register.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/cuenta' element={<Cuenta />} />
           <Route path='/accesibles' element={<Accesibles />} />
           <Route path='/todosaccesibles' element={<TodosAccesibles />} />
+          <Route path='/registrar' element={<Register />} />
           <Route path='/recomendados' element={<Recomendados />} />
           <Route path='/entornos' element={<Entornos />} />
           <Route path='/acuaticos' element={<Acuaticos />} />
