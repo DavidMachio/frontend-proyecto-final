@@ -1,24 +1,24 @@
 export const publicidad = [
   {
-    img: "https://www.guide-du-paysbasque.com/_bibli/articlesPage/211/images/itsasmendi-19-01.jpg?v=ficheArticle&width=371&height=275&pixelRatio=2.6250",
+    img: "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701017887/palace_pzyscw.jpg",
     name: "Camp Fun",
     city: "Madrid",
     link: "",
   },
   {
-    img: "https://www.acsi.eu/wp-content/uploads/2019/12/home-header-nieuw_0009_shutterstock_1129298705.jpg",
+    img: "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701017899/70-2_rdu2wv.jpg",
     name: "Palace",
     city: "Tarragona",
     link: "",
   },
   {
-    img: "https://cdn2.acsi.eu/6/3/9/3/6393919ebe4c3.jpeg",
+    img: "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701017893/palmeras_ugxqgf.jpg",
     name: "El Prado",
     city: "Málaga",
     link: "",
   },
   {
-    img: "https://i1.wp.com/www.noticiasturismorural.es/wp-content/uploads/2018/09/mejores-campings-asturias-camping-perlora.jpg?resize=640%2C377&ssl=1",
+    img: "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701017904/777682264_8171117_1706x960_ay3znh.jpg",
     name: "El Principado",
     city: "Asturias",
     link: "",
