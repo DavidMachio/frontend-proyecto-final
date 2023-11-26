@@ -1,0 +1,137 @@
+.login {
+    background-image: url("https://res.cloudinary.com/dt9uzksq0/image/upload/v1701023965/camping_erjmfs.jpg");
+    background-position: center;
+    background-repeat:space;
+    background-size: cover;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: calc(100vh - 70px - 50px);
+    overflow: hidden;
+}
+
+.logname{
+    font-size: 30px;
+}
+
+.login .boxform{
+    background: rgba(255, 255, 255, 0.644);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 5px );
+border-radius: 0px 35px 35px 0px;
+-moz-border-radius: 0px 35px 35px 0px;
+-webkit-border-radius: 0px 35px 35px 0px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 20px;
+padding: 20px;
+height: 100%;
+width: 50%;
+transition: all 1s ease-in-out;
+}
+
+.login .formday {
+    color: black;
+    background: rgba(255, 255, 255, 0.644);
+}
+
+.login .formnight{
+    color: white;
+    background: rgba(0, 0, 0, 0.644);
+}
+
+
+
+.login .formsection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 60%;
+}
+
+.login .formbtn{
+    padding: 7px;
+    border: 0px rgba(3, 3, 3, 0.658);
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    width: 60%;
+    
+}
+
+.btnday{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.726);
+}
+
+.btnnight{
+    color: rgb(0, 0, 0);
+    background-color: rgba(233, 231, 231, 0.726);
+}
+
+.login .btnday:hover{
+    background-color: rgba(0, 0, 0, 0.788)
+}
+
+.login .btnnight:hover{
+    background-color: rgba(255, 254, 254, 0.842);
+}
+
+.login input{
+    border-radius: 30px;
+    height: 40px;
+    padding: 10px;
+    width: 70%;
+    min-width: 180px;
+    background-color: rgba(0, 0, 0, 0.082);
+    border:0px solid rgb(44, 42, 42);
+}
+
+.login input::placeholder {
+    text-align: center; 
+ }
+
+ .login .inputday::placeholder {
+    color: black;
+ }
+
+ .login .inputnight::placeholder {
+    color: white;
+ }
+
+
+.orsect{
+    display: flex;
+    align-items: center;
+    width: 60%
+}
+
+.line{
+    border: 1px solid black;
+    width: 100%;
+}
+
+.ortext{
+    padding: 10px;
+}
+.linked{
+    transition: all 0.3s ease-in-out;
+}
+
+.linked:hover{
+    color: brown;
+}
+
+@media screen and (max-width: 700px){
+    .login .boxform{
+        width: 100%;
+        transition: all 1s ease-in-out;
+    }
+}
