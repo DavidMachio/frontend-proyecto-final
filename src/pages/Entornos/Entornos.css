@@ -1,0 +1,7 @@
+.main-entornos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 10px;
+  padding-bottom: 30px;
+}

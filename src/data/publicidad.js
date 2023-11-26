@@ -1,4 +1,4 @@
-export const seleccion = [
+export const publicidad = [
   {
     img: "https://www.guide-du-paysbasque.com/_bibli/articlesPage/211/images/itsasmendi-19-01.jpg?v=ficheArticle&width=371&height=275&pixelRatio=2.6250",
     name: "Camp Fun",

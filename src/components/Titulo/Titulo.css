@@ -1,8 +1,9 @@
 .titulo {
   font-size: 60px;
+  font-weight: 500;
   text-transform: uppercase;
   text-align: center;
-  padding: 20px;
+
   font-family: var(--title);
   animation: 0.4s slidein ease;
 }

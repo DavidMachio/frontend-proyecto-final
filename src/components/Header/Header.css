@@ -4,7 +4,7 @@ header {
   top: 0;
   z-index: 100;
   width: 100%;
-  box-shadow: 0 0 12px black;
+  box-shadow: 0 4px 12px var(--shadow);
   padding: 20px;
   display: flex;
   align-items: center;
@@ -63,11 +63,11 @@ header button {
 }
 
 .profileDay {
-  border: 2px solid rgb(28, 28, 28);
+  border: 2px solid var(--primary);
 }
 
 .profileNight {
-  border: 2px solid rgb(226, 226, 226);
+  border: 2px solid var(--secondary);
 }
 
 .header-logotipo {

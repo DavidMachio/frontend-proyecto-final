@@ -9,7 +9,9 @@ import NotFound from './pages/NotFound/NotFound.jsx'
 import Cuenta from './pages/Cuentas/Cuenta.jsx'
 import Accesibles from './pages/Accesibles/Accesibles.jsx'
 import TodosAccesibles from './pages/TodosAccesibles/TodosAccesibles.jsx'
-
+import Recomendados from './pages/Recomendados/Recomendados.jsx'
+import Entornos from './pages/Entornos/Entornos.jsx'
+import Acuaticos from './pages/Acuaticos/Acuaticos.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Register from './pages/Register/Register.jsx'
@@ -27,6 +29,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/accesibles' element={<Accesibles />} />
           <Route path='/todosaccesibles' element={<TodosAccesibles />} />
           <Route path='/registrar' element={<Register />} />
+          <Route path='/recomendados' element={<Recomendados />} />
+          <Route path='/entornos' element={<Entornos />} />
+          <Route path='/acuaticos' element={<Acuaticos />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

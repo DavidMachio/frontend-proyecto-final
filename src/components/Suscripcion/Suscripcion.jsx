@@ -9,8 +9,8 @@ suscripcion
 const Suscripcion = () => {
   return (
     <article className="article">
-      <Titulo texto={"Titulo de la sección suscribir"} />
-      <Subtitulo subtitulo={"descripción de la suscripción"} />
+      <Titulo texto={"Forma parte de campcesible"} />
+      <Subtitulo subtitulo={"Únete a nuestra comunidad de usuarios, y descrube las grandes ventajas de las que disfrutaras formando parte de una gran comunidad como la nuestra, ayudándonos a crecer y ayudando a otros usuarios a elegir su lugar perfecto de vacaciones."} />
       <div className="card">
         {suscripcion.map((section) =>
           <div className="article-card" key={section.title}>

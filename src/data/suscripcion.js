@@ -1,7 +1,7 @@
 export const suscripcion = [
   {
     title: "Guarda tus favoritos",
-    text: "Haz tu propiia lista de los campings que más te gusten, que hayas visitado o que pienses en visitar",
+    text: "Haz tu propia lista de los campings que más te gusten, que hayas visitado o que pienses en visitar",
     icon: "🗒️ 🗒️ 🗒️",
   },
   {
@@ -10,7 +10,7 @@ export const suscripcion = [
     icon: "⭐️ ⭐️ ⭐️",
   },
   {
-    title: "Mantente informado",
+    title: "newsletter",
     text: "Te informaremos sobre novedades, días especiales en los campings y mucho más",
     icon: "✉️ ✉️ ✉️",
   },
