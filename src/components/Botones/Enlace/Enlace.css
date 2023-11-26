@@ -14,10 +14,10 @@
 }
 .enlaceday {
   color: var(--primary);
-  background-color: yellow;
+  background-color: var(--buttonday);
 }
 
 .enlacenight {
-  background-color: orange;
+  background-color: var(--buttonnight);
   color: var(--secondary);
 }

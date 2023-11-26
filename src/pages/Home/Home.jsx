@@ -11,7 +11,7 @@ const Home = () => {
     <main className="home">
       <VideoHome />
       <section>
-        <Titulo texto={"¿No sabes que por donde empezar a buscar?"} />
+        <Titulo texto={"¿No sabes por donde empezar a buscar?"} />
         <Subtitulo subtitulo={"Nosotros te ayudamos, entra y descubre nuestra selección para esta temporada, de los mejores campings en España."} />
         <CardRandom />
       </section>

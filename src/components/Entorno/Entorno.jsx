@@ -4,12 +4,12 @@ import CardTipo from "../CardTipo/CardTipo"
 
 const Entorno = () => {
   return (
-    <main className="entorno">
+    <section className="main-entorno">
       <article className="entorno-carrousel">
         {entornos.map((entorno) =>
           <CardTipo key={entorno.entorno} foto={entorno.img} alt={entorno.entorno} icono={entorno.icono} word={entorno.entorno} />)}
       </article>
-    </main>
+    </section>
   )
 }
 export default Entorno
