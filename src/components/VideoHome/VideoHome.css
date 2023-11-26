@@ -20,14 +20,11 @@
 }
 .title {
   font-size: 12vw;
-  font-family: var(--title);
-
-  color: var(--secondary);
+  color: white;
   text-shadow: 0px 0px 20px black;
 }
 .subtitle {
   font-size: 2vw;
-  font-family: var(--title);
-  color: var(--secondary);
+  color: white;
   text-shadow: 0px 0px 20px black;
 }

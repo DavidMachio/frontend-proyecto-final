@@ -10,13 +10,14 @@
   text-align: center;
   padding: 15px;
   border-radius: 10px;
+  margin: 20px 0;
 }
 .enlaceday {
   color: var(--primary);
-  background-color: yellow;
+  background-color: var(--buttonday);
 }
 
 .enlacenight {
-  background-color: orange;
+  background-color: var(--buttonnight);
   color: var(--secondary);
 }

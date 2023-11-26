@@ -4,6 +4,7 @@
   justify-content: center;
   height: auto;
   animation: 0.6s slidein ease;
+  margin: 20px 0;
 }
 .card-category {
   position: relative;
@@ -18,7 +19,7 @@
   height: 300px;
   border-radius: 20px;
   object-fit: cover;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px var(--shadow);
 }
 .card-category-text {
   display: flex;
@@ -28,7 +29,7 @@
 }
 .card-category-name {
   color: white;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.495);
+  text-shadow: 0 0 20px var(--shadow);
   display: flex;
   flex-direction: column;
   font-size: 5vw;
@@ -36,7 +37,7 @@
 }
 .card-category-city {
   color: white;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.495);
+  text-shadow: 0 0 20px var(--shadow);
   display: flex;
   flex-direction: column;
   font-size: 20px;
@@ -46,7 +47,7 @@
   /* From https://css.glass */
   background: rgba(47, 47, 47, 0.2);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.72);
+  box-shadow: 0 4px 30px var(--shadow);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.682);

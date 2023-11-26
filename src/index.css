@@ -1,9 +1,11 @@
 :root {
-  --primary: #171717;
-  --secondary: #f1f1f1;
-  --tertiary: #b5b5b5;
-  --title: "Josefin Sans", sans-serif;
-  --parrafo: "Hind Siliguri", sans-serif;
+  --primary: #5d2c04;
+  --secondary: #ffcb87;
+  --shadow: #040404ed;
+  --buttonday: rgb(255, 194, 124);
+  --buttonnight: rgb(128, 101, 178);
+  --title: "Poppins", sans-serif;
+  --parrafo: "Poppins", sans-serif;
 }
 main {
   min-height: calc(100vh - 70px - 50px);
