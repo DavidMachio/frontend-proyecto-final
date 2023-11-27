@@ -7,7 +7,7 @@ const Entorno = () => {
     <section className="main-entorno">
       <article className="entorno-carrousel">
         {entornos.map((entorno) =>
-          <CardTipo key={entorno.entorno} foto={entorno.img} alt={entorno.entorno} icono={entorno.icono} word={entorno.entorno} />)}
+          <CardTipo key={entorno.entorno} foto={entorno.img} alt={entorno.entorno} icono={entorno.icono} word={entorno.entorno} link={entorno.link} />)}
       </article>
     </section>
   )

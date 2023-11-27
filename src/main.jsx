@@ -12,6 +12,9 @@ import TodosAccesibles from './pages/TodosAccesibles/TodosAccesibles.jsx'
 import Recomendados from './pages/Recomendados/Recomendados.jsx'
 import Entornos from './pages/Entornos/Entornos.jsx'
 import Acuaticos from './pages/Acuaticos/Acuaticos.jsx'
+import Montaña from "./pages/Montaña/Montyaña.jsx"
+import Ciudad from "./pages/Ciudad/Ciudad.jsx"
+import Playa from "./pages/Playa/Playa.jsx"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Register from './pages/Register/Register.jsx'
@@ -31,6 +34,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/registrar' element={<Register />} />
           <Route path='/recomendados' element={<Recomendados />} />
           <Route path='/entornos' element={<Entornos />} />
+          <Route path='/montaña' element={<Montaña />} />
+          <Route path='/playa' element={<Playa />} />
+          <Route path='/ciudad' element={<Ciudad />} />
           <Route path='/acuaticos' element={<Acuaticos />} />
           <Route path='*' element={<NotFound />} />
         </Route>
