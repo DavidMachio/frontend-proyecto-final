@@ -10,7 +10,7 @@ const Entornos = () => {
     <main className="main-entornos">
       <Titulo texto={"Entornos"} />
       <Subtitulo subtitulo={"¿Sabes en que entorno quieres disfrutar de tu estancia en un camping?"} />
-      <Descripcion descripcion={"Puedes elegir entre parajes de ensueño entre montañas, rodeado de naturaleza, tomar el sol en las mejores playas de España, o incluso estar cerca de esa bonita ciudad que te apetece visitar"} />
+      <Descripcion descripcion={"Puedes elegir parajes de ensueño entre montañas, rodeado de naturaleza, tomar el sol en las mejores playas de España, o incluso estar cerca de esa bonita ciudad que te apetece visitar"} />
       <Entorno />
     </main>
   )

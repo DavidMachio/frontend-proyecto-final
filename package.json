@@ -13,6 +13,7 @@
     "@theme-toggles/react": "^4.1.0",
     "axios": "^1.6.2",
     "hamburger-react": "^2.5.0",
+    "ldrs": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0"
