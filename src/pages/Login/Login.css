@@ -1,9 +1,8 @@
-.login {
+.forms {
     background-image: url("https://res.cloudinary.com/dt9uzksq0/image/upload/v1701023965/camping_erjmfs.jpg");
     background-position: center;
     background-repeat:space;
     background-size: cover;
-
     display: flex;
     justify-content: start;
     align-items: center;
@@ -15,7 +14,7 @@
     font-size: 30px;
 }
 
-.login .boxform{
+.forms .boxform{
     background: rgba(255, 255, 255, 0.644);
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 10px );
@@ -24,7 +23,6 @@ border-radius: 0px 35px 35px 0px;
 -moz-border-radius: 0px 35px 35px 0px;
 -webkit-border-radius: 0px 35px 35px 0px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -36,19 +34,19 @@ width: 50%;
 transition: all 1s ease-in-out;
 }
 
-.login .formday {
+.forms .formday {
     color: black;
     background: rgba(255, 255, 255, 0.644);
 }
 
-.login .formnight{
+.forms .formnight{
     color: white;
     background: rgba(0, 0, 0, 0.644);
 }
 
 
 
-.login .formsection{
+.forms .formsection{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,7 +55,7 @@ transition: all 1s ease-in-out;
     width: 60%;
 }
 
-.login .formbtn{
+.forms .formbtn{
     padding: 7px;
     border: 0px rgba(3, 3, 3, 0.658);
     border-radius: 30px;
@@ -76,35 +74,47 @@ transition: all 1s ease-in-out;
     background-color: rgba(233, 231, 231, 0.726);
 }
 
-.login .btnday:hover{
+.forms .btnday:hover{
     background-color: rgba(0, 0, 0, 0.788)
 }
 
-.login .btnnight:hover{
+.forms .btnnight:hover{
     background-color: rgba(255, 254, 254, 0.842);
 }
 
-.login input{
+.forms input, label{
     border-radius: 30px;
     height: 40px;
     padding: 10px;
     width: 70%;
     min-width: 180px;
-    background-color: rgba(0, 0, 0, 0.082);
     border:0px solid rgb(44, 42, 42);
+    color: inherit;
 }
 
-.login input::placeholder {
+
+.forms input::placeholder , label {
     text-align: center; 
  }
 
- .login .inputday::placeholder {
+ 
+
+ .forms .inputday{
+    background-color: rgba(0, 0, 0, 0.082);   
+ }
+
+ .forms .inputday::placeholder {
     color: black;
  }
 
- .login .inputnight::placeholder {
+ .forms .inputnight {
+    background-color: rgba(205, 205, 205, 0.129);
+ }
+
+ .forms .inputnight::placeholder {
     color: white;
  }
+
 
 
 .orsect{
@@ -115,6 +125,11 @@ transition: all 1s ease-in-out;
 
 .line{
     border: 1px solid black;
+    width: 100%;
+}
+
+.linenight{
+    border: 1px solid rgb(255, 252, 252);
     width: 100%;
 }
 
@@ -130,8 +145,20 @@ transition: all 1s ease-in-out;
 }
 
 @media screen and (max-width: 700px){
-    .login .boxform{
+    .forms .boxform{
         width: 100%;
         transition: all 1s ease-in-out;
+        border-radius: 0px;
+-moz-border-radius: 0px;
+-webkit-border-radius: 0px;
     }
+}
+
+.inputfile {
+    display: none;
+}
+
+
+input:focus{
+    outline-color: transparent;
 }
