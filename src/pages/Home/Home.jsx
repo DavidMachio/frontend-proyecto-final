@@ -5,7 +5,7 @@ import CardCategory from "../../components/CardCategory/CardCategory";
 import VideoHome from "../../components/VideoHome/VideoHome";
 import Titulo from "../../components/Titulo/Titulo";
 import Subtitulo from "../../components/Subtitulo/Subtitulo";
-import CardRandom from "../../components/CardRandom/CardRandom";
+
 const Home = () => {
   return (
     <main className="home">
@@ -13,7 +13,7 @@ const Home = () => {
       <section>
         <Titulo texto={"¿No sabes por donde empezar a buscar?"} />
         <Subtitulo subtitulo={"Nosotros te ayudamos, entra y descubre nuestra selección para esta temporada, de los mejores campings en España."} />
-        <CardRandom />
+
       </section>
       <Suscripcion />
       <Titulo texto={"Discapacidad sin barreras"} />
