@@ -1,0 +1,35 @@
+.profilePage {
+    width: 100%;
+    display: flex;
+}
+
+.profilePage .img {
+    background-image: url(https://res.cloudinary.com/dt9uzksq0/image/upload/v1701192449/aa32e8e5d66779890f564c51e9ec31a3_tjeu9u.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 30%;
+    min-width: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 50px;
+}
+
+.profilePage .avatarimg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.profilePage .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    width: 70%;
+}

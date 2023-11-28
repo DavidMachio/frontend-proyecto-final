@@ -22,7 +22,7 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem("token", APItoken)
         setUser(APIuser)
         setToken(APItoken)
-        navigate("/")
+        navigate("/profile")
     }
 
     const logout = () => {
