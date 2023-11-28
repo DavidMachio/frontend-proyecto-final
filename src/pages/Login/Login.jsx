@@ -1,5 +1,8 @@
 import "./Login.css"
-import { useState } from "react"
+import { useState ,useContext, useRef } from "react"
+
+import API from "./../../API/API"
+import { UserContext } from "../../context/userContext"
 
 const Login  = () => {
 
@@ -7,8 +10,18 @@ const Login  = () => {
     const Setpage = () => {
         setRegisterPage(!registerPage)
     }
-    
     const localData =  localStorage.getItem("theme")
+
+    //aqui empiezo funciones de login
+    const { login } = useContext(UserContext)
+    const usernameRef = useRef(null)
+    const passwordRef = useRef(null)
+
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+
+        
+    }
 
     return (
         <main className="forms">
