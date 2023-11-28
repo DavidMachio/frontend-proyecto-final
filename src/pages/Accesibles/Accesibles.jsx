@@ -36,11 +36,11 @@ const Accesibles = () => {
           <>
             <Titulo texto={accesibles.titulo} />
             <Subtitulo subtitulo={accesibles.descripcion} />
-            <img className="accesibles-cover" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848342/bungalow20accesible-15_gtqwm3.jpg" alt={accesibles.imgalt} />
+            <img className="accesibles-cover" src={"https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848342/bungalow20accesible-15_gtqwm3.jpg"} alt={accesibles.imgalt} />
             <ul className="container-cardcamping">
               {accesibles.campings.map((camping) => (
                 <li key={camping._id}>
-                  <CardCamping data={camping} />
+                  <CardCamping data={camping} entorno={true} />
 
                 </li>))}
             </ul>

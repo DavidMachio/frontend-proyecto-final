@@ -17,7 +17,7 @@ const Suscripcion = () => {
             <h2 className="suscripcion-title">{section.title}</h2>
             <p>{section.text}</p>
             <p className="icon">{section.icon}</p>
-            <Enlace word="Suscribete" url="/cuenta" />
+            <Enlace word="Suscribete" url="/login" />
           </div>)}
       </div>
     </article>

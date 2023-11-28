@@ -2,19 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 320px;
+  height: 340px;
   min-height: auto;
   border-radius: 20px;
   box-shadow: 0 0 10px var(--shadow);
 }
 .cardcamping-nombre,
-.cardcamping-provincia {
+.cardcamping-entorno {
+  font-size: 15px;
   padding: 5px 10px;
+}
+.cardcamping-provincia {
+  font-size: 20px;
 }
 .cardcamping-img {
   width: 100%;
   height: 200px;
   border-radius: 20px 20px 0 0;
+  object-fit: cover;
 }
 .cardcamping-ul {
   display: flex;
@@ -23,6 +28,10 @@
   gap: 20px;
 }
 .icono-accesibilidad img {
-  height: 25px;
+  height: 45px;
+  width: auto;
+}
+.icono-entorno img {
+  height: 45px;
   width: auto;
 }

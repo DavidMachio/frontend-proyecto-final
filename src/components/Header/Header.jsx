@@ -1,4 +1,4 @@
-import { useState ,useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { links } from "../../data/navegador";
@@ -17,13 +17,13 @@ const Header = () => {
   const [isOpen, setOpen] = useState(false)
   const [menu, setMenu] = useState(false)
 
-  const localData =  localStorage.getItem("theme")
+  const localData = localStorage.getItem("theme")
 
   const setTheme = () => {
-  ;
-    if (localData == "light"){
+    ;
+    if (localData == "light") {
       localStorage.setItem("theme", "dark")
-    }else {
+    } else {
       localStorage.setItem("theme", "light")
     }
   }
@@ -35,18 +35,18 @@ const Header = () => {
 
   const checkTheme = () => {
     if (!localData) {
-      localStorage.setItem("theme" , "light")
+      localStorage.setItem("theme", "light")
     }
-    if (localData == "light"){
+    if (localData == "light") {
       setToggle(true)
-    }else {
+    } else {
       setToggle(false)
     }
   }
 
   useEffect(() => {
     checkTheme()
-}, [])
+  }, [])
 
   return (
     <header className={`header${localData == "light" ? "Day" : "Night"}`} >
@@ -63,12 +63,12 @@ const Header = () => {
 
 
       </nav>
-      <div  className="burguer"><div className="box" onClick={toggleMenu}><Hamburger className="botonburguer" toggled={isOpen} toggle={setOpen} size={20} direction="left" duration={0.4} distance="md" easing="ease-in-out" rounded label="Show menu" hideOutline={true} /></div>
+      <div className="burguer"><div className="box" onClick={toggleMenu}><Hamburger className="botonburguer" toggled={isOpen} toggle={setOpen} size={20} direction="left" duration={0.4} distance="md" easing="ease-in-out" rounded label="Show menu" hideOutline={true} /></div>
       </div>
 
       <div className="log-sun">
-        <NavLink ><img className={`profile ${localData == "light" ? "profileDay" : "profileNight"}`} src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg" alt="" /></NavLink>
-        <div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`}/></div>
+        <NavLink to="/login"><img className={`profile ${localData == "light" ? "profileDay" : "profileNight"}`} src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg" alt="" /></NavLink>
+        <div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`} /></div>
       </div>
 
     </header>

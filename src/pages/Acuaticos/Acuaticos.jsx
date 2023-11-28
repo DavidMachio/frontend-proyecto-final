@@ -1,23 +1,26 @@
 import "./Acuaticos.css"
 import { useState, useEffect } from "react"
+import { ripples } from "ldrs"
+import CardCamping from "../../components/CardCamping/CardCamping"
 import Titulo from "../../components/Titulo/Titulo"
 import Subtitulo from "../../components/Subtitulo/Subtitulo"
 import API from "../../API/API"
 
 const Acuaticos = () => {
 
+  ripples.register()
+
   const [acuaticos, setAcuaticos] = useState([])
   const [cargado, setCargado] = useState(false)
 
   const cargando = async () => {
     try {
-      API.get("/parquesacuaticos").then((res) => {
+      API.get("/parquesacuaticos/655ca78ed362129ea6cf7151").then((res) => {
         setAcuaticos(res.data);
-        console.log(res.data[0].campings[0].nombre)
         setCargado(true)
       })
     } catch (error) {
-      console.log(error)
+      console.log("no se hace la peticion")
     }
   }
 
@@ -29,16 +32,26 @@ const Acuaticos = () => {
 
 
   return (
-    <main>
-      <Titulo texto={"Parques acuáticos"} />
-      <Subtitulo subtitulo={"Divierteté lo mas grande en los mejores campings con los mejores parques acuáticos, el sitio perfecto para disfrutar en familia y un lugar donde se lo podrán pasafr en grande los más pequeños"} />
-      <ul>
+    <main className="main-acuaticos">
+      <section>
         {cargado == true ?
           <>
-            <p>{acuaticos[0].campings[0].nombre}</p>
-            <img src={acuaticos[0].campings[0].imgs.cover} alt="" />
-          </> : <p></p>}
-      </ul>
+            <Titulo texto={acuaticos.titulo} />
+            <Subtitulo subtitulo={acuaticos.descripcion} />
+            <img className="acuaticos-cover" src={acuaticos.img} alt={acuaticos.imgalt} />
+            <ul className="container-cardcamping">
+              {acuaticos.campings.map((camping) => (
+                <li key={camping._id}>
+                  <CardCamping data={camping} entorno={false} />
+                </li>))}
+            </ul>
+          </> :
+          <div className="loading"><l-ripples
+            size="45"
+            speed="2"
+            color="blue"></l-ripples>
+          </div>}
+      </section>
     </main>
   )
 }
