@@ -1,0 +1,16 @@
+.main-acuaticos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.acuaticos-cover {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.container-cardcamping {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  gap: 20px;
+  padding: 20px;
+}
