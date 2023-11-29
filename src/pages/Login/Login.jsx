@@ -106,12 +106,15 @@ const Login  = () => {
                 <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="email" placeholder="example@example.com"  title="Please provide only a ONCE corporate email address" required ref={emailRef} />
                 <label htmlFor="avatar" className={`${localData == "light" ? "inputday" : "inputnight"}`}>
                     Profile picture
-                </label>
+                </label>                
                 <input type="file" id="avatar" className="inputfile" ref={avatarRef} />
                 <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" required ref={passwordRef} />
                 <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Register</button>
                 </form>
-                <span onClick={Setpage} className="linked" >Sign up!</span>
+                <article className="orsect"><div className={`${localData == "light" ? "line" : "linenight"}`}></div><span className="ortext">or</span>
+                <div className={`${localData == "light" ? "line" : "linenight"}`}></div></article>
+                <p className="regline">You have an account ?</p>
+                <span onClick={Setpage} className="linked" >Login up!</span>
             </section>)
             }
         </main>

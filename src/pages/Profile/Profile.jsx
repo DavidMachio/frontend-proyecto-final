@@ -3,7 +3,7 @@ import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
 
 const Profile = () => {
-    const { user } = useContext(UserContext)
+    const { user, logout } = useContext(UserContext)
   return (
     <main className="profilePage">
         <section className="img">
@@ -15,6 +15,7 @@ const Profile = () => {
             <h4>Username : {user.username}</h4>
             <h5>Email : {user.email}</h5>
             <h6>About : {user.about}</h6>
+            <button onClick={logout}>Logout</button>
         </section>
     </main>
   )

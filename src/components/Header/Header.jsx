@@ -12,7 +12,7 @@ const Header = () => {
 
   const { user } = useContext(UserContext)
 
-  const logo = "https://images.vexels.com/media/users/3/129716/isolated/preview/fac546f594872b2ec3959892f2067dc9-insignia-de-camping-2.png"
+  const logo = "https://static.vecteezy.com/system/resources/previews/024/725/026/non_2x/outdoor-camping-sticker-minimalist-outdoor-camping-large-sticker-ai-generated-free-png.png"
   const logoalt = "icono de la app"
 
 
@@ -53,7 +53,7 @@ const Header = () => {
   return (
     <header className={`header${localData == "light" ? "Day" : "Night"}`} >
       <img
-        src={logo} alt={logoalt} className={`header-logotipo ${localData == "light" ? "" : "header-logotipoNight"}`} />
+        src={logo} alt={logoalt} className={`header-logotipo `} />
 
       <nav className={`header-nav ${menu ? `Active` : ''}`}>
 
@@ -69,7 +69,7 @@ const Header = () => {
       </div>
 
       <div className="log-sun">
-        <NavLink to="/login"><img className={`profile ${localData == "light" ? "profileDay" : "profileNight"}`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
+        <NavLink to={user == null ? "/login" : "/profile"}><img className={`profile ${localData == "light" ? "profileDay" : "profileNight"}`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
         <div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`} /></div>
       </div>
 
@@ -77,3 +77,5 @@ const Header = () => {
   );
 };
 export default Header;
+
+//*${localData == "light" ? "" : "header-logotipoNight"}

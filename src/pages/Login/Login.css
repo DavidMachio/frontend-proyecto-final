@@ -137,6 +137,7 @@ label {
 
 .linked:hover {
   color: brown;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
