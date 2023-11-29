@@ -5,6 +5,7 @@ import CardCamping from "../../components/CardCamping/CardCamping"
 import Titulo from "../../components/Titulo/Titulo"
 import Subtitulo from "../../components/Subtitulo/Subtitulo"
 import API from "../../API/API"
+import { NavLink } from "react-router-dom"
 
 const Acuaticos = () => {
 
@@ -42,9 +43,12 @@ const Acuaticos = () => {
             <ul className="container-cardcamping">
               {acuaticos.campings.map((camping) => (
                 <li key={camping._id}>
+
                   <CardCamping data={camping} entorno={false} />
+
                 </li>))}
             </ul>
+
           </> :
           <div className="loading"><l-ripples
             size="45"
