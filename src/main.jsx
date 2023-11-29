@@ -17,10 +17,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Login from './pages/Login/Login.jsx'
 import CampingDetail from './pages/CampingDetail/CampingDetail.jsx'
+import { UserContextProvider } from './context/userContext.jsx'
+import Profile from './pages/Profile/Profile.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename='/'>
+      <UserContextProvider>
       <Routes>
         <Route path='/' element={<App />}>
           <Route index element={<Home />} />
@@ -30,6 +33,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/accesibles' element={<Accesibles />} />
           <Route path='/todosaccesibles' element={<TodosAccesibles />} />
           <Route path='/login' element={<Login />} />
+
+          <Route path='/profile' element={<Profile />} />
           <Route path='/entornos' element={<Entornos />} />
           <Route path='/montaña' element={<Montaña />} />
           <Route path='/playa' element={<Playa />} />
@@ -39,6 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
+      </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

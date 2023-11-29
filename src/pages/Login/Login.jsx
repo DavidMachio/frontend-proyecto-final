@@ -14,13 +14,73 @@ const Login  = () => {
 
     //aqui empiezo funciones de login
     const { login } = useContext(UserContext)
+
     const usernameRef = useRef(null)
     const passwordRef = useRef(null)
+    const avatarRef = useRef(null);
+    const nombreRef = useRef(null)
+    const emailRef = useRef(null)
+
 
     const handleSubmit = (ev) => {
+        
         ev.preventDefault();
 
+        const body = new FormData()
+        body.append('username', usernameRef.current.value)
+        body.append('password', passwordRef.current.value)
+        if ( registerPage == true ) {
+            body.append('avatar', avatarRef.current.value)
+            body.append("nombre", nombreRef.current.value)
+            body.append("email", emailRef.current.value)
+        }
+
+        if ( registerPage == false) {
+            API.post('/usuario/login' , body).then((res) => {
+                login(
+                    {
+                        username: res.data.username,
+                        avatar: res.data.avatar,
+                        id: res.data.id,
+                        nombre: res.data.nombre,
+                        email: res.data.email,
+                        rol: res.data.rol,
+                        about: res.data.about,
+                        favoritos: res.data.favoritos,
+                    },
+                    res.data.token,
+                )
+            })
+        }else {
+            API.post("/usuario", body, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            }).then(() => {
+                const loginBody = new FormData()
+
+                loginBody.append("username", usernameRef.current.value)
+                loginBody.append("password", passwordRef.current.value)
+
+                API.post("/usuario/login", loginBody).then((res) => {
+                    login(
+                        {
+                            username: res.data.username,
+                            avatar: res.data.avatar,
+                            id: res.data.id,
+                            nombre: res.data.nombre,
+                            email: res.data.email,
+                            rol: res.data.rol,
+                            about: res.data.about,
+                            favoritos: res.data.favoritos,
+                        },
+                        res.data.token,
+                    )
+                })
+            })
+        }
+
+
         
+
     }
 
     return (
@@ -28,10 +88,10 @@ const Login  = () => {
             {registerPage == false ? (
                 <section className={`boxform ${localData == "light" ? "formday" : "formnight"}`}>
                 <h2 className="logname">Welcome back!</h2>
-                <form className="formsection">
-                    <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username"/>
-                    <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" />
-                    <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`}>Log in</button>
+                <form className="formsection" onSubmit={handleSubmit}>
+                    <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" id="username" minLength={4} required ref={usernameRef}/>
+                    <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" id="password" minLength={8} required ref={passwordRef} />
+                    <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Log in</button>
                 </form>
                 <article className="orsect"><div className={`${localData == "light" ? "line" : "linenight"}`}></div><span className="ortext">or</span>
                 <div className={`${localData == "light" ? "line" : "linenight"}`}></div></article>
@@ -40,16 +100,16 @@ const Login  = () => {
             : 
             (<section className={`boxform ${localData == "light" ? "formday" : "formnight"}`}>
                 <h2 className="regname">Create your account!</h2>
-                <form  className="formsection">
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="name" minLength={5}/>
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" minLength={5}/>
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="email" placeholder="example@once.com" pattern=".+@once\.com" title="Please provide only a ONCE corporate email address" required/>
+                <form  className="formsection" onSubmit={handleSubmit} >
+                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="name" minLength={5} ref={nombreRef}/>
+                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" minLength={5} ref={usernameRef} />
+                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="email" placeholder="example@example.com"  title="Please provide only a ONCE corporate email address" required ref={emailRef} />
                 <label htmlFor="avatar" className={`${localData == "light" ? "inputday" : "inputnight"}`}>
                     Profile picture
                 </label>
-                <input type="file" id="avatar" className="inputfile" />
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" required />
-                <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`}>Register</button>
+                <input type="file" id="avatar" className="inputfile" ref={avatarRef} />
+                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" required ref={passwordRef} />
+                <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Register</button>
                 </form>
                 <span onClick={Setpage} className="linked" >Sign up!</span>
             </section>)
@@ -59,3 +119,11 @@ const Login  = () => {
 }
 
 export default Login
+
+/**
+ * const usernameRef = useRef(null)
+    const passwordRef = useRef(null)
+    const avatarRef = useRef(null);
+    const nombreRef = useRef(null)
+    const emailRef = useRef(null)
+ */
