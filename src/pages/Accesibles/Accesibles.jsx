@@ -5,6 +5,8 @@ import { useState, useEffect } from "react"
 import API from "../../API/API"
 import Subtitulo from "../../components/Subtitulo/Subtitulo"
 import CardCamping from "../../components/CardCamping/CardCamping"
+import { accesibilidad } from "../../data/accesibilidad"
+import CardTipo from "../../components/CardTipo/CardTipo"
 
 const Accesibles = () => {
 
@@ -19,7 +21,6 @@ const Accesibles = () => {
         setCargado(true)
       })
     } catch (error) {
-      console.log("no se hace la peticion")
     }
   }
 
@@ -31,6 +32,11 @@ const Accesibles = () => {
 
   return (
     <main className="main-accesibles">
+      <article className="entorno-carrousel">
+        {accesibilidad.map((accesible) =>
+          <CardTipo key={accesible.tipo} foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} />)}
+      </article>
+
       <section>
         {cargado == true ?
           <>
@@ -47,11 +53,13 @@ const Accesibles = () => {
           </> :
 
           // Default values shown
-          <div className="loading"><l-ripples
-            size="45"
-            speed="2"
-            color="blue"
-          ></l-ripples></div>}
+          <div className="loading">
+            <h2>Cargando campings accesibles</h2>
+            <l-ripples
+              size="45"
+              speed="2"
+              color="blue"
+            ></l-ripples></div>}
       </section>
     </main>
   )

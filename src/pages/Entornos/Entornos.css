@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0 10px;
-  padding-bottom: 30px;
+  padding: 10px 10px;
+}
+.entorno-carrousel {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 30px;
 }

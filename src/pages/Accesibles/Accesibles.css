@@ -1,6 +1,7 @@
 .main-accesibles {
   display: flex;
   flex-direction: column;
+  padding-top: 40px;
   gap: 20px;
 }
 .accesibles-cover {

@@ -4,12 +4,12 @@ import "./CardTipo.css"
 const CardTipo = ({ foto, icono, word, alt, link }) => {
   return (
     <section className="container-cardtipo">
-      <NavLink className="navlink-entorno" to={link}>
+      <NavLink className="navlink-cardtipo" to={link}>
         <article className="cardtipo">
           <img className="cardtipo-img" src={foto} alt={alt} />
-          <div className="info-entorno">
+          <div className="info-cardtipo">
             <img className="cardtipo-logo" src={icono} alt={alt} />
-            <h2 className="title-entorno">{word}</h2>
+            <h2 className="title-cardtipo">{word}</h2>
           </div>
         </article>
       </NavLink>
