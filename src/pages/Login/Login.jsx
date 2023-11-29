@@ -30,7 +30,7 @@ const Login  = () => {
         body.append('username', usernameRef.current.value)
         body.append('password', passwordRef.current.value)
         if ( registerPage == true ) {
-            body.append('avatar', avatarRef.current.value)
+            body.append('avatar', avatarRef.current.files[0])
             body.append("nombre", nombreRef.current.value)
             body.append("email", emailRef.current.value)
         }
