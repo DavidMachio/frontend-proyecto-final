@@ -1,7 +1,7 @@
 :root {
   --primary: #131313;
   --secondary: #e3e3e3;
-  --shadow: #040404ed;
+  --shadow: #7e7e7e;
   --buttonday: rgb(193, 255, 232);
   --buttonnight: rgb(38, 58, 58);
   --title: "Poppins", sans-serif;
@@ -9,6 +9,8 @@
 }
 main {
   min-height: calc(100vh - 70px - 50px);
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 * {
   margin: 0;

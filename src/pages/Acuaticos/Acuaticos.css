@@ -10,7 +10,7 @@
 }
 .container-cardcamping {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
   gap: 20px;
   padding: 20px;
 }

@@ -20,4 +20,11 @@ export const entornos = [
     entorno: "Ciudad",
     link: "/ciudad",
   },
+  {
+    img: "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700940067/fotociudad_tuo0k1.webp",
+    icono:
+      "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700939439/ciudad_ssg5kl.png",
+    entorno: "islas",
+    link: "/ciudad",
+  },
 ];

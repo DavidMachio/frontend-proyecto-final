@@ -5,7 +5,7 @@
   justify-content: space-between;
   height: 380px;
   min-height: auto;
-  min-width: 500;
+  min-width: 350px;
   border-radius: 5px;
   box-shadow: 0 0 10px var(--shadow);
   filter: grayscale(50%);

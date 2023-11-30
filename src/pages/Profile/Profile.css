@@ -1,35 +1,44 @@
 .profilePage {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
+  text-align: center;
 }
 
 .profilePage .img {
-    background-image: url(https://res.cloudinary.com/dt9uzksq0/image/upload/v1701192449/aa32e8e5d66779890f564c51e9ec31a3_tjeu9u.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 30%;
-    min-width: 250px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    padding: 50px;
+  background-image: url(https://res.cloudinary.com/dt9uzksq0/image/upload/v1701192449/aa32e8e5d66779890f564c51e9ec31a3_tjeu9u.jpg);
+  background-position: center;
+  background-size: cover;
+  width: auto;
+  min-width: 250px;
+  overflow: hidden;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  padding: 50px;
 }
 
 .profilePage .avatarimg {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid white;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid white;
 }
 
 .profilePage .data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    gap: 20px;
-    width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  width: 70%;
+}
+.logoutbtn {
+  padding: 7px;
+  border: 0px rgba(3, 3, 3, 0.658);
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  width: 70px;
 }

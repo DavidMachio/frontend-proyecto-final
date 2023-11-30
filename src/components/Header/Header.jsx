@@ -70,7 +70,7 @@ const Header = () => {
 
       <div className="log-sun">
         <NavLink to={user == null ? "/login" : "/profile"}><img className={`profile ${localData == "light" ? "profileDay" : "profileNight"}`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
-        <div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`} /></div>
+
       </div>
 
     </header>
@@ -79,3 +79,6 @@ const Header = () => {
 export default Header;
 
 //*${localData == "light" ? "" : "header-logotipoNight"}
+
+
+//<div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`} /></div>

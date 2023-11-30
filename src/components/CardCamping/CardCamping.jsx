@@ -17,7 +17,6 @@ const CardCamping = ({ data, entorno }) => {
             <h5 className="cardcamping-provincia">{data.provincia}</h5>
           </section>
           <section className="cardcamping-header-iconos">
-            <img className="cardcamping-megusta" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213533/nomegusta_betxzh.png" alt="icono megusta" />
             <img className="cardcamping-favoritos" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213687/an%CC%83adir_fav_mzqsce.png" alt="icono favoritos" />
           </section>
         </section>
