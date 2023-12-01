@@ -31,19 +31,19 @@ const Accesibles = () => {
   const filtrar = (tipo) => {
     if (tipo == "Visual") {
       setSelected(accesibles.filter((camp) => camp.type.visual.adaptado === true))
-    setShowAll(false)
-    }else if (tipo == "Movilidad") {
+      setShowAll(false)
+    } else if (tipo == "Movilidad") {
       setSelected(accesibles.filter((camp) => camp.type.movilidad.adaptado === true))
       setShowAll(false)
-    }else if (tipo == "Auditiva") {
+    } else if (tipo == "Auditiva") {
       setSelected(accesibles.filter((camp) => camp.type.auditivo.adaptado === true))
       setShowAll(false)
-    }else if (tipo == "todos"){
+    } else if (tipo == "todos") {
       setShowAll(true)
-    }else {
+    } else {
       console.log("mal")
     }
-    
+
     setNotSelected(false)
   }
 
@@ -56,52 +56,52 @@ const Accesibles = () => {
   return (
     <main className="main-accesibles">
       {cargado == true ?
-      <article className="entorno-carrousel">
-        {accesibilidad.map((accesible) =>
-        <div  key={accesible.tipo} onClick={()=>filtrar(accesible.tipo)}>
-          <CardTipo  foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} /></div>)}
-      </article>
-      :
-  
-      // Default values shown
-      <div className="loading">
-        <h2>Cargando campings accesibles</h2>
-        <l-ripples
-          size="45"
-          speed="2"
-          color="blue"
-        ></l-ripples></div>}
+        <article className="entorno-carrousel">
+          {accesibilidad.map((accesible) =>
+            <div key={accesible.tipo} onClick={() => filtrar(accesible.tipo)}>
+              <CardTipo foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} /></div>)}
+        </article>
+        :
 
-{notSelected == false ?
-  <>
-          {showAll == true 
-          ?
-          <section>
-          
-            
+        // Default values shown
+        <div className="loading">
+          <h2 className="cargandocampings">Cargando campings accesibles</h2>
+          <l-ripples
+            size="45"
+            speed="2"
+            color="blue"
+          ></l-ripples></div>}
+
+      {notSelected == false ?
+        <>
+          {showAll == true
+            ?
+            <section>
+
+
               <ul className="container-cardcamping">
                 {accesibles.map((camping) => (
                   <li key={camping._id}>
                     <CardCamping data={camping} entorno={true} />
-  
+
                   </li>))}
               </ul>
-            
-        </section>
-        :
-        <ul className="container-cardcamping">
-        {selected.map((camping) => (
-          <li key={camping._id}>
-            <CardCamping data={camping} entorno={true} />
 
-          </li>))}
-      </ul> 
-        }
-      </>
-      :
-      <></>
-}
-      
+            </section>
+            :
+            <ul className="container-cardcamping">
+              {selected.map((camping) => (
+                <li key={camping._id}>
+                  <CardCamping data={camping} entorno={true} />
+
+                </li>))}
+            </ul>
+          }
+        </>
+        :
+        <></>
+      }
+
     </main>
   )
 }

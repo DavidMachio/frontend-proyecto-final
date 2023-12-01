@@ -5,11 +5,10 @@
   justify-content: start;
   height: auto;
   width: auto;
-  padding: 5px;
 }
 .cardtipo {
   height: 200px;
-  min-width: 420px;
+  min-width: 350px;
   border-radius: 20px;
   position: relative;
   display: flex;
