@@ -1,16 +1,22 @@
-.enlaceday:hover {
-  scale: 110%;
+.enlace:hover {
+  width: 225px;
+  height: 65px;
 }
 .enlace {
   box-shadow: 0 0 10px var(--primary);
   width: 200px;
+  height: 60px;
   font-size: 20px;
   font-family: var(--parrafo);
   text-transform: uppercase;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
   border-radius: 10px;
   margin: 20px 0;
+  transition: all 0.2s;
 }
 .enlaceday {
   color: var(--primary);
@@ -20,4 +26,9 @@
 .enlacenight {
   background-color: var(--buttonnight);
   color: var(--secondary);
+}
+@media (max-width: 600px) {
+  .enlace {
+    scale: 70%;
+  }
 }

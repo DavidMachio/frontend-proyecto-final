@@ -1,0 +1,11 @@
+.campingdetail {
+  width: 100%;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.campingdetail-cover {
+  width: 50%;
+}

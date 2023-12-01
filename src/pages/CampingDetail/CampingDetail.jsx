@@ -22,10 +22,10 @@ const CampingDetail = () => {
   })
 
   return (
-    <main>
+    <main className="campingdetail">
       {camping !== null && cargado == true ? <>
-        <img src={camping.imgs.cover} alt="" />
         <h2>{camping.provincia}</h2>
+        <img className="campingdetail-cover" src={camping.imgs.cover} alt="" />
       </> : <h2>loading</h2>}
     </main>
   )
