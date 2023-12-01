@@ -8,7 +8,7 @@ import { Classic } from "@theme-toggles/react"
 import { useContext } from "react";
 import { UserContext } from "../../context/userContext"
 
-const Header = () => {
+const Header = ({ action }) => {
 
   const { user } = useContext(UserContext)
 
@@ -19,39 +19,14 @@ const Header = () => {
   const [isOpen, setOpen] = useState(false)
   const [menu, setMenu] = useState(false)
 
-  const localData = localStorage.getItem("theme")
-
-  const setTheme = () => {
-    ;
-    if (localData == "light") {
-      localStorage.setItem("theme", "dark")
-    } else {
-      localStorage.setItem("theme", "light")
-    }
-  }
-
   const toggleMenu = () => {
     setMenu(!menu)
   }
-  const [isToggled, setToggle] = useState(false)
 
-  const checkTheme = () => {
-    if (!localData) {
-      localStorage.setItem("theme", "light")
-    }
-    if (localData == "light") {
-      setToggle(true)
-    } else {
-      setToggle(false)
-    }
-  }
-
-  useEffect(() => {
-    checkTheme()
-  }, [])
+  const [isToggled, setToggle] = useState(true)
 
   return (
-    <header className={`header${localData == "light" ? "Day" : "Night"}`} >
+    <header className={`${isToggled == true ? "headerDay" : "headerNight"}`} >
       <img
         src={logo} alt={logoalt} className={`header-logotipo `} />
 
@@ -69,8 +44,8 @@ const Header = () => {
       </div>
 
       <div className="log-sun">
-        <NavLink to={user == null ? "/login" : "/profile"}><img className={`profile ${localData == "light" ? "profileDay" : "profileNight"}`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
-        <div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`} /></div>
+        <NavLink to={user == null ? "/login" : "/profile"}><img className={`profile profileDay`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
+        <div className="click" onClick={action} ><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol solDay`} /></div>
       </div>
 
     </header>
