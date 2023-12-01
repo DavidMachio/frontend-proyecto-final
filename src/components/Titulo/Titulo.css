@@ -1,9 +1,15 @@
 .titulo {
-  padding: 0 10px;
+  padding: 20px 10px 0 10px;
   font-size: 60px;
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
   font-family: var(--title);
-  animation: 0.4s slidein ease;
+  animation: 1.5s slidein ease;
+  transition: all 0.4s;
+}
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 40px;
+  }
 }

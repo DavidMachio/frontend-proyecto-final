@@ -1,15 +1,15 @@
 .cardcamping {
   display: flex;
   flex-direction: column;
-  align-items: start;
   justify-content: space-between;
   height: 380px;
   min-height: auto;
-  min-width: 350px;
+  min-width: 300px;
   border-radius: 5px;
   box-shadow: 0 0 10px var(--shadow);
   filter: grayscale(50%);
   transition: all 0.2s ease-in-out;
+  position: relative;
 }
 .cardcamping:hover {
   filter: grayscale(0%);
@@ -30,18 +30,37 @@
   flex-direction: column;
   padding: 10px;
 }
-.cardcamping-favoritos,
-.cardcamping-megusta {
-  height: 40px;
+.cardcamping-favoritos {
+  height: 100%;
+  width: 100%;
   padding: 5px;
 }
+.navlinkfav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 10;
+  height: 50px;
+  width: 50px;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0px 0px 5px #00000092);
+}
+.navlinkfav:hover {
+  height: 53px;
+  width: 53px;
+}
 .cardcamping-nombre {
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 400;
   padding: 5px 10px;
 }
 .cardcamping-provincia {
-  font-size: 20px;
-  padding: 0px 10px;
+  font-size: 15px;
+  font-weight: 200;
+  padding: 0 0 10px 10px;
 }
 .cardcamping-img {
   width: 100%;
@@ -59,14 +78,16 @@
 .icono-entorno {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 10px;
-  font-size: 30px;
+}
+.icono-entorno h6 {
+  font-size: 20px;
+  font-weight: 400;
   text-transform: capitalize;
-  padding: 10px;
 }
 .icono-entorno img {
-  height: 45px;
-
+  height: 65px;
   width: auto;
+  padding: 10px 0 5px 10px;
 }

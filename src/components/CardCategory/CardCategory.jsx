@@ -12,7 +12,6 @@ const CardCategory = ({ imagen, nombre, ciudad, link, word, }) => {
             <h3 className="card-category-city">{ciudad}</h3>
             <Enlace url={link} word={word} />
           </div>
-
         </div>
       </section>
     </article>

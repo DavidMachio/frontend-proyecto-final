@@ -1,24 +1,34 @@
 
 import { NavLink } from "react-router-dom";
 import "./CardCamping.css"
+import { useState } from "react";
 
 const CardCamping = ({ data, entorno }) => {
+
+  const [star, setStar] = useState(false)
+
+  const changeEstrella = () => {
+    setStar(!star)
+  }
+
 
 
   const accesible = entorno
 
 
   return (
-    <NavLink to={`/campings/name/${data.nombre}`}>
-      <article className="cardcamping">
+
+    <article className="cardcamping">
+      <NavLink className="navlinkfav" onClick={changeEstrella} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213687/an%CC%83adir_fav_mzqsce.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+      </NavLink>
+      <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">
           <section className="cardcamping-text">
             <h4 className="cardcamping-nombre">{data.nombre.replace("Camping ", "")}</h4>
             <h5 className="cardcamping-provincia">{data.provincia}</h5>
           </section>
-          <section className="cardcamping-header-iconos">
-            <img className="cardcamping-favoritos" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213687/an%CC%83adir_fav_mzqsce.png" alt="icono favoritos" />
-          </section>
+
+
         </section>
         <img className="cardcamping-img" src={data.imgs.cover} alt="Foto del camping" />
         <ul className="cardcamping-ul">
@@ -38,8 +48,9 @@ const CardCamping = ({ data, entorno }) => {
               <h6>{data.entorno}</h6></li> : ""}
           </>}
         </ul>
-      </article>
-    </NavLink>
+      </NavLink>
+    </article>
+
   )
 }
 export default CardCamping;
