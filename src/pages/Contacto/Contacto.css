@@ -1,0 +1,30 @@
+.main-contacto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.datos {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container-contacto {
+  height: calc(100vh - 70px - 50px);
+  width: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+}
+.form-contacto input {
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
