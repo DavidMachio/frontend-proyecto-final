@@ -5,15 +5,22 @@ import CardCategory from "../../components/CardCategory/CardCategory";
 import VideoHome from "../../components/VideoHome/VideoHome";
 import Titulo from "../../components/Titulo/Titulo";
 import Subtitulo from "../../components/Subtitulo/Subtitulo";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext"
 
 const Home = () => {
+
+  
+  const { user } = useContext(UserContext)
+
   return (
     <main className="home">
       <VideoHome />
       <Titulo texto={"Discapacidad sin barreras"} />
       <Subtitulo subtitulo={"Si tienes alguna discapacidad y estás buscando campings accesibles para viajar, dejanos ayudarte. En Campcesible encontrarás un gran colección con más de 500 campings adaptados a tus necesidades."} />
       <CardCategory imagen="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848453/000076426_iwlszb.webp" nombre="Accesibles" ciudad="Campings adaptados a tus necesidades" link="/accesibles" word="Descubrir" />
-      <Suscripcion />
+      {user == null ? <Suscripcion /> : <></>}
+      
 
     </main>
   )

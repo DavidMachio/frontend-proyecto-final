@@ -25,16 +25,22 @@ const Header = ({ action }) => {
 
   const [isToggled, setToggle] = useState(true)
 
+  const MenuSelected = () => {
+    setMenu(false)
+    setOpen(false)
+  }
+
   return (
     <header className={`${isToggled == true ? "headerDay" : "headerNight"}`} >
-      <img
-        src={logo} alt={logoalt} className={`header-logotipo `} />
+      <NavLink to={"/"}>
+      <img src={logo} alt={logoalt} className={`header-logotipo `} />
+      </NavLink>
 
       <nav className={`header-nav ${menu ? `Active` : ''}`}>
 
         <ul className="header-ul">
           {links.map((link) => <li key={link.name}>
-            <NavLink to={link.link}>{link.name}</NavLink>
+            <div onClick={MenuSelected}><NavLink to={link.link}>{link.name}</NavLink></div>
           </li>)}
         </ul>
 
@@ -45,7 +51,7 @@ const Header = ({ action }) => {
 
       <div className="log-sun">
         <NavLink to={user == null ? "/login" : "/profile"}><img className={`profile profileDay`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
-        <div className="click" onClick={action} ><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol solDay`} /></div>
+        <div onClick={action} ><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol  ${isToggled == true ? "solDay" : "solNight"}`} /></div>
       </div>
 
     </header>
