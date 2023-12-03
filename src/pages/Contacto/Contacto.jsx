@@ -11,6 +11,8 @@ const Contacto = () => {
           <input type="text" name="Asunto" placeholder="Asunto" />
           <textarea name="Comentario" cols="15" rows="5"></textarea>
           <input type="submit" value="Enviar" />
+          <input type="hidden" name="_next" value="http://localhost:5173/categorias" />
+          <input type="hidden" name="_captcha" value="true" />
         </form>
       </section>
     </main>
