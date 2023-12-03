@@ -1,6 +1,6 @@
 footer {
   font-family: var(--parrafo);
-  box-shadow: 0 -4px 12px var(--shadow);
+  box-shadow: 0 -4px 12px black;
   height: 50px;
   width: auto;
   display: flex;
