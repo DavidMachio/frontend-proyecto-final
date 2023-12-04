@@ -20,6 +20,7 @@ import CampingDetail from './pages/CampingDetail/CampingDetail.jsx'
 import { UserContextProvider } from './context/userContext.jsx'
 import Profile from './pages/Profile/Profile.jsx'
 import Provincias from './pages/Provincias/Provincias.jsx'
+import ProvinciaUnica from './pages/ProvinciaUnica/ProvinciaUnica.jsx'
 import Gracias from './pages/Gracias/Gracias.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -42,6 +43,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/ciudad' element={<Ciudad />} />
             <Route path='/acuaticos' element={<Acuaticos />} />
             <Route path='/provincias' element={<Provincias />} />
+            <Route path='/prov/:provincia' element={<ProvinciaUnica />} />
             <Route path='/gracias' element={<Gracias />} />
             <Route path='/campings/name/:name' element={<CampingDetail />} />
             <Route path='*' element={<NotFound />} />
