@@ -26,7 +26,9 @@ const CampingDetail = () => {
       {camping !== null && cargado == true ? <>
         <h2>{camping.provincia}</h2>
         <img className="campingdetail-cover" src={camping.imgs.cover} alt="" />
+        <section className="coment"></section>
       </> : <h2>loading</h2>}
+      
     </main>
   )
 }
