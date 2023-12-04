@@ -1,44 +1,129 @@
-.profilePage {
+.main-profile {
   width: 100%;
-  display: flex;
-  text-align: center;
-}
-
-.profilePage .img {
-  background-image: url(https://res.cloudinary.com/dt9uzksq0/image/upload/v1701192449/aa32e8e5d66779890f564c51e9ec31a3_tjeu9u.jpg);
-  background-position: center;
-  background-size: cover;
-  width: auto;
-  min-width: 250px;
-  overflow: hidden;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: top;
-  padding: 50px;
-}
-
-.profilePage .avatarimg {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid white;
-}
-
-.profilePage .data {
+  min-height: calc(100vh - 70px - 50px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  gap: 20px;
-  width: 70%;
+  text-align: center;
+  padding: 20px 0 40px 0;
 }
-.logoutbtn {
-  padding: 7px;
-  border: 0px rgba(3, 3, 3, 0.658);
+.portada-profile {
+  width: 100%;
+  height: 420px;
+  padding: 30px 30px 50px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.cover-profile {
+  width: 100%;
+  height: 100%;
   border-radius: 30px;
-  transition: all 0.3s ease-in-out;
-  width: 70px;
+  object-fit: cover;
+}
+
+.avatar-profile {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0px;
+  filter: drop-shadow(0 0 10px black);
+}
+.data {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.work-profile {
+  font-weight: 300;
+  opacity: 80%;
+}
+.about {
+  width: 100%;
+  text-align: justify;
+  padding: 30px 30px;
+}
+.about > h6 {
+  font-size: 16px;
+}
+.nav-info-profile {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px 20px;
+  gap: 20px;
+  border-top: 1px solid;
+  margin-bottom: 20px;
+}
+
+.morebtn,
+.logoutbtn {
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  filter: invert(1);
+}
+.logout {
+  width: 100px;
+}
+.morebtn:hover {
+  filter: invert(0);
+}
+
+.post-favoritos {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-profile-post {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.card-post {
+  width: 350px;
+  height: auto;
+  border: 1px solid;
+  border-radius: 5px;
+}
+.head-post {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  padding: 10px;
+}
+.foto-post {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.title-post {
+  text-align: left;
+  padding: 0 10px;
+}
+.text-post {
+  text-align: left;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.card-favorito {
+  height: 300px;
+  width: 350px;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.card-favorito img {
+  width: 100%;
+  height: 200px;
 }

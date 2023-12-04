@@ -1,7 +1,7 @@
 .main-contacto {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-image: url("https://www.laspaules.com/FitxersWeb/158407/beneficios-camping.jpg");
   background-position: right top;
   background-repeat: no-repeat;
@@ -22,6 +22,7 @@
   color: white;
   font-size: 14px;
   font-weight: 300;
+  transition: all 2s ease;
 }
 .datos iframe {
   width: 80%;
@@ -39,6 +40,7 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
+  transition: all 2s ease;
 }
 .form-contacto {
   display: flex;
