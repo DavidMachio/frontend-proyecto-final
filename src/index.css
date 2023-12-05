@@ -23,6 +23,7 @@ main {
 .day {
   background-color: var(--secondary);
   color: var(--primary);
+  transition: all 0.2s ease-in-out;
 }
 ul {
   list-style-type: none;
