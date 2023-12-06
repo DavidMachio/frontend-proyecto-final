@@ -1,20 +1,26 @@
 .main-provincia {
   text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-input {
+.main-provincia input {
   width: 200px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid black;
   text-align: center;
   margin: 10px 0;
+  align-self: center;
   box-shadow: 0 0 10px var(--shadow);
+  animation: 1.5s slidein ease;
 }
 .section-provincia {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
-  gap: 10px;
+  gap: 20px;
   padding: 10px 0;
 }
 .cards-provincia {

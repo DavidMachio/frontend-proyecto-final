@@ -1,11 +1,104 @@
-.campingdetail {
+.main-campingdetail {
   width: 100%;
-  border: 2px solid red;
+  min-height: calc(100vh - 70px - 50px);
+}
+.campingdetail {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 20px;
 }
-.campingdetail-cover {
-  width: 50%;
+
+.cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+.camping-fotocover {
+  width: 100%;
+  height: 40vh;
+  border-radius: 50px;
+  padding: 20px;
+  object-fit: cover;
+}
+.info-camping {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0px;
+  width: 80%;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.582);
+}
+.counter {
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.582);
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  right: 20px;
+  top: -20px;
+  font-size: 30px;
+}
+.buttons-info {
+  display: flex;
+  padding: 20px 20px;
+  gap: 5px;
+
+  width: 90%;
+  align-self: center;
+  border-bottom: 1px solid;
+}
+.seccion-fotos {
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  padding: 0 30px;
+  gap: 20px;
+  animation: 0.5s slidein ease;
+}
+.camping-fotosinfo {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.seccion-contacto {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: 0.5s slidein ease;
+}
+.seccion-accesibilidad {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  animation: 0.5s slidein ease;
+}
+.seccion-instalaciones {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  animation: 0.5s slidein ease;
+}
+.seccion-comentarios {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: 0.5s slidein ease;
 }

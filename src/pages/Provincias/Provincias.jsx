@@ -3,6 +3,7 @@ import { provincias } from "../../data/provincias";
 import { useState } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Subtitulo from "../../components/Subtitulo/Subtitulo";
+import { NavLink } from "react-router-dom";
 const Provincias = () => {
 
   const [provinciasList, setProvinciasList] = useState(provincias)
@@ -22,10 +23,10 @@ const Provincias = () => {
       <input type="text" onInput={(ev) => filterProvincias(ev.target.value)} placeholder="Busca una provincia" />
       <section className="section-provincia">
         {provinciasList.map((provincia) =>
-          <article onClick={() => console.log("hola")} className="cards-provincia" key={provincia.Nombre}>
+          <NavLink to={`/prov/${provincia.Nombre}`} className="cards-provincia" key={provincia.Nombre}>
             <img className="foto-provincia" src={"https://res.cloudinary.com/dt9uzksq0/image/upload/v1700848663/mapa_xkginu.jpg"} alt="foto de mapa" />
             <h5 className="nombre-provincia">{provincia.Nombre}</h5>
-          </article>
+          </NavLink>
         )}
       </section>
     </main>

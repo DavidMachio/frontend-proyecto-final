@@ -5,6 +5,8 @@ import API from "../../API/API"
 import CardCamping from "../../components/CardCamping/CardCamping"
 import { accesibilidad } from "../../data/accesibilidad"
 import CardTipo from "../../components/CardTipo/CardTipo"
+import Titulo from "../../components/Titulo/Titulo"
+import Subtitulo from "../../components/Subtitulo/Subtitulo"
 
 const Accesibles = () => {
 
@@ -55,6 +57,8 @@ const Accesibles = () => {
 
   return (
     <main className="main-accesibles">
+      <Titulo texto={"Campings accesibles"} />
+      <Subtitulo subtitulo={"Más de 500 campings catalogados por tipo de accesibilad, para que puedas elegir el que mas se adapte a tus necesidades."} />
       {cargado == true ?
         <article className="entorno-carrousel">
           {accesibilidad.map((accesible) =>
