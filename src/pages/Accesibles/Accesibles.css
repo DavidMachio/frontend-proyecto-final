@@ -1,7 +1,7 @@
 .main-accesibles {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  padding: 0 40px 40px 40px;
   gap: 10px;
   text-align: center;
 }

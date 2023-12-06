@@ -43,7 +43,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/ciudad' element={<Ciudad />} />
             <Route path='/acuaticos' element={<Acuaticos />} />
             <Route path='/provincias' element={<Provincias />} />
-            <Route path='/prov/:provincia' element={<ProvinciaUnica />} />
+            <Route path='/prov/:nombre' element={<ProvinciaUnica />} />
             <Route path='/gracias' element={<Gracias />} />
             <Route path='/campings/name/:name' element={<CampingDetail />} />
             <Route path='*' element={<NotFound />} />
