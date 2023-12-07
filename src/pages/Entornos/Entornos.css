@@ -6,8 +6,19 @@
 }
 .entorno-carrousel {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  height: auto;
-  gap: 30px;
+  justify-content: center;
+  gap: 10px;
+}
+.article-cardtipo {
+  width: 500px;
+}
+
+@media screen and (max-width: 650px) {
+  .entorno-carrousel {
+    flex-direction: column;
+    align-items: center;
+  }
+  .article-cardtipo {
+    width: 100%;
+  }
 }

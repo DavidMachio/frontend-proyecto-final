@@ -3,17 +3,15 @@ import "./CardTipo.css"
 
 const CardTipo = ({ foto, icono, word, alt, link }) => {
   return (
-    <section className="container-cardtipo">
-      <NavLink className="navlink-cardtipo" to={link}>
-        <article className="cardtipo">
-          <img className="cardtipo-img" src={foto} alt={alt} />
-          <div className="info-cardtipo">
-            <img className="cardtipo-logo" src={icono} alt={alt} />
-            <h2 className="title-cardtipo">{word}</h2>
-          </div>
-        </article>
-      </NavLink>
-    </section>
+    <NavLink className="cardtipo" to={link}>
+      <article className="contenedor-tipo">
+        <img className="cardtipo-img" src={foto} alt={alt} />
+        <div className="info-cardtipo">
+          <img className="cardtipo-logo" src={icono} alt={alt} />
+          <h2 className="cardtipo-title">{word}</h2>
+        </div>
+      </article>
+    </NavLink>
   )
 }
 export default CardTipo
