@@ -75,11 +75,9 @@ const Accesibles = () => {
         // Default values shown
         <div className="loading">
           <h2 className="cargandocampings">Cargando campings accesibles</h2>
-          <l-ripples
-            size="45"
-            speed="2"
-            color="blue"
-          ></l-ripples></div>}
+
+          <img className="gif" src="/gif_caravana.gif" />
+        </div>}
 
       {notSelected == false ?
         <>
