@@ -9,7 +9,7 @@ const CampingDetail = () => {
   const { name } = useParams()
   const [cargado, setCargado] = useState(false)
   const [camping, setCamping] = useState(null)
-  const [puntuacion, setPuntuacion] = useState("")
+  const [valoracion, setValoracion] = useState()
 
   const [seccion, setSeccion] = useState("Instalaciones")
   const instalaciones = () => {
@@ -27,29 +27,31 @@ const CampingDetail = () => {
   const contacto = () => {
     setSeccion("Contacto")
   }
-  const valoracion = () => {
-    if (camping.puntuacion === 1) {
-      setPuntuacion("⭐️")
-    } else if (camping.puntuacion === 2) {
-      setPuntuacion("⭐️ ⭐️")
-    } else if (camping.puntuacion === 3) {
-      setPuntuacion("⭐️ ⭐️ ⭐️")
-    } else if (camping.puntuacion === 4) {
-      setPuntuacion("⭐️ ⭐️ ⭐️ ⭐️")
-    } else {
-      setPuntuacion("⭐️ ⭐️ ⭐️ ⭐️ ⭐️")
-    }
-  }
+
 
   useEffect(() => {
     try {
       API.get(`/campings/name/${name}`).then((res) => {
         setCamping(res.data)
-        valoracion()
+
         setCargado(true)
+        printValoracion()
       })
     } catch (error) {
 
+    }
+    const printValoracion = () => {
+      if (camping.puntuacion == 1) {
+        setValoracion("⭐️")
+      } else if (camping.puntuacion == 2) {
+        setValoracion("⭐️ ⭐️")
+      } else if (camping.puntuacion == 3) {
+        setValoracion("⭐️ ⭐️ ⭐️")
+      } else if (camping.puntuacion == 4) {
+        setValoracion("⭐️ ⭐️ ⭐️ ⭐️")
+      } else {
+        setValoracion("⭐️ ⭐️ ⭐️ ⭐️ ⭐️")
+      }
     }
 
 
@@ -64,12 +66,12 @@ const CampingDetail = () => {
             <img className="camping-fotocover" src={camping.imgs.cover} alt="Foto del camping" />
             <article className="info-camping">
               <section className="datos-camping">
-                <h2>{camping.nombre}</h2>
+                <h2>{camping.nombre.replace("Camping ", "")}</h2>
                 <h3>{camping.provincia}</h3>
                 <h3>{camping.ciudad}</h3>
               </section>
-              <section className="counter">
-                <h4>{puntuacion}</h4>
+              <section className="point">
+                <h4>{valoracion}</h4>
               </section>
             </article>
           </section>
@@ -83,26 +85,31 @@ const CampingDetail = () => {
           <section>
             {seccion == "Instalaciones" ? (
               <section className="seccion-instalaciones">
-                <h3> Entorno: {camping.entorno}</h3>
-                <h3> Bungalow: {camping.bugalow == true ? ("si") : "no"}</h3>
-                <h3> Parcela: {camping.parcela == true ? ("si") : "no"}</h3>
-                <h3> Acampada libre: {camping.acampada_libre == true ? ("si") : "no"}</h3>
-                <h3> Piscina: {camping.piscina == true ? ("si") : "no"}</h3>
-                <h3> Parque acuático: {camping.parque_acuatico == true ? ("si") : "no"}</h3>
-                <h3> Restaurante: {camping.restaurante == true ? ("si") : "no"}</h3>
-                <h3> Tienda: {camping.tienda == true ? ("si") : "no"}</h3>
-                <h3> Mascotas: {camping.mascotas == true ? ("si") : "no"}</h3>
-                <h3> Zona infantil: {camping.zona_infantil == true ? ("si") : "no"}</h3>
+                <section className="seccion1-instalaciones">
+
+                  <h3><span>Entorno:</span> {camping.entorno}</h3>
+                  <h3><span>Bungalow:</span> {camping.bugalow == true ? ("si") : "no"}</h3>
+                  <h3><span>Parcela:</span> {camping.parcela == true ? ("si") : "no"}</h3>
+                  <h3><span>Acampada libre:</span> {camping.acampada_libre == true ? ("si") : "no"}</h3>
+                  <h3><span>Piscina:</span> {camping.piscina == true ? ("si") : "no"}</h3>
+                </section>
+                <section className="seccion2-instalaciones">
+                  <h3><span>Parque acuático:</span> {camping.parque_acuatico == true ? ("si") : "no"}</h3>
+                  <h3><span>Restaurante:</span> {camping.restaurante == true ? ("si") : "no"}</h3>
+                  <h3><span>Tienda:</span> {camping.tienda == true ? ("si") : "no"}</h3>
+                  <h3><span>Mascotas:</span> {camping.mascotas == true ? ("si") : "no"}</h3>
+                  <h3><span>Zona infantil:</span> {camping.zona_infantil == true ? ("si") : "no"}</h3>
+                </section>
               </section>
             ) : ""}
             {seccion == "Accesibilidad" ? (
               <section className="seccion-accesibilidad">
-                <h2>Nivel de accesibilidad: {camping.nivel_accesibilidad}</h2>
+                <h2><span>Nivel de accesibilidad:</span> {camping.nivel_accesibilidad}</h2>
                 {camping.accesibilidad == true ? (
                   <section>
-                    <h3>Visual: {camping.type.visual.descripcion}</h3>
-                    <h3>Auditivo: {camping.type.auditivo.descripcion}</h3>
-                    <h3>Movilidad: {camping.type.movilidad.descripcion}</h3>
+                    <h3><span>Visual:</span> {camping.type.visual.descripcion}</h3>
+                    <h3><span>Auditivo:</span> {camping.type.auditivo.descripcion}</h3>
+                    <h3><span>Movilidad:</span> {camping.type.movilidad.descripcion}</h3>
                   </section>) :
                   <h3>No accesible</h3>}
               </section>
@@ -121,10 +128,10 @@ const CampingDetail = () => {
             ) : ""}
             {seccion == "Contacto" ? (
               <section className="seccion-contacto">
-                <h2>{camping.nombre}</h2>
-                <h3>Teléfono: {camping.contacto.telefono}</h3>
-                <h3>Website: {camping.contacto.website}</h3>
-                <h3>Dirección: {camping.contacto.direccion}, {camping.ciudad} ({camping.provincia})</h3>
+                <h2>{camping.nombre.replace("Camping ", "")}</h2>
+                <h3><span>Teléfono:</span> {camping.contacto.telefono}</h3>
+                <h3><span>Website:</span> {camping.contacto.website.replace("https://", "")}</h3>
+                <h3><span>Dirección:</span> {camping.contacto.direccion}, {camping.ciudad} ({camping.provincia})</h3>
                 <iframe src="https://maps.app.goo.gl/be3wjdJSToZdtmSJ7"></iframe>
               </section>
             ) : ""}

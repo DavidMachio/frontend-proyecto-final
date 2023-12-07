@@ -1,6 +1,7 @@
 .main-campingdetail {
   width: 100%;
   min-height: calc(100vh - 70px - 50px);
+  padding: 20px 10px;
 }
 .campingdetail {
   display: flex;
@@ -18,7 +19,7 @@
 }
 .camping-fotocover {
   width: 100%;
-  height: 40vh;
+  height: 50vh;
   border-radius: 50px;
   padding: 20px;
   object-fit: cover;
@@ -31,25 +32,38 @@
   bottom: 0px;
   width: 80%;
   height: auto;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 20px;
   background-color: white;
   box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.582);
 }
-.counter {
+.datos-camping h2 {
+  color: black;
+  font-size: 30px;
+  font-weight: 400;
+  transition: all 0.5s ease;
+}
+.datos-camping h3 {
+  color: black;
+  font-size: 15px;
+  font-weight: 200;
+}
+.point {
   text-align: center;
   background-color: white;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.582);
   padding: 10px;
   border-radius: 10px;
   position: absolute;
-  right: 20px;
-  top: -20px;
-  font-size: 30px;
+  right: -20px;
+  bottom: 10px;
+  font-size: 20px;
+  transition: all 0.5s ease;
 }
 .buttons-info {
   display: flex;
-  padding: 20px 20px;
+  flex-wrap: wrap;
+  padding: 10px 20px;
   gap: 5px;
 
   width: 90%;
@@ -66,7 +80,7 @@
 }
 .camping-fotosinfo {
   height: 200px;
-  width: 300px;
+  width: 400px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -75,30 +89,79 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 10px;
+
   animation: 0.5s slidein ease;
+}
+.seccion-contacto h3 {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.seccion-contacto span {
+  font-weight: 600;
 }
 .seccion-accesibilidad {
   padding: 20px 50px;
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 10px;
+  gap: 20px;
   animation: 0.5s slidein ease;
+}
+.seccion-accesibilidad h3 {
+  font-size: 18px;
+  font-weight: 300;
+}
+.seccion-accesibilidad span {
+  font-weight: 600;
 }
 .seccion-instalaciones {
   padding: 20px 50px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: start;
-  gap: 10px;
   animation: 0.5s slidein ease;
+}
+.seccion1-instalaciones,
+.seccion2-instalaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.seccion-instalaciones h3 {
+  font-size: 18px;
+  font-weight: 300;
+
+  text-transform: capitalize;
+}
+.seccion-instalaciones span {
+  font-weight: 600;
 }
 .seccion-comentarios {
   padding: 20px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 10px;
   animation: 0.5s slidein ease;
+}
+@media (max-width: 570px) {
+  .seccion-instalaciones {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .datos-camping h2 {
+    font-size: 20px;
+  }
+  .seccion-contacto h3 {
+    font-size: 14px;
+  }
+  .point {
+    font-size: 14px;
+  }
 }

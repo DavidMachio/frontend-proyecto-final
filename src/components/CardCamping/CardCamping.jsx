@@ -19,7 +19,7 @@ const CardCamping = ({ data, entorno }) => {
   return (
 
     <article className="cardcamping">
-      <NavLink className="navlinkfav" onClick={changeEstrella} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213687/an%CC%83adir_fav_mzqsce.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+      <NavLink className="navlinkfav" onClick={changeEstrella} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
       </NavLink>
       <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">

@@ -58,12 +58,17 @@ const Accesibles = () => {
   return (
     <main className="main-accesibles">
       <Titulo texto={"Campings accesibles"} />
-      <Subtitulo subtitulo={"Más de 500 campings catalogados por tipo de accesibilad, para que puedas elegir el que mas se adapte a tus necesidades."} />
+      <Subtitulo subtitulo={"Más de 500 campings catalogados por tipo de accesibilad, para que puedas elegir el que más se adapte a tus necesidades."} />
       {cargado == true ?
         <article className="entorno-carrousel">
           {accesibilidad.map((accesible) =>
-            <div key={accesible.tipo} onClick={() => filtrar(accesible.tipo)}>
-              <CardTipo foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} /></div>)}
+            <article className="article-cardtipo" key={accesible.tipo}>
+              <div key={accesible.tipo} onClick={() => filtrar(accesible.tipo)}>
+
+                <CardTipo foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} onClick={() => filtrar(accesible.tipo)} />
+              </div>
+            </article>
+          )}
         </article>
         :
 
@@ -83,23 +88,23 @@ const Accesibles = () => {
             <section>
 
 
-              <ul className="container-cardcamping">
+              <article className="container-cardcamping">
                 {accesibles.map((camping) => (
-                  <li key={camping._id}>
-                    <CardCamping data={camping} entorno={true} />
 
-                  </li>))}
-              </ul>
+                  <CardCamping key={camping._id} data={camping} entorno={true} />
+
+                ))}
+              </article>
 
             </section>
             :
-            <ul className="container-cardcamping">
+            <article className="container-cardcamping">
               {selected.map((camping) => (
-                <li key={camping._id}>
-                  <CardCamping data={camping} entorno={true} />
 
-                </li>))}
-            </ul>
+                <CardCamping key={camping._id} data={camping} entorno={true} />
+
+              ))}
+            </article>
           }
         </>
         :
