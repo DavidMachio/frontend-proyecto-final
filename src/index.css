@@ -68,3 +68,7 @@ p {
   padding: 40px;
   gap: 30px;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
