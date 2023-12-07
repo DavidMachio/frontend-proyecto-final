@@ -44,18 +44,21 @@ p {
 .header-ul .active {
   text-decoration: underline;
 }
+.gif {
+  height: 100px;
+  width: auto;
+  animation: slidein 1s ease;
+}
 
 @keyframes slidein {
   from {
     opacity: 0;
-    scale: 98%;
-    transform: translateY(-25px);
+    scale: 88%;
   }
 
   to {
     opacity: 100%;
     scale: 100%;
-    transform: translateY(0);
   }
 }
 .loading {
