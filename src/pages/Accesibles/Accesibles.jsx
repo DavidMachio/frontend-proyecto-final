@@ -1,5 +1,4 @@
 import "./Accesibles.css"
-import { ripples } from "ldrs"
 import { useState, useEffect } from "react"
 import API from "../../API/API"
 import CardCamping from "../../components/CardCamping/CardCamping"
@@ -10,7 +9,6 @@ import Subtitulo from "../../components/Subtitulo/Subtitulo"
 
 const Accesibles = () => {
 
-  ripples.register()
 
   const [accesibles, setAccesibles] = useState([])
   const [cargado, setCargado] = useState(false)
@@ -60,16 +58,19 @@ const Accesibles = () => {
       <Titulo texto={"Campings accesibles"} />
       <Subtitulo subtitulo={"Más de 500 campings catalogados por tipo de accesibilad, para que puedas elegir el que más se adapte a tus necesidades."} />
       {cargado == true ?
+
         <article className="entorno-carrousel">
           {accesibilidad.map((accesible) =>
             <article className="article-cardtipo" key={accesible.tipo}>
               <div key={accesible.tipo} onClick={() => filtrar(accesible.tipo)}>
-
-                <CardTipo foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} onClick={() => filtrar(accesible.tipo)} />
+                <CardTipo foto={accesible.img} alt={accesible.tipo} icono={accesible.icono} word={accesible.tipo} />
               </div>
+
             </article>
+
           )}
         </article>
+
         :
 
         // Default values shown
@@ -80,21 +81,14 @@ const Accesibles = () => {
         </div>}
 
       {notSelected == false ?
-        <>
+        <section>
           {showAll == true
             ?
-            <section>
-
-
-              <article className="container-cardcamping">
-                {accesibles.map((camping) => (
-
-                  <CardCamping key={camping._id} data={camping} entorno={true} />
-
-                ))}
-              </article>
-
-            </section>
+            <article className="container-cardcamping">
+              {accesibles.map((camping) => (
+                <CardCamping key={camping._id} data={camping} entorno={true} />
+              ))}
+            </article>
             :
             <article className="container-cardcamping">
               {selected.map((camping) => (
@@ -102,13 +96,15 @@ const Accesibles = () => {
                 <CardCamping key={camping._id} data={camping} entorno={true} />
 
               ))}
+
             </article>
+
           }
-        </>
+
+        </section>
         :
         <></>
       }
-
     </main>
   )
 }

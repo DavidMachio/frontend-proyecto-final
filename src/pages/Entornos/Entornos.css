@@ -1,13 +1,14 @@
 .main-entornos {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   padding: 10px 10px 40px 10px;
 }
 .entorno-carrousel {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  padding: 20px 10px;
+  gap: 20px;
 }
 .article-cardtipo {
   width: 500px;
