@@ -170,12 +170,11 @@ const { user } = useContext(UserContext)
                 <button type="submit">enviar</button>
               </form>
                 <h2>Danos tu opinión sobre este camping</h2>
-                {/*Datos que se pueden tocar */}
-                <span>{camping.comentarios.length}</span>
-                <span>{camping.comentarios[0].comentario}</span>
-                {camping.comentarios.map((com) => {
+                {/*Datos que se pueden tocar
+                maquetar comentario */}
+                {camping.comentarios.map((com) => (
                   <p>{com.comentario}</p>
-                })}
+                ))}
                 {/*Datos que se pueden tocar */}
               </section>
             ) : ""}
