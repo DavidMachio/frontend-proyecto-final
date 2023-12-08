@@ -22,6 +22,9 @@ header {
   color: var(--secondary);
   background-color: var(--primary);
 }
+.contenedor-iconos {
+  display: flex;
+}
 
 header a {
   color: inherit;
@@ -148,6 +151,10 @@ header button {
   .profile {
     height: 40px;
     width: 40px;
+  }
+  .header-logotipo {
+    height: 50px;
+    width: auto;
   }
 }
 
