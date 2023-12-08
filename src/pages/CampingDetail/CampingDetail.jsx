@@ -27,6 +27,19 @@ const CampingDetail = () => {
   const contacto = () => {
     setSeccion("Contacto")
   }
+  const printValoracion = () => {
+    if (camping.puntuacion == 1) {
+      setValoracion("⭐️")
+    } else if (camping.puntuacion == 2) {
+      setValoracion("⭐️ ⭐️")
+    } else if (camping.puntuacion == 3) {
+      setValoracion("⭐️ ⭐️ ⭐️")
+    } else if (camping.puntuacion == 4) {
+      setValoracion("⭐️ ⭐️ ⭐️ ⭐️")
+    } else {
+      setValoracion("⭐️ ⭐️ ⭐️ ⭐️ ⭐️")
+    }
+  }
 
 
   useEffect(() => {
@@ -40,19 +53,7 @@ const CampingDetail = () => {
     } catch (error) {
 
     }
-    const printValoracion = () => {
-      if (camping.puntuacion == 1) {
-        setValoracion("⭐️")
-      } else if (camping.puntuacion == 2) {
-        setValoracion("⭐️ ⭐️")
-      } else if (camping.puntuacion == 3) {
-        setValoracion("⭐️ ⭐️ ⭐️")
-      } else if (camping.puntuacion == 4) {
-        setValoracion("⭐️ ⭐️ ⭐️ ⭐️")
-      } else {
-        setValoracion("⭐️ ⭐️ ⭐️ ⭐️ ⭐️")
-      }
-    }
+
 
 
   })

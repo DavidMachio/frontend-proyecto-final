@@ -32,8 +32,8 @@ const Header = ({ action }) => {
 
   return (
     <header className={`${isToggled == true ? "headerDay" : "headerNight"}`} >
-      <NavLink to={"/"}>
-      <img src={logo} alt={logoalt} className={`header-logotipo `} />
+      <NavLink to={"/"} className="contenedor-iconos">
+        <img src={logo} alt={logoalt} className={`header-logotipo `} />
       </NavLink>
 
       <nav className={`header-nav ${menu ? `Active` : ''}`}>
@@ -50,7 +50,7 @@ const Header = ({ action }) => {
       </div>
 
       <div className="log-sun">
-        <NavLink to={user == null ? "/login" : "/profile"}><img className={`profile profileDay`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg"} alt="" /></NavLink>
+        <NavLink to={user == null ? "/login" : "/profile"} className="contenedor-iconos"><img className={`profile profileDay`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701970077/profiledefault_joguzg.jpg"} alt="" /></NavLink>
         <div onClick={action} ><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol  ${isToggled == true ? "solDay" : "solNight"}`} /></div>
       </div>
 
