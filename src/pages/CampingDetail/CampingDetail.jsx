@@ -1,6 +1,6 @@
 import "./CampingDetail.css"
 import { useParams } from "react-router-dom"
-import { useState, useEffect , useContext, useRef } from "react"
+import { useState, useEffect, useContext, useRef } from "react"
 import API from "../../API/API"
 
 import { UserContext } from "../../context/userContext"
@@ -8,10 +8,10 @@ import { UserContext } from "../../context/userContext"
 
 const CampingDetail = () => {
 
-const comentRef = useRef(null)
-const comimgRef = useRef(null)
+  const comentRef = useRef(null)
+  const comimgRef = useRef(null)
 
-const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
 
 
@@ -57,21 +57,21 @@ const { user } = useContext(UserContext)
     ev.preventDefault()
 
     const body = new FormData()
-    body.append("comentario" , comentRef.current.value)
+    body.append("comentario", comentRef.current.value)
     body.append("img", comimgRef.current.files[0])
-    body.append("user" , user.username)
-    body.append("userAvatar" , user.avatar)
-    body.append("userID" , user.id)
+    body.append("user", user.username)
+    body.append("userAvatar", user.avatar)
+    body.append("userID", user.id)
 
-    API.post("/comentarios/" , body , {
+    API.post("/comentarios/", body, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }).then((res) => {
       const addcomment = new FormData()
 
-      addcomment.append("campingID" , camping._id )
-      addcomment.append("commentID" , res.data._id )
+      addcomment.append("campingID", camping._id)
+      addcomment.append("commentID", res.data._id)
 
-      API.put("/campings/addcom" , addcomment)
+      API.put("/campings/addcom", addcomment)
     })
   }
 
@@ -159,21 +159,28 @@ const { user } = useContext(UserContext)
             ) : ""}
             {seccion == "Comentarios" ? (
               <section className="seccion-comentarios">
-              <span>Comentar</span>
-              <form onSubmit={commentSubmit}>
-                <input  type="text" placeholder="texto"  ref={comentRef} />
-                
-                <label htmlFor="imgcomment" >
+                <span>Comentar</span>
+                <form onSubmit={commentSubmit}>
+                  <input type="text" placeholder="texto" ref={comentRef} />
+
+                  <label htmlFor="imgcomment" >
                     comment picture
-                </label>                
-                <input type="file" id="imgcomment" className="inputfile" ref={comimgRef} />
-                <button type="submit">enviar</button>
-              </form>
+                  </label>
+                  <input type="file" id="imgcomment" className="inputfile" ref={comimgRef} />
+                  <button type="submit">enviar</button>
+                </form>
                 <h2>Danos tu opinión sobre este camping</h2>
                 {/*Datos que se pueden tocar
                 maquetar comentario */}
                 {camping.comentarios.map((com) => (
-                  <p>{com.comentario}</p>
+                  <article className="card-post" key={com._id}>
+                    <div className="head-post">
+                      <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
+                      <h4>{com.user}</h4>
+                    </div>
+                    <img className="foto-post" src={com.img} alt="" />
+                    <p className="text-post">{com.comentario}</p>
+                  </article>
                 ))}
                 {/*Datos que se pueden tocar */}
               </section>

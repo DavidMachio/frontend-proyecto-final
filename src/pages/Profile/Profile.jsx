@@ -106,7 +106,6 @@ const Profile = () => {
               <h4>{user.username}</h4>
             </div>
             <img className="foto-post" src={user.avatar} alt="" />
-            <h3 className="title-post">Mis vacaciones de verano</h3>
             <p className="text-post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, explicabo sequi. Cumque id enim adipisci inventore ab eveniet, aliquid, atque, distinctio nihil eos error sequi eum quos possimus alias maiores.</p>
           </article>
         ) : (
