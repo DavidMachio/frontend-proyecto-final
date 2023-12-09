@@ -38,7 +38,6 @@ const { user } = useContext(UserContext)
     setSeccion("Contacto")
     console.log(camping.comentarios)
   }
-
   const printValoracion = () => {
     if (camping.puntuacion == 1) {
       setValoracion("⭐️")
@@ -52,6 +51,7 @@ const { user } = useContext(UserContext)
       setValoracion("⭐️ ⭐️ ⭐️ ⭐️ ⭐️")
     }
   }
+
 
   const commentSubmit = (ev) => {
     ev.preventDefault()

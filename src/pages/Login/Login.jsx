@@ -1,42 +1,42 @@
 import "./Login.css"
-import { useState ,useContext, useRef } from "react"
+import { useState, useContext, useRef } from "react"
 
 import API from "./../../API/API"
 import { UserContext } from "../../context/userContext"
 
-const Login  = () => {
+const Login = () => {
 
     const [registerPage, setRegisterPage] = useState(false)
     const Setpage = () => {
         setRegisterPage(!registerPage)
     }
-    const localData =  localStorage.getItem("theme")
+    const localData = localStorage.getItem("theme")
 
     //aqui empiezo funciones de login
     const { login } = useContext(UserContext)
 
     const usernameRef = useRef(null)
     const passwordRef = useRef(null)
-    const avatarRef = useRef(null);
+    const avatarRef = useRef(null)
     const nombreRef = useRef(null)
     const emailRef = useRef(null)
 
 
     const handleSubmit = (ev) => {
-        
+
         ev.preventDefault();
 
         const body = new FormData()
         body.append('username', usernameRef.current.value)
         body.append('password', passwordRef.current.value)
-        if ( registerPage == true ) {
+        if (registerPage == true) {
             body.append('avatar', avatarRef.current.files[0])
             body.append("nombre", nombreRef.current.value)
             body.append("email", emailRef.current.value)
         }
 
-        if ( registerPage == false) {
-            API.post('/usuario/login' , body).then((res) => {
+        if (registerPage == false) {
+            API.post('/usuario/login', body).then((res) => {
                 login(
                     {
                         username: res.data.username,
@@ -51,7 +51,7 @@ const Login  = () => {
                     res.data.token,
                 )
             })
-        }else {
+        } else {
             API.post("/usuario", body, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(() => {
@@ -79,7 +79,7 @@ const Login  = () => {
         }
 
 
-        
+
 
     }
 
@@ -87,35 +87,35 @@ const Login  = () => {
         <main className="forms">
             {registerPage == false ? (
                 <section className={`boxform ${localData == "light" ? "formday" : "formnight"}`}>
-                <h2 className="logname">Welcome back!</h2>
-                <form className="formsection" onSubmit={handleSubmit}>
-                    <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" id="username" minLength={4} required ref={usernameRef}/>
-                    <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" id="password" minLength={8} required ref={passwordRef} />
-                    <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Log in</button>
-                </form>
-                <article className="orsect"><div className={`${localData == "light" ? "line" : "linenight"}`}></div><span className="ortext">or</span>
-                <div className={`${localData == "light" ? "line" : "linenight"}`}></div></article>
-                <p className="regline">Don´t have an account yet?</p><span onClick={Setpage} className="linked"  >Sign up!</span>
-            </section>) 
-            : 
-            (<section className={`boxform ${localData == "light" ? "formday" : "formnight"}`}>
-                <h2 className="regname">Create your account!</h2>
-                <form  className="formsection" onSubmit={handleSubmit} >
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="name" minLength={5} ref={nombreRef}/>
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" minLength={5} ref={usernameRef} />
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="email" placeholder="example@example.com"  title="Please provide only a ONCE corporate email address" required ref={emailRef} />
-                <label htmlFor="avatar" className={`${localData == "light" ? "inputday" : "inputnight"}`}>
-                    Profile picture
-                </label>                
-                <input type="file" id="avatar" className="inputfile" ref={avatarRef} />
-                <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" required ref={passwordRef} />
-                <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Register</button>
-                </form>
-                <article className="orsect"><div className={`${localData == "light" ? "line" : "linenight"}`}></div><span className="ortext">or</span>
-                <div className={`${localData == "light" ? "line" : "linenight"}`}></div></article>
-                <p className="regline">You have an account ?</p>
-                <span onClick={Setpage} className="linked" >Login up!</span>
-            </section>)
+                    <h2 className="logname">Welcome back!</h2>
+                    <form className="formsection" onSubmit={handleSubmit}>
+                        <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" id="username" minLength={4} required ref={usernameRef} />
+                        <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" id="password" minLength={8} required ref={passwordRef} />
+                        <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Log in</button>
+                    </form>
+                    <article className="orsect"><div className={`${localData == "light" ? "line" : "linenight"}`}></div><span className="ortext">or</span>
+                        <div className={`${localData == "light" ? "line" : "linenight"}`}></div></article>
+                    <p className="regline">Don´t have an account yet?</p><span onClick={Setpage} className="linked"  >Sign up!</span>
+                </section>)
+                :
+                (<section className={`boxform ${localData == "light" ? "formday" : "formnight"}`}>
+                    <h2 className="regname">Create your account!</h2>
+                    <form className="formsection" onSubmit={handleSubmit} >
+                        <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="name" minLength={5} ref={nombreRef} />
+                        <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="text" placeholder="Username" minLength={5} ref={usernameRef} />
+                        <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="email" placeholder="example@example.com" title="Please provide only a ONCE corporate email address" required ref={emailRef} />
+                        <label htmlFor="avatar" className={`${localData == "light" ? "inputday" : "inputnight"}`}>
+                            Profile picture
+                        </label>
+                        <input type="file" id="avatar" className="inputfile" ref={avatarRef} />
+                        <input className={`${localData == "light" ? "inputday" : "inputnight"}`} type="password" placeholder="Password" required ref={passwordRef} />
+                        <button className={`formbtn ${localData == "light" ? "btnday" : "btnnight"}`} type="submit" >Register</button>
+                    </form>
+                    <article className="orsect"><div className={`${localData == "light" ? "line" : "linenight"}`}></div><span className="ortext">or</span>
+                        <div className={`${localData == "light" ? "line" : "linenight"}`}></div></article>
+                    <p className="regline">You have an account ?</p>
+                    <span onClick={Setpage} className="linked" >Login up!</span>
+                </section>)
             }
         </main>
     )

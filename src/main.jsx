@@ -22,6 +22,8 @@ import Profile from './pages/Profile/Profile.jsx'
 import Provincias from './pages/Provincias/Provincias.jsx'
 import ProvinciaUnica from './pages/ProvinciaUnica/ProvinciaUnica.jsx'
 import Gracias from './pages/Gracias/Gracias.jsx'
+import Administrador from './pages/Administrador/Administrador.jsx'
+import Editarusuarios from './pages/Editarusuarios/Editarusuarios.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -36,6 +38,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/accesibles' element={<Accesibles />} />
             <Route path='/todosaccesibles' element={<TodosAccesibles />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/administrador' element={<Administrador />} />
+            <Route path='/editarusuarios' element={<Editarusuarios />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/entornos' element={<Entornos />} />
             <Route path='/montaña' element={<Montaña />} />
