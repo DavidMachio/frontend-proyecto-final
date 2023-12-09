@@ -62,10 +62,11 @@ const Profile = () => {
           <label htmlFor="cambiaravatar" className="label-cambiaravatar">Subir foto</label>
 
           <input className="inputcambiar-avatar" type="file" id="cambiaravatar" ref={avatarRef} />
+          <input className="edit-password" type="password" ref={passwordRef} placeholder="Password" />
           <div onClick={() => setForm(false)}>
             <button type="submit" className="actualizar-avatar">Aceptar</button>
           </div>
-          <input className="inputcambiar" type="password" ref={passwordRef} />
+
         </article>
       </form>
 
