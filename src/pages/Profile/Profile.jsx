@@ -9,11 +9,15 @@ const Profile = () => {
   const [seccion, setSeccion] = useState(false);
   const { user, logout } = useContext(UserContext)
   const [form, setForm] = useState(false)
+  const [panelAdmin, setPanelAdmin] = useState(false)
   const avatarRef = useRef(null)
   const passwordRef = useRef(null)
 
   const showForm = () => {
     setForm(!form)
+  }
+  const showPanelAdmin = () => {
+    setPanelAdmin(!panelAdmin)
   }
 
 
@@ -62,7 +66,7 @@ const Profile = () => {
           <label htmlFor="cambiaravatar" className="label-cambiaravatar">Subir foto</label>
 
           <input className="inputcambiar-avatar" type="file" id="cambiaravatar" ref={avatarRef} />
-          <input className="edit-password" type="password" ref={passwordRef} placeholder="Password" />
+          <input className="edit-password" type="password" ref={passwordRef} placeholder="Password" required />
           <div onClick={() => setForm(false)}>
             <button type="submit" className="actualizar-avatar">Aceptar</button>
           </div>
@@ -85,8 +89,21 @@ const Profile = () => {
         {user.rol == "admin" ?
           <section className="admin-style">
             <h3 className="work-profile">CEO Campcesible</h3>
-            <NavLink to="/administrador"><button className="morebtn administrador">Panel de administrador</button></NavLink>
+            <button onClick={() => showPanelAdmin()} className="morebtn administrador">Panel de administrador</button>
           </section> : ""}
+        <article className="container-paneladmin">
+          {panelAdmin == true ?
+            <section className="seccion-administrar">
+              <article className="botones-administrar">
+                <h2>Panel de administrador</h2>
+                <NavLink to={"/editarusuarios"}><button className="botones-panel">Usuarios</button></NavLink>
+                <NavLink><button className="botones-panel">campings</button></NavLink>
+                <NavLink><button className="botones-panel">Comunicación</button></NavLink>
+                <div className="cerrar-administrar" onClick={() => showPanelAdmin()}><img src="/close.png" alt="" /></div>
+              </article>
+            </section> :
+            ""}
+        </article>
         <button className="morebtn logout" onClick={logout} >Logout</button>
 
       </section>
