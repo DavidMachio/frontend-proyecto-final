@@ -130,6 +130,22 @@
   flex-direction: column;
   gap: 20px;
 }
+.container-gif {
+  color: var(--primary);
+  height: 70vh;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 20px;
+  padding: 40px 70px;
+}
+.gif {
+  width: 300px;
+  height: auto;
+}
 @media screen and (max-width: 1100px) {
   .main-editarusuarios {
     flex-direction: column;

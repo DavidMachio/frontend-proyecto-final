@@ -170,7 +170,7 @@ const CampingDetail = () => {
             ) : ""}
             {seccion == "Comentarios" ? (
               <section className="seccion-comentarios">
-                <h2>Danos tu opinión sobre este camping</h2>
+                <h2>Déjanos tu opinión sobre este camping</h2>
                 <button onClick={showComentar} className="agregar-comentario">Comentar</button>
                 <section>
                   {comentar == true ?
@@ -189,7 +189,9 @@ const CampingDetail = () => {
                         </section>
 
                         <textarea type="text" placeholder="texto(maximo 50 caracteres)" ref={comentRef} maxlength="50" required />
-                        <button type="submit" className="boton-enviar">enviar</button>
+                        <div >
+                          <button type="submit" className="boton-enviar">enviar</button>
+                        </div>
                       </form>
                     </section> :
                     ""}
@@ -228,7 +230,10 @@ const CampingDetail = () => {
             ) : ""}
           </section>
 
-        </section> : <h2>loading</h2>
+        </section> :
+        <div className="loading">
+          <img className="gif" src="/gif_caravana.gif" />
+        </div>
       }
 
     </main >

@@ -50,10 +50,8 @@ const Acuaticos = () => {
             </ul>
 
           </> :
-          <div className="loading"><l-ripples
-            size="45"
-            speed="2"
-            color="blue"></l-ripples>
+          <div className="loading">
+            <img className="gif" src="/gif_caravana.gif" />
           </div>}
       </section>
     </main>
