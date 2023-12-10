@@ -77,7 +77,7 @@ const Profile = () => {
 
       <section className="portada-profile">
         <button className="edit-cover-profile" ><img src="/iconoeditar.png" alt="" /></button>
-        <img className="cover-profile" src={user.imgcover} alt="profile picture" />
+        <img className="cover-profile" src={user.avatar} alt="profile picture" />
         <article className="container-avatar">
           <img className="avatar-profile" src={user.avatar} alt="profile picture" />
           <button className="edit-avatar-profile" onClick={showForm}>
@@ -100,7 +100,7 @@ const Profile = () => {
               <article className="botones-administrar">
                 <h2>Panel de administrador</h2>
                 <NavLink to={"/editarusuarios"}><button className="botones-panel">Usuarios</button></NavLink>
-                <NavLink><button className="botones-panel">campings</button></NavLink>
+                <NavLink><button className="botones-panel">Campings</button></NavLink>
                 <NavLink><button className="botones-panel">Comunicación</button></NavLink>
                 <div className="cerrar-administrar" onClick={() => showPanelAdmin()}><img src="/close.png" alt="" /></div>
               </article>

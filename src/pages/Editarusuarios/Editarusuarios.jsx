@@ -64,7 +64,6 @@ const Editarusuarios = () => {
     await API.patch(`/usuario/${id}`, body
     ).then((res) => {
       setNuevoUsuario(!nuevoUsuario)
-      console.log(bloqueado)
     }).catch((error) => {
     });
   }

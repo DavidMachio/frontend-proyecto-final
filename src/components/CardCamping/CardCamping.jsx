@@ -1,7 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 import "./CardCamping.css"
-import { useState,useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../context/userContext";
 import API from "../../API/API";
 
@@ -13,20 +13,20 @@ const CardCamping = ({ data, entorno }) => {
 
   const addFavorito = async () => {
     const body = new FormData()
-    body.append("usuarioID" , user.id)
-    body.append("campingID" , data._id)
+    body.append("usuarioID", user.id)
+    body.append("campingID", data._id)
 
     await API.put("/usuario/add-favorito", body).then(() => {
       setStar(!star)
       console.log(user)
-    console.log(data)
+      console.log(data)
     })
   }
 
   const removeFavorito = async () => {
     const body = new FormData()
-    body.append("usuarioID" , user.id)
-    body.append("campingID" , data._id)
+    body.append("usuarioID", user.id)
+    body.append("campingID", data._id)
 
     await API.put("/usuario/remove-favorito", body).then(() => {
       setStar(!star)

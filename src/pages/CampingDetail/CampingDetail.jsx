@@ -88,7 +88,6 @@ const CampingDetail = () => {
 
 
 
-
   useEffect(() => {
     try {
       API.get(`/campings/name/${name}`).then((res) => {
@@ -170,7 +169,8 @@ const CampingDetail = () => {
             ) : ""}
             {seccion == "Comentarios" ? (
               <section className="seccion-comentarios">
-                <h2>Déjanos tu opinión sobre este camping</h2>
+
+                <h2>Danos tu opinión sobre este camping</h2>
                 <button onClick={showComentar} className="agregar-comentario">Comentar</button>
                 <section>
                   {comentar == true ?
@@ -188,15 +188,12 @@ const CampingDetail = () => {
                           </label>
                         </section>
 
-                        <textarea type="text" placeholder="texto(maximo 50 caracteres)" ref={comentRef} maxlength="50" required />
-                        <div >
-                          <button type="submit" className="boton-enviar">enviar</button>
-                        </div>
+                        <textarea type="text" placeholder="texto(maximo 50 caracteres)" ref={comentRef} maxLength="50" required />
+                        <button type="submit" className="boton-enviar">enviar</button>
                       </form>
                     </section> :
                     ""}
                 </section>
-
                 {/*Datos que se pueden tocar
                 maquetar comentario */}
                 <section className="container-seccion-comentarios">
@@ -230,10 +227,7 @@ const CampingDetail = () => {
             ) : ""}
           </section>
 
-        </section> :
-        <div className="loading">
-          <img className="gif" src="/gif_caravana.gif" />
-        </div>
+        </section> : <h2>loading</h2>
       }
 
     </main >
