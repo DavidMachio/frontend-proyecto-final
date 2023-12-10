@@ -39,20 +39,25 @@ const CardCamping = ({ data, entorno }) => {
     console.log(data)
   }*/
 
-
+  const checkfav = () => {
+    if (user !== null) {
+      user.favoritos.includes(data._id) && setStar(true)
+    }
+  }
 
   const accesible = entorno
 
   useEffect(() => {
 
-    user.favoritos.includes(data._id) && setStar(true)
+    checkfav()
 
-  })
+
+  },[])
 
   return (
 
     <article className="cardcamping">
-      <NavLink className="navlinkfav" onClick={star == false ? addFavorito : removeFavorito} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+      <NavLink className="navlinkfav" onClick={user !== null ? (star == false ? addFavorito : removeFavorito): () => console.log("registrate")} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
       </NavLink>
       <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">
