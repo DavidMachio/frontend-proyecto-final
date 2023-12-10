@@ -1,25 +1,58 @@
 
 import { NavLink } from "react-router-dom";
 import "./CardCamping.css"
-import { useState } from "react";
+import { useState,useContext, useEffect } from "react";
+import { UserContext } from "../../context/userContext";
+import API from "../../API/API";
 
 const CardCamping = ({ data, entorno }) => {
 
   const [star, setStar] = useState(false)
+  const { user } = useContext(UserContext)
+
+
+  const addFavorito = async () => {
+    const body = new FormData()
+    body.append("usuarioID" , user.id)
+    body.append("campingID" , data._id)
+
+    await API.put("/usuario/add-favorito", body).then(() => {
+      setStar(!star)
+      console.log(user)
+    console.log(data)
+    })
+  }
+
+  const removeFavorito = async () => {
+    const body = new FormData()
+    body.append("usuarioID" , user.id)
+    body.append("campingID" , data._id)
+
+    await API.put("/usuario/remove-favorito", body).then(() => {
+      setStar(!star)
+    })
+  }
 
   const changeEstrella = () => {
     setStar(!star)
+    console.log(user)
+    console.log(data)
   }
 
 
 
   const accesible = entorno
 
+  useEffect(() => {
+
+    user.favoritos.includes(data._id) && setStar(true)
+
+  })
 
   return (
 
     <article className="cardcamping">
-      <NavLink className="navlinkfav" onClick={changeEstrella} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+      <NavLink className="navlinkfav" onClick={star == false ? addFavorito : removeFavorito} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
       </NavLink>
       <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">

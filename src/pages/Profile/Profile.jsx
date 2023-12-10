@@ -134,6 +134,8 @@ const Profile = () => {
             <h4>Provincia</h4>
           </article>
         )}
+        <h2>link a publico</h2>
+        <NavLink to={`/profile/public/${user.id}`}>aqui !!!</NavLink>
       </section>
 
 
