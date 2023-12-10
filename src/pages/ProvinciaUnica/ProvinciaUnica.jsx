@@ -38,7 +38,9 @@ const ProvinciaUnica = () => {
           ))}
         </section>
         :
-        <h2>loading</h2>
+        <div className="loading">
+          <img className="gif" src="/gif_caravana.gif" />
+        </div>
       }
     </main>
   )

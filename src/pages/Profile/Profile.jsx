@@ -39,6 +39,7 @@ const Profile = () => {
           {
             username: res.data.username,
             avatar: res.data.avatar,
+            imgcover: res.data.imgcover,
             id: res.data.id,
             nombre: res.data.nombre,
             email: res.data.email,
@@ -76,7 +77,7 @@ const Profile = () => {
 
       <section className="portada-profile">
         <button className="edit-cover-profile" ><img src="/iconoeditar.png" alt="" /></button>
-        <img className="cover-profile" src={user.avatar} alt="profile picture" />
+        <img className="cover-profile" src={user.imgcover} alt="profile picture" />
         <article className="container-avatar">
           <img className="avatar-profile" src={user.avatar} alt="profile picture" />
           <button className="edit-avatar-profile" onClick={showForm}>
@@ -88,7 +89,9 @@ const Profile = () => {
         <h2 className="name-profile">{user.username}</h2>
         {user.rol == "admin" ?
           <section className="admin-style">
-            <h3 className="work-profile">CEO Campcesible</h3>
+            <h3 className="work-profile">
+              {user.rol === "admin" ? "Administrador de Campcesible" : ""}
+            </h3>
             <button onClick={() => showPanelAdmin()} className="morebtn administrador">Panel de administrador</button>
           </section> : ""}
         <article className="container-paneladmin">
@@ -109,7 +112,7 @@ const Profile = () => {
       </section>
       <article className="about">
         <h6>About</h6>
-        <p className="text-about">{user.about} Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, explicabo sequi. Cumque id enim adipisci inventore ab eveniet, aliquid, atque, distinctio nihil eos error sequi eum quos possimus alias maiores.</p>
+        <p className="text-about">{user.about}Cuénta algo sobre ti</p>
       </article>
       <nav className="nav-info-profile">
         <button className="morebtn" onClick={() => setSeccion(false)}>Favoritos</button>

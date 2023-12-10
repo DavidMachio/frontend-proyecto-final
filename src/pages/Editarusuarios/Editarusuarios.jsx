@@ -94,7 +94,7 @@ const Editarusuarios = () => {
                 <div className="buttons-settings">
                   <button onClick={() => handleDelete(usuario._id)}>Eliminar</button>
                   <button onClick={() => handleUpdate(usuario)}>{usuario.rol == "admin" ? "Usuario" : "Admin"}</button>
-                  <button onClick={() => handleBloquear(usuario._id, usuario.bloqueado)}>{usuario.bloqueado == true ? "Desbloquear" : "Bloquear"}</button>
+                  <button onClick={() => handleBloquear(usuario._id, usuario.bloqueado)}>{usuario.bloqueado == true ? "Activar" : "Bloquear"}</button>
                 </div>
 
               </div>
@@ -103,7 +103,7 @@ const Editarusuarios = () => {
           ))}
         </section>
         :
-        <div className="loading">
+        <div className="container-gif">
           <img className="gif" src="/gif_caravana.gif" />
         </div>
       }
