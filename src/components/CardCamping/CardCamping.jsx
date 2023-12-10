@@ -33,11 +33,11 @@ const CardCamping = ({ data, entorno }) => {
     })
   }
 
-  const changeEstrella = () => {
+  /*const changeEstrella = () => {
     setStar(!star)
     console.log(user)
     console.log(data)
-  }
+  }*/
 
 
 
