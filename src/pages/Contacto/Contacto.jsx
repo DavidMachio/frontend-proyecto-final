@@ -12,7 +12,8 @@ const Contacto = () => {
           <textarea name="Comentario" placeholder="Cuentanos algo..."></textarea>
           <input type="submit" value="Enviar" className="enviar" />
           <input type="hidden" name="_next" value="http://localhost:5173/gracias" />
-          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="hidden" name="_autoresponse" value="Tu mensaje ha sido recibido correctamente, muchas gracias por contactar con nosotros "></input>
         </form>
 
       </section>

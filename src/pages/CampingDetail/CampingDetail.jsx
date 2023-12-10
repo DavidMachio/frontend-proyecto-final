@@ -20,6 +20,8 @@ const CampingDetail = () => {
   const [cargado, setCargado] = useState(false)
   const [camping, setCamping] = useState(null)
   const [valoracion, setValoracion] = useState()
+  const [newComentarios, setNewComentarios] = useState()
+  const [comentar, setComentar] = useState(false)
 
   const [seccion, setSeccion] = useState("Instalaciones")
   const instalaciones = () => {
@@ -36,7 +38,9 @@ const CampingDetail = () => {
   }
   const contacto = () => {
     setSeccion("Contacto")
-    console.log(camping.comentarios)
+  }
+  const showComentar = () => {
+    setComentar(!comentar)
   }
   const printValoracion = () => {
     if (camping.puntuacion == 1) {
@@ -74,6 +78,12 @@ const CampingDetail = () => {
       API.put("/campings/addcom", addcomment)
     })
   }
+  const handleDelete = async (id) => {
+    console.log("eliminando comentario")
+    await API.delete(`/comentarios/${id}`)
+
+
+  }
 
 
 
@@ -83,6 +93,7 @@ const CampingDetail = () => {
     try {
       API.get(`/campings/name/${name}`).then((res) => {
         setCamping(res.data)
+        setNewComentarios(res.data.comentarios.reverse())
 
         setCargado(true)
         printValoracion()
@@ -159,29 +170,50 @@ const CampingDetail = () => {
             ) : ""}
             {seccion == "Comentarios" ? (
               <section className="seccion-comentarios">
-                <span>Comentar</span>
-                <form onSubmit={commentSubmit}>
-                  <input type="text" placeholder="texto" ref={comentRef} />
-
-                  <label htmlFor="imgcomment" >
-                    comment picture
-                  </label>
-                  <input type="file" id="imgcomment" className="inputfile" ref={comimgRef} />
-                  <button type="submit">enviar</button>
-                </form>
                 <h2>Danos tu opinión sobre este camping</h2>
+                <button onClick={showComentar} className="agregar-comentario">Comentar</button>
+                <section>
+                  {comentar == true ?
+                    <section className="container-formcomentario">
+                      <form onSubmit={commentSubmit} className="form-comentario">
+                        <div className="cerrar-crearcomentario" onClick={showComentar}><img src="/close.png" alt="" /></div>
+                        <section className="datos-usuario">
+                          <img src={user.avatar} alt="" />
+                          <h2>{user.username}</h2>
+                        </section>
+                        <section className="container-input">
+                          <label htmlFor="imgcomment" className="label-inputfile">
+                            <img src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1702154458/placeholder-image_p1zmh1.jpg" alt="" />
+                            <input type="file" id="imgcomment" className="input-inputfile" ref={comimgRef} />
+                          </label>
+                        </section>
+
+                        <textarea type="text" placeholder="texto(maximo 50 caracteres)" ref={comentRef} maxlength="50" required />
+                        <button type="submit" className="boton-enviar">enviar</button>
+                      </form>
+                    </section> :
+                    ""}
+                </section>
+
                 {/*Datos que se pueden tocar
                 maquetar comentario */}
-                {camping.comentarios.map((com) => (
-                  <article className="card-post" key={com._id}>
-                    <div className="head-post">
-                      <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
-                      <h4>{com.user}</h4>
-                    </div>
-                    <img className="foto-post" src={com.img} alt="" />
-                    <p className="text-post">{com.comentario}</p>
-                  </article>
-                ))}
+                <section className="container-seccion-comentarios">
+                  <section className="container-comentarios">
+                    {newComentarios.map((com) => (
+                      <article className="card-post" key={com._id}>
+                        <div className="head-post">
+
+                          <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
+                          <h4>{com.user}</h4>
+                          {user.rol == "admin" ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
+                            ""}
+                        </div>
+                        <img className="foto-post" src={com.img} alt="" />
+                        <p className="text-post">{com.comentario}</p>
+                      </article>
+                    ))}
+                  </section>
+                </section>
                 {/*Datos que se pueden tocar */}
               </section>
             ) : ""}
