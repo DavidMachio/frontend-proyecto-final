@@ -23,6 +23,7 @@ import Provincias from './pages/Provincias/Provincias.jsx'
 import ProvinciaUnica from './pages/ProvinciaUnica/ProvinciaUnica.jsx'
 import Gracias from './pages/Gracias/Gracias.jsx'
 import Editarusuarios from './pages/Editarusuarios/Editarusuarios.jsx'
+import PublicProfile from './pages/PublicProfile/PublicProfile.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -48,6 +49,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/prov/:nombre' element={<ProvinciaUnica />} />
             <Route path='/gracias' element={<Gracias />} />
             <Route path='/campings/name/:name' element={<CampingDetail />} />
+            <Route path='/profile/public/:id' element={<PublicProfile />} />
             <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
