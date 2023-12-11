@@ -1,17 +1,5 @@
-.mainbanner {
-  background-color: rgba(255, 255, 255, 0.649);
-  height: auto;
-  width: 100%;
-  position: absolute;
-  z-index: 100;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  margin: auto;
-}
-.container-bannersuscribir {
-  height: 400px;
+.container-bannerfavorito {
+  height: 300px;
   max-width: 400px;
   z-index: 100;
   position: absolute;
@@ -31,16 +19,16 @@
   gap: 20px;
   animation: slidein 0.5s ease;
 }
-.container-bannersuscribir > {
+.container-bannerfavorito > {
   color: white;
 }
-.texttitulo,
-.textmensaje,
-.textsegundomensaje {
+.texttitulofavorito,
+.textmensajefavorito,
+.textsegundomensajefavorito {
   color: white;
 }
-.imgBanner {
-  height: 90px;
+.imgBannerfavorito {
+  height: 50px;
   width: auto;
 }
 .linkto {

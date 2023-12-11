@@ -6,9 +6,9 @@ import API from "../../API/API";
 import CardCamping from "../../components/CardCamping/CardCamping";
 
 const Profile = () => {
-  
-  
-  const { user, logout, userData , saveUserData  } = useContext(UserContext)
+
+
+  const { user, logout, userData, saveUserData } = useContext(UserContext)
   const [form, setForm] = useState(false)
   const [panelAdmin, setPanelAdmin] = useState(false)
   const avatarRef = useRef(null)
@@ -32,7 +32,7 @@ const Profile = () => {
       API.get(`/usuario/${user.id}`).then((res) => {
         console.log("llega aqui")
         saveUserData(res)
-    })
+      })
     }).catch((error) => {
     });
   }
@@ -58,7 +58,6 @@ const Profile = () => {
       </form>
 
       <section className="portada-profile">
-        <button className="edit-cover-profile" ><img src="/iconoeditar.png" alt="" /></button>
         <img className="cover-profile" src={userData.data.avatar} alt="profile picture" />
         <article className="container-avatar">
           <img className="avatar-profile" src={userData.data.avatar} alt="profile picture" />
@@ -104,15 +103,15 @@ const Profile = () => {
         <p className="text-about">{userData.data.about}Cuénta algo sobre ti</p>
       </article>
       <nav className="nav-info-profile">
-        <h2>Favoritos</h2> 
+        <h2>Favoritos</h2>
       </nav>
 
       <section className="post-favoritos">
-          <article className="container-cardcamping">
+        <article className="container-cardcamping">
           {userData.data.favoritos.map((fav) => (
-              <CardCamping key={fav._id} data={fav} entorno={true} />
-            ))}
-            </article>  
+            <CardCamping key={fav._id} data={fav} entorno={true} />
+          ))}
+        </article>
       </section>
 
 

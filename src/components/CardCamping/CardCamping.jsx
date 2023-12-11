@@ -4,11 +4,14 @@ import "./CardCamping.css"
 import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../context/userContext";
 import API from "../../API/API";
+import BannerSuscribir from "../BannerSuscribir/BannerSuscribir";
+import BannerFavoritos from "../BannerFavoritos/BannerFavoritos";
 
 const CardCamping = ({ data, entorno }) => {
 
   const [star, setStar] = useState(false)
-  const { user } = useContext(UserContext)
+  const { user, userData, saveUserData } = useContext(UserContext)
+  const [suscribirse, setSuscribirse] = useState(false)
 
 
   const addFavorito = async () => {
@@ -17,10 +20,15 @@ const CardCamping = ({ data, entorno }) => {
     body.append("campingID", data._id)
 
     await API.put("/usuario/add-favorito", body).then(() => {
-      setStar(!star)
-      console.log(user)
-      console.log(data)
+      API.get(`/usuario/${user.id}`).then((res) => {
+        console.log("llega aqui")
+        saveUserData(res)
+        setStar(true)
+      })
     })
+  }
+  const showAddFav = () => {
+    setSuscribirse(!suscribirse)
   }
 
   const removeFavorito = async () => {
@@ -29,7 +37,11 @@ const CardCamping = ({ data, entorno }) => {
     body.append("campingID", data._id)
 
     await API.put("/usuario/remove-favorito", body).then(() => {
-      setStar(!star)
+      API.get(`/usuario/${user.id}`).then((res) => {
+        console.log("llega aqui")
+        saveUserData(res)
+        setStar(false)
+      })
     })
   }
 
@@ -41,7 +53,7 @@ const CardCamping = ({ data, entorno }) => {
 
   const checkfav = () => {
     if (user !== null) {
-      user.favoritos.includes(data._id) && setStar(true)
+      userData.data.favoritos.some(fav => fav._id === data._id) && setStar(true)
     }
   }
 
@@ -52,12 +64,17 @@ const CardCamping = ({ data, entorno }) => {
     checkfav()
 
 
-  },[])
+  }, [])
 
   return (
 
     <article className="cardcamping">
-      <NavLink className="navlinkfav" onClick={user !== null ? (star == false ? addFavorito : removeFavorito): () => console.log("registrate")} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+      <section className="bannercrearfav">
+        {suscribirse == true ?
+          <BannerFavoritos funcion={() => setSuscribirse(false)} titulo={"Crea tu propia lista"} imagen={"https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
+          : ""}
+      </section>
+      <NavLink className="navlinkfav" onClick={user !== null ? (star == false ? addFavorito : removeFavorito) : showAddFav} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
       </NavLink>
       <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">
@@ -65,6 +82,8 @@ const CardCamping = ({ data, entorno }) => {
             <h4 className="cardcamping-nombre">{data.nombre.replace("Camping ", "")}</h4>
             <h5 className="cardcamping-provincia">{data.provincia}</h5>
           </section>
+
+
 
 
         </section>
