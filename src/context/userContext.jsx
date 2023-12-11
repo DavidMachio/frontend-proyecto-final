@@ -28,7 +28,6 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem("token", APItoken)
         setUser(APIuser)
         setToken(APItoken)
-       
     }
 
     const saveUserData = (dataUser) => {

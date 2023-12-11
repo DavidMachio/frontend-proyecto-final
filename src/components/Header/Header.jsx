@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { links } from "../../data/navegador";
@@ -10,7 +10,7 @@ import { UserContext } from "../../context/userContext"
 
 const Header = ({ action }) => {
 
-  const { user } = useContext(UserContext)
+  const { user, userData } = useContext(UserContext)
 
   const logo = "https://static.vecteezy.com/system/resources/previews/024/725/026/non_2x/outdoor-camping-sticker-minimalist-outdoor-camping-large-sticker-ai-generated-free-png.png"
   const logoalt = "icono de la app"
@@ -50,7 +50,7 @@ const Header = ({ action }) => {
       </div>
 
       <div className="log-sun">
-        <NavLink to={user == null ? "/login" : "/profile"} className="contenedor-iconos"><img className={`profile profileDay`} src={user !== null ? user.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701970077/profiledefault_joguzg.jpg"} alt="" /></NavLink>
+        <NavLink to={user == null ? "/login" : "/profile"} className="contenedor-iconos"><img className={`profile profileDay`} src={user !== null ? userData.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701970077/profiledefault_joguzg.jpg"} alt="" /></NavLink>
         <div onClick={action} ><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol  ${isToggled == true ? "solDay" : "solNight"}`} /></div>
       </div>
 
