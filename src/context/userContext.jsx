@@ -13,7 +13,7 @@ export const UserContextProvider = ({ children }) => {
     })
 
     const [userData, setUserData] = useState(() => {
-        const actualUserData = localStorage.getItem("userData")
+        const actualUserData = localStorage.getItem("userData") 
         const parsedUserData = JSON.parse(actualUserData)
         return parsedUserData || null
     })
@@ -28,21 +28,17 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem("token", APItoken)
         setUser(APIuser)
         setToken(APItoken)
-        navigate("/profile")
     }
 
     const saveUserData = (dataUser) => {
         localStorage.setItem("userData", JSON.stringify(dataUser))
         setUserData(dataUser)
-
     }
 
     const logout = () => {
         localStorage.removeItem("user")
-        localStorage.removeItem("userData")
         localStorage.removeItem("token")
         setUser(null)
-        setUserData(null)
         setToken(null)
         navigate("/")
     }

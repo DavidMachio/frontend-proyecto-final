@@ -3,8 +3,11 @@ import { useState, useContext, useRef } from "react"
 
 import API from "./../../API/API"
 import { UserContext } from "../../context/userContext"
+import { useNavigate } from "react-router-dom"
+
 
 const Login = () => {
+    const navigate = useNavigate()
 
     const [registerPage, setRegisterPage] = useState(false)
     const Setpage = () => {
@@ -38,6 +41,8 @@ const Login = () => {
 
         if (registerPage == false) {
             API.post('/usuario/login', body).then((res) => {
+                
+            
                 login(
                     {
                         bloqueado: res.data.bloqueado,
@@ -53,9 +58,11 @@ const Login = () => {
                     },
                     res.data.token,
                 )
+                
                 API.get(`/usuario/${res.data.id}`).then((res) => {
                     console.log("llega aqui")
                     saveUserData(res)
+                    navigate("/profile")
                 })
             })
         } else {
