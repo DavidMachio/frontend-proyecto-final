@@ -99,7 +99,10 @@ const Profile = () => {
 
       </section>
       <article className="about">
-        <h6>About</h6>
+        <section>
+          <button>edit</button>
+          <h6>About</h6>
+        </section>
         <p className="text-about">{userData.data.about}Cuénta algo sobre ti</p>
       </article>
       <nav className="nav-info-profile">
