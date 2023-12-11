@@ -14,6 +14,7 @@ const Login = () => {
 
     //aqui empiezo funciones de login
     const { login } = useContext(UserContext)
+    const { saveUserData } = useContext(UserContext)
 
     const usernameRef = useRef(null)
     const passwordRef = useRef(null)
@@ -52,6 +53,10 @@ const Login = () => {
                     },
                     res.data.token,
                 )
+                API.get(`/usuario/${res.data.id}`).then((res) => {
+                    console.log("llega aqui")
+                    saveUserData(res)
+                })
             })
         } else {
             API.post("/usuario", body, {

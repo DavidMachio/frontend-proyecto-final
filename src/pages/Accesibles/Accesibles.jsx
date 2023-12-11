@@ -57,6 +57,7 @@ const Accesibles = () => {
     <main className="main-accesibles">
       <Titulo texto={"Campings accesibles"} />
       <Subtitulo subtitulo={"Más de 500 campings catalogados por tipo de accesibilad, para que puedas elegir el que más se adapte a tus necesidades."} />
+      <div className="todos" onClick={() => setShowAll(true)}> boton de todos</div>
       {cargado == true ?
 
         <article className="entorno-carrousel">
@@ -103,7 +104,13 @@ const Accesibles = () => {
 
         </section>
         :
-        <></>
+        <>
+        <article className="container-cardcamping">
+              {accesibles.map((camping) => (
+                <CardCamping key={camping._id} data={camping} entorno={true} />
+              ))}
+            </article>
+        </>
       }
     </main>
   )
