@@ -12,6 +12,12 @@ export const UserContextProvider = ({ children }) => {
         return parsedUser || null
     })
 
+    const [userData, setUserData] = useState(() => {
+        const actualUserData = localStorage.getItem("userData") 
+        const parsedUserData = JSON.parse(actualUserData)
+        return parsedUserData || null
+    })
+
     const [token, setToken] = useState(() => {
         const actualToken = localStorage.getItem("token")
         return actualToken || null
@@ -22,6 +28,12 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem("token", APItoken)
         setUser(APIuser)
         setToken(APItoken)
+       
+    }
+
+    const saveUserData = (dataUser) => {
+        localStorage.setItem("userData", JSON.stringify(dataUser))
+        setUserData(dataUser)
         navigate("/profile")
     }
 
@@ -34,7 +46,7 @@ export const UserContextProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ user, token, login, logout }}>
+        <UserContext.Provider value={{ user, userData, token, login, logout, saveUserData }}>
             {children}
         </UserContext.Provider>
     )
