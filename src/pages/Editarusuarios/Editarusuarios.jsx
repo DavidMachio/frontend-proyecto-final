@@ -61,7 +61,7 @@ const Editarusuarios = () => {
         body.append("bloqueado", true) :
         body.append("bloqueado", false)
     }
-    await API.patch(`/usuario/${id}`, body
+    await API.patch(`/usuario/datos/${id}`, body
     ).then((res) => {
       setNuevoUsuario(!nuevoUsuario)
     }).catch((error) => {
