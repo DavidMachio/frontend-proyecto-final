@@ -76,8 +76,9 @@ const Profile = () => {
       </form>
 
       <section className="portada-profile">
-        <button className="edit-cover-profile" ><img src="/iconoeditar.png" alt="" /></button>
-        <img className="cover-profile" src={user.imgcover} alt="profile picture" />
+        <article className="cover-profile">
+          <img className="imgcover-profile" src={user.avatar} alt="profile picture" />
+        </article>
         <article className="container-avatar">
           <img className="avatar-profile" src={user.avatar} alt="profile picture" />
           <button className="edit-avatar-profile" onClick={showForm}>

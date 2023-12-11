@@ -7,7 +7,7 @@ import Contacto from './pages/Contacto/Contacto.jsx'
 import Blog from './pages/Blog/Blog.jsx'
 import NotFound from './pages/NotFound/NotFound.jsx'
 import Accesibles from './pages/Accesibles/Accesibles.jsx'
-import TodosAccesibles from './pages/TodosAccesibles/TodosAccesibles.jsx'
+
 import Entornos from './pages/Entornos/Entornos.jsx'
 import Acuaticos from './pages/Acuaticos/Acuaticos.jsx'
 import Montaña from './pages/Montaña/Montaña.jsx'
@@ -36,7 +36,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/contacto' element={<Contacto />} />
             <Route path='/blog' element={<Blog />} />
             <Route path='/accesibles' element={<Accesibles />} />
-            <Route path='/todosaccesibles' element={<TodosAccesibles />} />
             <Route path='/login' element={<Login />} />
             <Route path='/editarusuarios' element={<Editarusuarios />} />
             <Route path='/profile' element={<Profile />} />

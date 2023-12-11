@@ -8,6 +8,7 @@
   padding: 20px 0 40px 0;
 }
 .portada-profile {
+  border: 2px solid blue;
   width: 100%;
   height: 420px;
   padding: 30px 30px 50px 30px;
@@ -17,11 +18,21 @@
   margin-bottom: 10px;
 }
 .cover-profile {
+  border: 2px solid red;
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  align-self: end;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.imgcover-profile {
+  border: 2px solid green;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
+  border-radius: 30px;
 }
 
 .cerrar-cambiaravatar img {
@@ -33,15 +44,7 @@
   border-radius: 50%;
   filter: invert(1);
 }
-.cerrar-cambiarimgcover img {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  filter: invert(1);
-}
+
 .container-avatar {
   position: absolute;
   bottom: 10px;
@@ -66,42 +69,12 @@
   animation: slidein 0.2s ease;
   transition: all 0.5s ease;
 }
-.formcover-cambiarimgcover {
-  position: absolute;
-  z-index: 10;
-  top: 350px;
-  height: 400px;
-  width: 650px;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.89);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  animation: slidein 0.2s ease;
-  transition: all 0.5s ease;
-}
+
 .inputcambiar-avatar {
   display: none;
 }
-.inputcambiar-imgcover {
-  display: none;
-}
+
 .label-cambiaravatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  color: black;
-  border-radius: 10px;
-  width: 100px;
-  border: none;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-}
-.label-cambiarimgcover {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,36 +111,10 @@
   font-family: "Poppins", sans-serif;
   font-size: 18px;
 }
-.actualizar-imgcover {
-  height: 40px;
-  width: 180px;
-  border-radius: 10px;
-  border: none;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-}
+
 .actualizar-avatar:active,
 .label-cambiaravatar:active {
   background-color: aqua;
-}
-.actualizar-imgcover:active,
-.label-cambiarimgcover:active {
-  background-color: aqua;
-}
-.edit-password {
-  height: 40px;
-  width: 180px;
-  border-radius: 10px;
-  border: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 18px;
-  color: black;
-}
-.edit-password:focus {
-  outline: none;
-  background-color: rgb(191, 255, 255);
 }
 .edit-cover-profile {
   position: absolute;
@@ -200,8 +147,7 @@
   filter: drop-shadow(0 0 10px black);
   transition: all 0.2s ease;
 }
-.edit-avatar-profile:hover,
-.edit-cover-profile:hover {
+.edit-avatar-profile:hover {
   scale: 108%;
 }
 .edit-avatar-profile img {
