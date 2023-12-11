@@ -47,10 +47,10 @@ const Editarusuarios = () => {
         body.append("rol", "user") :
         body.append("rol", "admin")
     }
-    body.append("avatar", usuario.avatar)
-    await API.patch(`/usuario/${usuario._id}`, body,
+    await API.patch(`/usuario/datos/${usuario._id}`, body,
     ).then((res) => {
       setNuevoUsuario(!nuevoUsuario)
+      console.log(hola)
     }).catch((error) => {
     });
   }

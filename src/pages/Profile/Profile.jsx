@@ -9,17 +9,12 @@ const Profile = () => {
   const [seccion, setSeccion] = useState(false);
   const { user, logout } = useContext(UserContext)
   const [form, setForm] = useState(false)
-  const [formImgCover, setFormImgCover] = useState(false)
   const [panelAdmin, setPanelAdmin] = useState(false)
   const avatarRef = useRef(null)
-  const imgcoverRef = useRef(null)
   const passwordRef = useRef(null)
 
   const showForm = () => {
     setForm(!form)
-  }
-  const showFormCover = () => {
-    setFormImgCover(!formImgCover)
   }
   const showPanelAdmin = () => {
     setPanelAdmin(!panelAdmin)
@@ -59,60 +54,11 @@ const Profile = () => {
     });
   }
 
-  const imgCoverUpdate = async (ev) => {
-    ev.preventDefault()
-    const body = new FormData();
-
-    body.append("imgcover", imgcoverRef.current.files[0])
-    await API.patch(`/usuario/${user.id}`, body, {
-      headers: { "Content-Type": "multipart/form-data" },
-    }).then(() => {
-      const loginBody = new FormData()
-
-      loginBody.append("username", user.username)
-      loginBody.append("password", passwordRef.current.value)
-
-      API.post("/usuario/login", loginBody).then((res) => {
-        login(
-          {
-            username: res.data.username,
-            avatar: res.data.avatar,
-            imgcover: res.data.imgcover,
-            id: res.data.id,
-            nombre: res.data.nombre,
-            email: res.data.email,
-            rol: res.data.rol,
-            about: res.data.about,
-            favoritos: res.data.favoritos,
-          },
-          res.data.token,
-        )
-      })
-    }).catch((error) => {
-    });
-  }
-
 
 
 
   return (
     <main className="main-profile">
-
-
-      <form onSubmit={imgCoverUpdate} className={formImgCover == false ? "formcover-inactive" : "formcover-cambiarimgcover"}>
-        <div className="cerrar-cambiarimgcover" onClick={showFormCover}><img src="/close.png" alt="" /></div>
-        <img className="img-label" src={user.imgcover} alt="" />
-        <article className="container-buttons">
-          <label htmlFor="cambiarimgcover" className="label-cambiarimgcover">Subir foto portada</label>
-
-          <input className="inputcambiar-avatar" type="file" id="cambiarimgcover" ref={imgcoverRef} />
-          <input className="edit-password" type="password" ref={passwordRef} placeholder="Password" required />
-          <div onClick={() => setFormImgCover(false)}>
-            <button type="submit" className="actualizar-avatar">Aceptar</button>
-          </div>
-
-        </article>
-      </form>
 
       <form onSubmit={avatarUpdate} className={form == false ? "form-inactive" : "form-cambiaravatar"}>
         <div className="cerrar-cambiaravatar" onClick={showForm}><img src="/close.png" alt="" /></div>
@@ -130,7 +76,7 @@ const Profile = () => {
       </form>
 
       <section className="portada-profile">
-        <button className="edit-cover-profile" onClick={showFormCover}><img src="/iconoeditar.png" alt="" /></button>
+        <button className="edit-cover-profile" ><img src="/iconoeditar.png" alt="" /></button>
         <img className="cover-profile" src={user.imgcover} alt="profile picture" />
         <article className="container-avatar">
           <img className="avatar-profile" src={user.avatar} alt="profile picture" />
