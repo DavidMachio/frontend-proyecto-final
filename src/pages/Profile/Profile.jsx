@@ -9,12 +9,17 @@ const Profile = () => {
   const [seccion, setSeccion] = useState(false);
   const { user, logout } = useContext(UserContext)
   const [form, setForm] = useState(false)
+  const [formImgCover, setFormImgCover] = useState(false)
   const [panelAdmin, setPanelAdmin] = useState(false)
   const avatarRef = useRef(null)
+  const imgcoverRef = useRef(null)
   const passwordRef = useRef(null)
 
   const showForm = () => {
     setForm(!form)
+  }
+  const showFormCover = () => {
+    setFormImgCover(!formImgCover)
   }
   const showPanelAdmin = () => {
     setPanelAdmin(!panelAdmin)
@@ -54,11 +59,60 @@ const Profile = () => {
     });
   }
 
+  const imgCoverUpdate = async (ev) => {
+    ev.preventDefault()
+    const body = new FormData();
+
+    body.append("imgcover", imgcoverRef.current.files[0])
+    await API.patch(`/usuario/${user.id}`, body, {
+      headers: { "Content-Type": "multipart/form-data" },
+    }).then(() => {
+      const loginBody = new FormData()
+
+      loginBody.append("username", user.username)
+      loginBody.append("password", passwordRef.current.value)
+
+      API.post("/usuario/login", loginBody).then((res) => {
+        login(
+          {
+            username: res.data.username,
+            avatar: res.data.avatar,
+            imgcover: res.data.imgcover,
+            id: res.data.id,
+            nombre: res.data.nombre,
+            email: res.data.email,
+            rol: res.data.rol,
+            about: res.data.about,
+            favoritos: res.data.favoritos,
+          },
+          res.data.token,
+        )
+      })
+    }).catch((error) => {
+    });
+  }
+
 
 
 
   return (
     <main className="main-profile">
+
+
+      <form onSubmit={imgCoverUpdate} className={formImgCover == false ? "formcover-inactive" : "formcover-cambiarimgcover"}>
+        <div className="cerrar-cambiarimgcover" onClick={showFormCover}><img src="/close.png" alt="" /></div>
+        <img className="img-label" src={user.imgcover} alt="" />
+        <article className="container-buttons">
+          <label htmlFor="cambiarimgcover" className="label-cambiarimgcover">Subir foto portada</label>
+
+          <input className="inputcambiar-avatar" type="file" id="cambiarimgcover" ref={imgcoverRef} />
+          <input className="edit-password" type="password" ref={passwordRef} placeholder="Password" required />
+          <div onClick={() => setFormImgCover(false)}>
+            <button type="submit" className="actualizar-avatar">Aceptar</button>
+          </div>
+
+        </article>
+      </form>
 
       <form onSubmit={avatarUpdate} className={form == false ? "form-inactive" : "form-cambiaravatar"}>
         <div className="cerrar-cambiaravatar" onClick={showForm}><img src="/close.png" alt="" /></div>
@@ -76,8 +130,8 @@ const Profile = () => {
       </form>
 
       <section className="portada-profile">
-        <button className="edit-cover-profile" ><img src="/iconoeditar.png" alt="" /></button>
-        <img className="cover-profile" src={user.avatar} alt="profile picture" />
+        <button className="edit-cover-profile" onClick={showFormCover}><img src="/iconoeditar.png" alt="" /></button>
+        <img className="cover-profile" src={user.imgcover} alt="profile picture" />
         <article className="container-avatar">
           <img className="avatar-profile" src={user.avatar} alt="profile picture" />
           <button className="edit-avatar-profile" onClick={showForm}>
@@ -90,10 +144,18 @@ const Profile = () => {
         {user.rol == "admin" ?
           <section className="admin-style">
             <h3 className="work-profile">
-              {user.rol === "admin" ? "Administrador de Campcesible" : ""}
+              Administrador de Campcesible
             </h3>
             <button onClick={() => showPanelAdmin()} className="morebtn administrador">Panel de administrador</button>
           </section> : ""}
+        {user.bloqueado == true ?
+          <section className="admin-style">
+            <h3 className="work-profile">
+              Vete a pastar
+            </h3>
+          </section> : ""}
+        {console.log(user)}
+
         <article className="container-paneladmin">
           {panelAdmin == true ?
             <section className="seccion-administrar">
@@ -137,8 +199,7 @@ const Profile = () => {
             <h4>Provincia</h4>
           </article>
         )}
-        <h2>link a publico</h2>
-        <NavLink to={`/profile/public/${user.id}`}>aqui !!!</NavLink>
+
       </section>
 
 
