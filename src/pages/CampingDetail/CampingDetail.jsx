@@ -2,8 +2,10 @@ import "./CampingDetail.css"
 import { useParams } from "react-router-dom"
 import { useState, useEffect, useContext, useRef } from "react"
 import API from "../../API/API"
+import { NavLink } from "react-router-dom"
 
 import { UserContext } from "../../context/userContext"
+import BannerSuscribir from "../../components/BannerSuscribir/BannerSuscribir"
 
 
 const CampingDetail = () => {
@@ -22,6 +24,7 @@ const CampingDetail = () => {
   const [valoracion, setValoracion] = useState()
   const [newComentarios, setNewComentarios] = useState()
   const [comentar, setComentar] = useState(false)
+  const [suscribirse, setSuscribirse] = useState(false)
 
   const [seccion, setSeccion] = useState("Instalaciones")
   const instalaciones = () => {
@@ -42,6 +45,10 @@ const CampingDetail = () => {
   const showComentar = () => {
     setComentar(!comentar)
   }
+  const showSuscribirse = () => {
+    setSuscribirse(!suscribirse)
+  }
+
   const printValoracion = () => {
     if (camping.puntuacion == 1) {
       setValoracion("⭐️")
@@ -77,6 +84,8 @@ const CampingDetail = () => {
 
       API.put("/campings/addcom", addcomment)
     })
+    setComentar(false)
+
   }
   const handleDelete = async (id) => {
     console.log("eliminando comentario")
@@ -170,8 +179,15 @@ const CampingDetail = () => {
             {seccion == "Comentarios" ? (
               <section className="seccion-comentarios">
 
-                <h2>Danos tu opinión sobre este camping</h2>
-                <button onClick={showComentar} className="agregar-comentario">Comentar</button>
+                {newComentarios.length == 0 ? <h2>Se el primero en dejar un comentario</h2> :
+                  <h2>Danos tu opinión sobre este camping</h2>}
+                <button onClick={user !== null ? showComentar :
+                  showSuscribirse} className="agregar-comentario">Comentar</button>
+                <section>
+                  {suscribirse == true ?
+                    <BannerSuscribir funcion={() => setSuscribirse(false)} titulo={"¿Quieres dejar tu comentario?"} mensaje={"Tus opiniones son importantes"} imagen={"/gif_caravana.gif"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
+                    : ""}
+                </section>
                 <section>
                   {comentar == true ?
                     <section className="container-formcomentario">
@@ -189,20 +205,20 @@ const CampingDetail = () => {
                         </section>
 
                         <textarea type="text" placeholder="texto(maximo 50 caracteres)" ref={comentRef} maxLength="50" required />
+
                         <button type="submit" className="boton-enviar">enviar</button>
+
                       </form>
                     </section> :
                     ""}
                 </section>
-                {/*Datos que se pueden tocar
-                maquetar comentario */}
                 <section className="container-seccion-comentarios">
                   <section className="container-comentarios">
                     {newComentarios.map((com) => (
                       <article className="card-post" key={com._id}>
                         <div className="head-post">
-
-                          <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
+                          <NavLink to={`/profile/public/${user.id}`}>
+                            <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" /></NavLink>
                           <h4>{com.user}</h4>
                           {user.rol == "admin" ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
                             ""}
@@ -213,7 +229,6 @@ const CampingDetail = () => {
                     ))}
                   </section>
                 </section>
-                {/*Datos que se pueden tocar */}
               </section>
             ) : ""}
             {seccion == "Contacto" ? (
@@ -227,7 +242,10 @@ const CampingDetail = () => {
             ) : ""}
           </section>
 
-        </section> : <h2>loading</h2>
+        </section> :
+        <div className="loading">
+          <img className="gif" src="/gif_caravana.gif" />
+        </div>
       }
 
     </main >

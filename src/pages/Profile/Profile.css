@@ -23,7 +23,17 @@
   align-self: end;
   object-fit: cover;
 }
+
 .cerrar-cambiaravatar img {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  filter: invert(1);
+}
+.cerrar-cambiarimgcover img {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -36,14 +46,31 @@
   position: absolute;
   bottom: 10px;
 }
-.form-inactive {
+.form-inactive,
+.formcover-inactive {
   display: none;
 }
 .form-cambiaravatar {
   position: absolute;
   z-index: 10;
   top: 350px;
-  height: 300px;
+  height: 400px;
+  width: 650px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.89);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: slidein 0.2s ease;
+  transition: all 0.5s ease;
+}
+.formcover-cambiarimgcover {
+  position: absolute;
+  z-index: 10;
+  top: 350px;
+  height: 400px;
   width: 650px;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.89);
@@ -58,7 +85,23 @@
 .inputcambiar-avatar {
   display: none;
 }
+.inputcambiar-imgcover {
+  display: none;
+}
 .label-cambiaravatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 100px;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+.label-cambiarimgcover {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,8 +138,21 @@
   font-family: "Poppins", sans-serif;
   font-size: 18px;
 }
+.actualizar-imgcover {
+  height: 40px;
+  width: 180px;
+  border-radius: 10px;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
 .actualizar-avatar:active,
 .label-cambiaravatar:active {
+  background-color: aqua;
+}
+.actualizar-imgcover:active,
+.label-cambiarimgcover:active {
   background-color: aqua;
 }
 .edit-password {
@@ -128,6 +184,7 @@
   filter: drop-shadow(0 0 10px black);
   transition: all 0.2s ease;
 }
+
 .edit-avatar-profile {
   position: absolute;
   display: flex;

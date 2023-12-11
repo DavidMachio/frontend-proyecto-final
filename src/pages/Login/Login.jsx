@@ -39,8 +39,10 @@ const Login = () => {
             API.post('/usuario/login', body).then((res) => {
                 login(
                     {
+                        bloqueado: res.data.bloqueado,
                         username: res.data.username,
                         avatar: res.data.avatar,
+                        imgcover: res.data.imgcover,
                         id: res.data.id,
                         nombre: res.data.nombre,
                         email: res.data.email,
@@ -63,8 +65,10 @@ const Login = () => {
                 API.post("/usuario/login", loginBody).then((res) => {
                     login(
                         {
+                            bloqueado: res.data.bloqueado,
                             username: res.data.username,
                             avatar: res.data.avatar,
+                            imgcover: res.data.imgcover,
                             id: res.data.id,
                             nombre: res.data.nombre,
                             email: res.data.email,
