@@ -71,6 +71,7 @@
   width: 100%;
   height: 70px;
   outline-style: none;
+  resize: none;
 }
 .form-contacto .enviar {
   border: 1px solid;

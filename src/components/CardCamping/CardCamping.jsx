@@ -12,6 +12,7 @@ const CardCamping = ({ data, entorno }) => {
   const [star, setStar] = useState(false)
   const { user, userData, saveUserData } = useContext(UserContext)
   const [suscribirse, setSuscribirse] = useState(false)
+  const [usuarioBloqueado, setUsuarioBloqueado] = useState(false)
 
 
   const addFavorito = async () => {
@@ -29,6 +30,10 @@ const CardCamping = ({ data, entorno }) => {
   }
   const showAddFav = () => {
     setSuscribirse(!suscribirse)
+  }
+
+  const showUsuarioBloqueado = () => {
+    setUsuarioBloqueado(!usuarioBloqueado)
   }
 
   const removeFavorito = async () => {
@@ -69,14 +74,22 @@ const CardCamping = ({ data, entorno }) => {
   return (
 
     <article className="cardcamping">
-      
-        {suscribirse == true ?
+
+      {suscribirse == true ?
         <section className="bannercrearfav">
           <BannerFavoritos funcion={() => setSuscribirse(false)} titulo={"Crea tu propia lista"} imagen={"https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
-          </section>
-          : ""}
-      
-      <NavLink className="navlinkfav" onClick={user !== null ? (star == false ? addFavorito : removeFavorito) : showAddFav} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+        </section>
+        : ""}
+
+
+      {usuarioBloqueado == true ?
+        <section className="bannercrearfav">
+          <BannerFavoritos funcion={() => setUsuarioBloqueado(false)} titulo={"Uppsss..."} imagen={"https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} mensaje={"Tu cuenta esta bloqueada"} segundomensaje={"Contacta para más información"} link={"/contacto"} accion={"contactar"} />
+        </section>
+        : ""}
+
+
+      <NavLink className="navlinkfav" onClick={user !== null && user.bloqueado == true ? showUsuarioBloqueado : user !== null ? (star == false ? addFavorito : removeFavorito) : showAddFav} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
       </NavLink>
       <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">
