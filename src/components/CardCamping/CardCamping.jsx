@@ -69,11 +69,13 @@ const CardCamping = ({ data, entorno }) => {
   return (
 
     <article className="cardcamping">
-      <section className="bannercrearfav">
+      
         {suscribirse == true ?
+        <section className="bannercrearfav">
           <BannerFavoritos funcion={() => setSuscribirse(false)} titulo={"Crea tu propia lista"} imagen={"https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
+          </section>
           : ""}
-      </section>
+      
       <NavLink className="navlinkfav" onClick={user !== null ? (star == false ? addFavorito : removeFavorito) : showAddFav} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
       </NavLink>
       <NavLink to={`/campings/name/${data.nombre}`}>

@@ -20,7 +20,7 @@ const Profile = () => {
     setForm(!form)
   }
   const showAboutForm = () => {
-    setAboutForm(!form)
+    setAboutForm(!aboutForm)
   }
   const showPanelAdmin = () => {
     setPanelAdmin(!panelAdmin)
@@ -36,19 +36,20 @@ const Profile = () => {
       headers: { "Content-Type": "multipart/form-data" },
     }).then(() => {
       API.get(`/usuario/${user.id}`).then((res) => {
-        console.log("llega aqui")
         saveUserData(res)
       })
     }).catch((error) => {
     });
   }
+
   const aboutSubmit = (ev) => {
     ev.preventDefault()
 
-    const body = new FormData()
-    body.append("about", aboutRef.current.value)
+    const aboutbody = new FormData()
+    aboutbody.append("about", aboutRef.current.value)
+    aboutbody.append("rol", userData.data.rol)
 
-    API.patch(`/usuario/datos/${user.id}`, body).then((res) => {
+    API.patch(`/usuario/datos/${user.id}`, aboutbody).then((res) => {
       API.get(`/usuario/${user.id}`).then((res) => {
         saveUserData(res)
       })
@@ -87,7 +88,7 @@ const Profile = () => {
       </section>
       <section className="data">
         <h2 className="name-profile">{userData.data.username}</h2>
-        {userData.data.rol == "admin" ?
+        {userData !== null && userData.data.rol == "admin" ?
           <section className="admin-style">
             <h3 className="work-profile">
               Administrador de Campcesible
@@ -128,7 +129,7 @@ const Profile = () => {
           <button className="boton-editabout" onClick={showAboutForm}><img className="imgedit-about" src="/iconoeditar.png" alt="" /></button>
           <h6>About</h6>
         </section>
-        <p className="text-about">{userData.data.about == "" ? "Cuéntanos algo sobre ti" : userData.data.about}</p>
+        <p className="text-about">{userData.data.about !== "" ? userData.data.about : "Cuéntanos algo sobre ti" }</p>
       </article>
       <nav className="nav-info-profile">
         <h2>Favoritos</h2>
