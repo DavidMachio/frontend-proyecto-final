@@ -5,16 +5,22 @@ import { NavLink } from "react-router-dom";
 import API from "../../API/API";
 import CardCamping from "../../components/CardCamping/CardCamping";
 
+
 const Profile = () => {
 
 
   const { user, logout, userData, saveUserData } = useContext(UserContext)
   const [form, setForm] = useState(false)
   const [panelAdmin, setPanelAdmin] = useState(false)
+  const [aboutForm, setAboutForm] = useState(false)
   const avatarRef = useRef(null)
+  const aboutRef = useRef(null)
 
   const showForm = () => {
     setForm(!form)
+  }
+  const showAboutForm = () => {
+    setAboutForm(!form)
   }
   const showPanelAdmin = () => {
     setPanelAdmin(!panelAdmin)
@@ -35,6 +41,19 @@ const Profile = () => {
       })
     }).catch((error) => {
     });
+  }
+  const aboutSubmit = (ev) => {
+    ev.preventDefault()
+
+    const body = new FormData()
+    body.append("about", aboutRef.current.value)
+
+    API.patch(`/usuario/datos/${user.id}`, body).then((res) => {
+      API.get(`/usuario/${user.id}`).then((res) => {
+        saveUserData(res)
+      })
+    })
+
   }
 
 
@@ -98,12 +117,18 @@ const Profile = () => {
         <button className="morebtn logout" onClick={logout} >Logout</button>
 
       </section>
+      <form onSubmit={aboutSubmit} className={aboutForm == false ? "aboutform-inactive" : "aboutform-active"}>
+        <div className="cerrarabout" onClick={() => setAboutForm(false)}><img src="/close.png" alt="" /></div>
+        <h2>Solo existe una primera impresión</h2>
+        <textarea type="text" placeholder="about you" ref={aboutRef} maxLength="150" required />
+        <button type="submit" className="boton-enviar" onClick={() => setAboutForm(false)}>enviar</button>
+      </form>
       <article className="about">
-        <section>
-          <button>edit</button>
+        <section className="title-about">
+          <button className="boton-editabout" onClick={showAboutForm}><img className="imgedit-about" src="/iconoeditar.png" alt="" /></button>
           <h6>About</h6>
         </section>
-        <p className="text-about">{userData.data.about}Cuénta algo sobre ti</p>
+        <p className="text-about">{userData.data.about == "" ? "Cuéntanos algo sobre ti" : userData.data.about}</p>
       </article>
       <nav className="nav-info-profile">
         <h2>Favoritos</h2>
