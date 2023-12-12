@@ -87,6 +87,8 @@ const CampingDetail = () => {
     setComentar(false)
 
   }
+
+
   const handleDelete = async (id) => {
     console.log("eliminando comentario")
     await API.delete(`/comentarios/${id}`)
