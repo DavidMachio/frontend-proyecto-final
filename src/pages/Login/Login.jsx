@@ -11,6 +11,11 @@ const Login = () => {
     
 
     const [registerPage, setRegisterPage] = useState(false)
+
+    const [cargando, setCargando] =useState(false)
+
+
+
     const Setpage = () => {
         setRegisterPage(!registerPage)
     }
@@ -28,8 +33,10 @@ const Login = () => {
 
 
     const handleSubmit = (ev) => {
-
+        setCargando(true)
         ev.preventDefault();
+        const us = usernameRef.current.value
+        const pass = passwordRef.current.value
 
         const body = new FormData()
         body.append('username', usernameRef.current.value)
@@ -64,16 +71,22 @@ const Login = () => {
                     console.log("llega aqui")
                     saveUserData(res)
                     navigate("/profile")
+                }).catch((error) => {
+                    setCargando(false)
+                    alert(error)
                 })
-            })
+            }).catch((error) => {
+                setCargando(false)
+                alert("USUARIO NO VALIDO")
+            });
         } else {
             API.post("/usuario", body, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(() => {
                 const loginBody = new FormData()
 
-                loginBody.append("username", usernameRef.current.value)
-                loginBody.append("password", passwordRef.current.value)
+                loginBody.append("username", us)
+                loginBody.append("password", pass)
 
                 API.post("/usuario/login", loginBody).then((res) => {
                     login(
@@ -91,7 +104,19 @@ const Login = () => {
                         },
                         res.data.token,
                     )
+
+                    API.get(`/usuario/${res.data.id}`).then((res) => {
+                        console.log("llega aqui")
+                        saveUserData(res)
+                        navigate("/profile")
+                    })
+                }).catch((error) => {
+                    setCargando(false)
+                    alert(error)
                 })
+            }).catch((error) => {
+                setCargando(false)
+                alert(error)
             })
         }
 
@@ -104,6 +129,8 @@ const Login = () => {
         <main className="forms">
             {registerPage == false ? (
                 <section className={`boxform formday formnight`}>
+                    {cargando == false ?
+                    <>
                     <h2 className="logname">Welcome back!</h2>
                     <form className="formsection" onSubmit={handleSubmit}>
                         <input className={`inputday inputnight`} type="text" placeholder="Username" id="username" minLength={4} required ref={usernameRef} />
@@ -113,9 +140,18 @@ const Login = () => {
                     <article className="orsect"><div className={`line linenight`}></div><span className="ortext">or</span>
                         <div className={`line linenight`}></div></article>
                     <p className="regline">Don´t have an account yet?</p><span onClick={Setpage} className="linked"  >Sign up!</span>
+                    </>
+                    :
+                    <div className="container-gif">
+                        <img className="gif" src="/gif_caravana.gif" />
+                    </div>
+                    }
+                    
                 </section>)
                 :
                 (<section className={`boxform formday formnight`}>
+                    {cargando == false ?
+                    <>
                     <h2 className="regname">Create your account!</h2>
                     <form className="formsection" onSubmit={handleSubmit} >
                         <input className={`inputday inputnight`} type="text" placeholder="name" minLength={5} ref={nombreRef} />
@@ -132,6 +168,13 @@ const Login = () => {
                         <div className={`line linenight`}></div></article>
                     <p className="regline">You have an account ?</p>
                     <span onClick={Setpage} className="linked" >Login up!</span>
+                    </>
+                    :
+                    <div className="container-gif">
+                        <img className="gif" src="/gif_caravana.gif" />
+                    </div>
+                    }
+                    
                 </section>)
             }
         </main>

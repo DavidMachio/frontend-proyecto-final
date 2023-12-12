@@ -1,9 +1,14 @@
 import "./Editarusuarios.css"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useContext } from "react"
 import API from "../../API/API"
+import { UserContext } from "../../context/userContext"
+
 
 
 const Editarusuarios = () => {
+
+  const { user, userData, saveUserData } = useContext(UserContext)
+
   const nombreValue = useRef(null)
   const usernameValue = useRef(null)
   const emailValue = useRef(null)
@@ -26,7 +31,6 @@ const Editarusuarios = () => {
     body.append("username", usernameValue.current.value)
     body.append("email", emailValue.current.value)
     body.append("password", passwordValue.current.value)
-
     await API.post("/usuario", body, {
       headers: { "Content-Type": "multipart/form-data" },
     }).then((res) => {
@@ -47,12 +51,20 @@ const Editarusuarios = () => {
         body.append("rol", "user") :
         body.append("rol", "admin")
     }
+
     await API.patch(`/usuario/datos/${usuario._id}`, body,
     ).then((res) => {
       setNuevoUsuario(!nuevoUsuario)
       console.log(hola)
     }).catch((error) => {
     });
+
+    if( usuario._id == user.id ) {
+      API.get(`/usuario/${user.id}`).then((res) => {
+        saveUserData(res)
+      })
+    }
+
   }
   const handleBloquear = async (id, bloqueado) => {
     const body = new FormData();

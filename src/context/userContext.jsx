@@ -38,7 +38,9 @@ export const UserContextProvider = ({ children }) => {
     const logout = () => {
         localStorage.removeItem("user")
         localStorage.removeItem("token")
+        localStorage.removeItem("userData")
         setUser(null)
+        setUserData(null)
         setToken(null)
         navigate("/")
     }
