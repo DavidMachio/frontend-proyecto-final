@@ -3,16 +3,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 1900px;
+  width: 100%;
   height: auto;
   animation: 1.5s slidein ease;
   margin: 20px 0;
+  flex-grow: 1;
 }
 .card-category {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 100%;
   height: auto;
 }
@@ -34,7 +36,7 @@
   text-shadow: 0 0 20px var(--shadow);
   display: flex;
   flex-direction: column;
-  font-size: 4vw;
+  font-size: 250%;
   text-transform: uppercase;
 }
 .card-category-city {
@@ -60,7 +62,7 @@
   align-items: center;
   text-align: center;
   padding: 10px 10px;
-  width: 70%;
+  width: 85%;
   height: auto;
   max-height: 300px;
 }
