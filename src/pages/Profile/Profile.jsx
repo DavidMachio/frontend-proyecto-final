@@ -97,8 +97,11 @@ const Profile = () => {
           </section> : ""}
         {userData.data.bloqueado == true ?
           <section className="admin-style">
+            <h3 className="work-profile userbloqueado">
+              Usuario bloqueado
+            </h3>
             <h3 className="work-profile">
-              Vete a pastar
+              Contacta con nosotros para más informacion
             </h3>
           </section> : ""}
 
@@ -129,19 +132,28 @@ const Profile = () => {
           <button className="boton-editabout" onClick={showAboutForm}><img className="imgedit-about" src="/iconoeditar.png" alt="" /></button>
           <h6>About</h6>
         </section>
-        <p className="text-about">{userData.data.about !== "" ? userData.data.about : "Cuéntanos algo sobre ti" }</p>
+        <p className="text-about">{userData.data.about !== "" ? userData.data.about : "Cuéntanos algo sobre ti"}</p>
       </article>
       <nav className="nav-info-profile">
         <h2>Favoritos</h2>
       </nav>
 
-      <section className="post-favoritos">
-        <article className="container-cardcamping">
-          {userData.data.favoritos.map((fav) => (
-            <CardCamping key={fav._id} data={fav} entorno={true} />
-          ))}
-        </article>
-      </section>
+
+
+      {userData.data.favoritos.length <= 0 ?
+        <h2>Empieza a crear tu propia lista de favoritos</h2> :
+        <section className="post-favoritos">
+          <article className="container-favoritos">
+            {userData.data.favoritos.map((fav) => (
+              <article key={fav._id} className="container-card-favorito">
+                <CardCamping data={fav} entorno={true} />
+              </article>
+            ))}
+          </article>
+        </section>
+      }
+
+
 
 
     </main>

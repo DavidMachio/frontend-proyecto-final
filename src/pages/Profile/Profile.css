@@ -200,9 +200,9 @@
   filter: drop-shadow(0 0 10px black);
   transition: all 0.2s ease;
 }
-.edit-avatar-profile:hover,
-.edit-cover-profile:hover {
+.edit-avatar-profile:hover {
   scale: 108%;
+  rotate: -45deg;
 }
 .edit-avatar-profile img {
   height: 30px;
@@ -226,6 +226,10 @@
 .work-profile {
   font-weight: 300;
   opacity: 80%;
+}
+.userbloqueado {
+  color: rgb(186, 0, 0);
+  font-weight: 500;
 }
 .aboutform-active {
   position: absolute;
@@ -373,41 +377,21 @@
 }
 
 .post-favoritos {
-  display: flex;
-  justify-content: center;
-}
-
-.avatar-profile-post {
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.card-post {
-  width: 350px;
-  height: auto;
-  border: 1px solid;
-  border-radius: 5px;
-}
-.head-post {
-  display: flex;
-  align-items: end;
-  gap: 10px;
-  padding: 10px;
-}
-.foto-post {
+  padding: 20px 10px;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  overflow: hidden;
 }
-.title-post {
-  text-align: left;
-  padding: 0 10px;
+.container-favoritos {
+  padding: 20px 30px;
+  overflow: scroll;
+  display: flex;
+  gap: 20px;
+
+  border-radius: 20px;
+  box-shadow: inset 0 0 30px 1px rgba(0, 0, 0, 0.828);
 }
-.text-post {
-  text-align: left;
-  padding: 10px;
-  font-size: 12px;
+.container-card-favorito {
+  min-width: 350px;
 }
 
 .card-favorito {
@@ -417,10 +401,6 @@
   padding: 10px;
   border: 1px solid;
   border-radius: 10px;
-}
-.card-favorito img {
-  width: 100%;
-  height: 200px;
 }
 
 @media screen and (max-width: 700px) {

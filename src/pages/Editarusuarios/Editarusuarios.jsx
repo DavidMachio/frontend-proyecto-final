@@ -74,38 +74,6 @@ const Editarusuarios = () => {
 
   return (
     <main className="main-editarusuarios">
-      {usuarios !== null && cargado == true ?
-        <section className="cards-usuarios">
-          <h2>Usuarios existentes</h2>
-          {usuarios.map((usuario) => (
-            <article key={usuario._id} className={`${usuario.bloqueado == false ? "card-usuario desbloqueado" : "card-usuario bloqueado"}`}>
-              <div className="img-username">
-                <div className="user-dates">
-                  <img src={usuario.avatar} alt="" />
-                  <div>
-
-                    {usuario.rol === "admin" ?
-                      <h3>{usuario.rol}</h3> :
-                      ""}
-                    <h2>{usuario.nombre}</h2>
-                  </div>
-                </div>
-                <div className="buttons-settings">
-                  <button onClick={() => handleDelete(usuario._id)}>Eliminar</button>
-                  <button onClick={() => handleUpdate(usuario)}>{usuario.rol == "admin" ? "Usuario" : "Admin"}</button>
-                  <button onClick={() => handleBloquear(usuario._id, usuario.bloqueado)}>{usuario.bloqueado == true ? "Activar" : "Bloquear"}</button>
-                </div>
-
-              </div>
-              <h3>{usuario._id}</h3>
-            </article>
-          ))}
-        </section>
-        :
-        <div className="container-gif">
-          <img className="gif" src="/gif_caravana.gif" />
-        </div>
-      }
       <section className="formulario-crear">
         <h2>Crear un nuevo usuario</h2>
         <form onSubmit={handleSubmit}>
@@ -117,6 +85,44 @@ const Editarusuarios = () => {
 
         </form>
       </section>
+      {usuarios !== null && cargado == true ?
+        <section className="container-cardsusuarios">
+          <article className="titulousuarios">
+            <h2 >Usuarios registrados</h2>
+          </article>
+          <section className="cards-usuarios">
+
+            {usuarios.map((usuario) => (
+              <article key={usuario._id} className={`${usuario.bloqueado == false ? "card-usuario desbloqueado" : "card-usuario bloqueado"}`}>
+                <div className="img-username">
+                  <div className="user-dates">
+                    <img src={usuario.avatar} alt="" />
+                    <div>
+
+                      {usuario.rol === "admin" ?
+                        <h3>{usuario.rol}</h3> :
+                        ""}
+                      <h2>{usuario.nombre}</h2>
+                    </div>
+                  </div>
+                  <div className="buttons-settings">
+                    <button onClick={() => handleDelete(usuario._id)}>Eliminar</button>
+                    <button onClick={() => handleUpdate(usuario)}>{usuario.rol == "admin" ? "Usuario" : "Admin"}</button>
+                    <button onClick={() => handleBloquear(usuario._id, usuario.bloqueado)}>{usuario.bloqueado == true ? "Activar" : "Bloquear"}</button>
+                  </div>
+
+                </div>
+                <h3 className="user-id"><span>ID:</span> {usuario._id}</h3>
+              </article>
+            ))}
+          </section>
+        </section>
+        :
+        <div className="loading">
+          <img className="gif" src="/gif_caravana.gif" />
+        </div>
+      }
+
     </main>
   )
 }

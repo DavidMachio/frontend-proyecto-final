@@ -105,11 +105,11 @@ const Accesibles = () => {
         </section>
         :
         <>
-        <article className="container-cardcamping">
-              {accesibles.map((camping) => (
-                <CardCamping key={camping._id} data={camping} entorno={true} />
-              ))}
-            </article>
+          <article className="container-cardcamping">
+            {accesibles.map((camping) => (
+              <CardCamping key={camping._id} data={camping} entorno={true} />
+            ))}
+          </article>
         </>
       }
     </main>

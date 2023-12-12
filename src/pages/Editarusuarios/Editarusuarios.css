@@ -5,15 +5,36 @@
   min-height: calc(100vh - 70px - 50px);
   width: 100%;
 }
-.cards-usuarios {
-  color: var(--primary);
-  height: 70vh;
-  width: 50%;
+.titulousuarios {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  align-items: center;
   gap: 20px;
-  padding: 40px 70px;
+  text-align: center;
+}
+.container-cardsusuarios {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  min-height: calc(100vh - 70px - 50px);
+}
+.cards-usuarios {
+  color: var(--primary);
+  height: 444px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 35px;
+  padding: 10px;
+  position: relative;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 .card-usuario {
@@ -24,8 +45,14 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  min-width: 300px;
+  width: 100%;
   animation: slidein 1s ease;
+}
+.cards-usuarios h3 {
+  font-weight: 300;
+}
+.cards-usuarios h3 span {
+  font-weight: 500;
 }
 .bloqueado {
   background-color: red;
@@ -38,6 +65,9 @@
   display: flex;
   align-items: end;
   gap: 15px;
+}
+.user-dates h3 {
+  text-transform: capitalize;
 }
 .img-username {
   border-radius: 10px;
@@ -146,15 +176,37 @@
   width: 300px;
   height: auto;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 850px) {
   .main-editarusuarios {
     flex-direction: column;
     gap: 20px;
+  }
+  .container-cardsusuarios {
+    width: 90%;
   }
   .formulario-crear {
     width: 100%;
   }
   .cards-usuarios {
     width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .user-dates {
+    flex-direction: column;
+    align-items: center;
+  }
+  .user-dates img {
+    height: 50px;
+    width: 50px;
+  }
+  .user-dates h2 {
+    font-size: 18px;
+  }
+  .user-id {
+    font-size: 14px;
+  }
+  .user-id span {
+    display: none;
   }
 }

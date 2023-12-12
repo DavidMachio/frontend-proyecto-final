@@ -25,6 +25,7 @@ const CampingDetail = () => {
   const [newComentarios, setNewComentarios] = useState()
   const [comentar, setComentar] = useState(false)
   const [suscribirse, setSuscribirse] = useState(false)
+  const [usuarioBloqueado, setUsuarioBloqueado] = useState(false)
 
   const [seccion, setSeccion] = useState("Instalaciones")
   const instalaciones = () => {
@@ -47,6 +48,9 @@ const CampingDetail = () => {
   }
   const showSuscribirse = () => {
     setSuscribirse(!suscribirse)
+  }
+  const showUsuarioBloqueado = () => {
+    setUsuarioBloqueado(!usuarioBloqueado)
   }
 
   const printValoracion = () => {
@@ -183,12 +187,18 @@ const CampingDetail = () => {
 
                 {newComentarios.length == 0 ? <h2>Se el primero en dejar un comentario</h2> :
                   <h2>Danos tu opinión sobre este camping</h2>}
-                <button onClick={user !== null ? showComentar :
+                <button onClick={user !== null && user.bloqueado == true ? showUsuarioBloqueado : user !== null ? showComentar :
                   showSuscribirse} className="agregar-comentario">Comentar</button>
                 <section>
                   {suscribirse == true ?
                     <BannerSuscribir funcion={() => setSuscribirse(false)} titulo={"¿Quieres dejar tu comentario?"} mensaje={"Tus opiniones son importantes"} imagen={"/gif_caravana.gif"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
                     : ""}
+                </section>
+                <section>
+                  {usuarioBloqueado == true ?
+                    <BannerSuscribir funcion={() => setUsuarioBloqueado(false)} titulo={"Upppsss..."} mensaje={"Tu cuenta está bloqueada"} imagen={"/gif_caravana.gif"} segundomensaje={"contacta con nosotros para más información"} link={"/contacto"} accion={"Contactar"} />
+                    :
+                    ""}
                 </section>
                 <section>
                   {comentar == true ?
@@ -221,7 +231,7 @@ const CampingDetail = () => {
                         <div className="head-post">
                           <NavLink to={`/profile/public/${user.id}`}>
                             <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" /></NavLink>
-                            <NavLink to={`/profile/public/${user.id}`}><h4>{com.user}</h4></NavLink>
+                          <NavLink to={`/profile/public/${user.id}`}><h4>{com.user}</h4></NavLink>
                           {user.rol == "admin" ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
                             ""}
                         </div>
