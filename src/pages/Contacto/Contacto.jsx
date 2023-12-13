@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./Contacto.css"
 
 const Contacto = () => {
+
+  const [send, setSend] = useState(false)
+
   return (
     <main className="main-contacto">
       <section className="form-container-contacto">
@@ -10,11 +14,12 @@ const Contacto = () => {
           <input type="email" name="email" placeholder="Email" />
           <input type="text" name="Asunto" placeholder="Asunto" />
           <textarea name="Comentario" placeholder="Cuentanos algo..."></textarea>
-          <input type="submit" value="Enviar" className="enviar" />
+          <input type="submit" value="Enviar" className="enviar" onClick={() => setSend(true)}/>
           <input type="hidden" name="_next" value="http://localhost:5173/gracias" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_autoresponse" value="Tu mensaje ha sido recibido correctamente, muchas gracias por contactar con nosotros "></input>
         </form>
+        {send == true && <h3>Enviando ....</h3>}
 
       </section>
       <section className="datos">

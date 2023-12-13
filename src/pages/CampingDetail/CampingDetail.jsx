@@ -229,9 +229,9 @@ const CampingDetail = () => {
                     {newComentarios.map((com) => (
                       <article className="card-post" key={com._id}>
                         <div className="head-post">
-                          <NavLink to={`/profile/public/${user.id}`}>
+                          <NavLink to={`/profile/public/${com.userID}`}>
                             <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" /></NavLink>
-                          <NavLink to={`/profile/public/${user.id}`}><h4>{com.user}</h4></NavLink>
+                          <NavLink to={`/profile/public/${com.userID}`}><h4>{com.user}</h4></NavLink>
                           {user.rol == "admin" ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
                             ""}
                         </div>
