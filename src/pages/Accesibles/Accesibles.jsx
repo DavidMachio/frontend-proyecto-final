@@ -17,6 +17,9 @@ const Accesibles = () => {
 
   const [showAll, setShowAll] = useState(true)
   const [selected, setSelected] = useState([])
+  const [verTodos, setVerTodos] = useState(false)
+
+
 
   const cargando = async () => {
     try {
@@ -29,6 +32,7 @@ const Accesibles = () => {
   }
 
   const filtrar = (tipo) => {
+    setVerTodos(true)
     if (tipo == "Visual") {
       setSelected(accesibles.filter((camp) => camp.type.visual.adaptado === true))
       setShowAll(false)
@@ -57,9 +61,11 @@ const Accesibles = () => {
     <main className="main-accesibles">
       <Titulo texto={"Campings accesibles"} />
       <Subtitulo subtitulo={"Más de 500 campings catalogados por tipo de accesibilad, para que puedas elegir el que más se adapte a tus necesidades."} />
-      <div className="todos" onClick={() => setShowAll(true)}> boton de todos</div>
+      {verTodos == true && <article className="container-todos">
+        <div className="todos" onClick={() => setShowAll(true)}>
+          Ver todos</div>
+      </article>}
       {cargado == true ?
-
         <article className="entorno-carrousel">
           {accesibilidad.map((accesible) =>
             <article className="article-cardtipo" key={accesible.tipo}>
@@ -86,6 +92,7 @@ const Accesibles = () => {
           {showAll == true
             ?
             <article className="container-cardcamping">
+
               {accesibles.map((camping) => (
                 <CardCamping key={camping._id} data={camping} entorno={true} />
               ))}
