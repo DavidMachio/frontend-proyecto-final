@@ -249,7 +249,7 @@ const CampingDetail = () => {
                 <h3><span>Teléfono:</span> {camping.contacto.telefono}</h3>
                 <h3><span>Website:</span> {camping.contacto.website.replace("https://", "")}</h3>
                 <h3><span>Dirección:</span> {camping.contacto.direccion}, {camping.ciudad} ({camping.provincia})</h3>
-                <iframe src="https://maps.app.goo.gl/be3wjdJSToZdtmSJ7"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12152.791921604676!2d-3.6979188!3d40.4044647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227a18e1cbd83%3A0xace4a528a0e507e1!2sPor%20Talento%20Digital!5e0!3m2!1ses!2ses!4v1702426243449!5m2!1ses!2ses"  ></iframe>
               </section>
             ) : ""}
           </section>
