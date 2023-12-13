@@ -124,7 +124,7 @@ const Profile = () => {
       <form onSubmit={aboutSubmit} className={aboutForm == false ? "aboutform-inactive" : "aboutform-active"}>
         <div className="cerrarabout" onClick={() => setAboutForm(false)}><img src="/close.png" alt="" /></div>
         <h2>Solo existe una primera impresión</h2>
-        <textarea type="text" placeholder="about you" ref={aboutRef} maxLength="150" required />
+        <textarea className="abouttextarea" type="text" placeholder="about you" ref={aboutRef} maxLength="150" required />
         <button type="submit" className="boton-enviar" onClick={() => setAboutForm(false)}>enviar</button>
       </form>
       <article className="about">
