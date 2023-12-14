@@ -61,6 +61,22 @@ p {
     scale: 100%;
   }
 }
+@keyframes popup {
+  0% {
+    opacity: 100%;
+    scale: 88%;
+  }
+
+  75% {
+    scale: 110%;
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 100%;
+    scale: 100%;
+  }
+}
 .loading {
   display: flex;
   flex-direction: column;

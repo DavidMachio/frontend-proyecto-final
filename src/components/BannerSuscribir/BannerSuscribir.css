@@ -29,7 +29,7 @@
   align-items: center;
   padding: 10px;
   gap: 20px;
-  animation: slidein 0.5s ease;
+  animation: popup 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .container-bannersuscribir > {
   color: white;

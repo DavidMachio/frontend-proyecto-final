@@ -74,7 +74,7 @@
   width: 100%;
   overflow: scroll;
   display: flex;
-  padding: 0 30px;
+
   gap: 20px;
   animation: 0.5s slidein ease;
 }
