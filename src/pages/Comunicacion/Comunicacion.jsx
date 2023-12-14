@@ -21,11 +21,13 @@ const Comunicacion = () => {
   const [dataDescription, setDataDescription] = useState()
   const [sending, setSending] = useState(false)
 
-  const showRevisar = () => {
+  const showRevisar = (_id) => {
     setRevisar(!revisar)
+    setConfirmar(false)
   }
-  const showConfirmar = () => {
+  const showConfirmar = (_id) => {
     setConfirmar(!confirmar)
+    setRevisar(false)
   }
 
   const showDescripcion = (data) => {
@@ -35,7 +37,6 @@ const Comunicacion = () => {
 
   const commentSubmit = async (ev) => {
     setSending(true)
-    ev.preventDefault()
 
     const body = new FormData()
     body.append("imgusuario", userData.data.avatar)
@@ -50,7 +51,7 @@ const Comunicacion = () => {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
       .then(() => { setAllpost(!allpost) })
-      setSending(false)
+    setSending(false)
   }
 
   const getData = () => {
@@ -97,58 +98,57 @@ const Comunicacion = () => {
           {sending == true && <h3>Enviando ...</h3>}
         </form>
       </section>
-      <section className="seccion-list-tareas">
-        {cargado==false ? <>
-        
+      <section className="contenedor-list-tareas">
+        {cargado == false ? <>
+
         </>
-        :
-        <>
-        {tareas.length <= 0 ? <div className="loading">
-          No hay tareas
-        </div> :
+          :
           <>
-          
-            {tareas.map((tarea) => (
+            {tareas.length <= 0 ? <div className="loading">
+              No hay tareas
+            </div> :
+              <section className="seccion-list-tareas">
 
-              <article className="card-tarea" key={tarea.titulo}>
-                <section className={revisar == true ? " head-card-tarea revisar" : confirmar ? " head-card-tarea confirmar" : "head-card-tarea"}>
-                  <section className="datos-usertarea">
-                    <section className="userdates-tarea">
-                      <img src={tarea.imgusuario} alt="Imagen de perfil" />
+                {tareas.map((tarea) => (
 
-                      <section>
-                        <h2 className="user-tarea">{tarea.nombreusuario}</h2>
+                  <article className="card-tarea" key={tarea._id}>
+                    <section className={revisar == true ? " head-card-tarea revisar" : confirmar ? " head-card-tarea confirmar" : "head-card-tarea"}>
+                      <section className="datos-usertarea">
+                        <section className="userdates-tarea">
+                          <img src={tarea.imgusuario} alt="Imagen de perfil" />
 
-                        <section className="container-titulo-tarea">
-                          <button onClick={() => showDescripcion(tarea)} className="boton-descripcion-tarea">⬇️</button>
-                          <h2 className="titulo-tarea">{tarea.titulo}</h2>
+                          <section>
+                            <h2 className="user-tarea">{tarea.nombreusuario}</h2>
+
+                            <section className="container-titulo-tarea">
+                              <button onClick={() => showDescripcion(tarea)} className="boton-descripcion-tarea">⬇️</button>
+                              <h2 className="titulo-tarea">{tarea.titulo}</h2>
+                            </section>
+                          </section>
                         </section>
+
+                      </section>
+                      <section className="botones-tarea">
+                        <button onClick={() => handleDelete(tarea._id)}>Eliminar</button>
                       </section>
                     </section>
 
-                  </section>
-                  <section className="botones-tarea">
-                    <button onClick={showRevisar}>Revisar</button>
-                    <button onClick={showConfirmar}>Confirmar</button>
-                    <button onClick={() => handleDelete(tarea._id)}>Eliminar</button>
-                  </section>
-                </section>
-                
 
-              </article>
-            ))}
-            {descripcion == false ?  "" : <section className="container-descripcion-tarea">
+                  </article>
+                ))}
+                {descripcion == false ? "" : <section className="container-descripcion-tarea" onClick={() => showDescripcion(false)}>
+
                   <article className="datos-descripcion-tarea">
                     <h2 className="descripcion-tarea">{dataDescription.descripcion}</h2>
                     <img className="img-tarea" src={dataDescription.imgcomment} alt="" />
                   </article>
-                </section> 
+                </section>
                 }
-            
-          </>
-        }
-        </>}
-        
+
+              </section>
+            }
+          </>}
+
       </section>
 
 

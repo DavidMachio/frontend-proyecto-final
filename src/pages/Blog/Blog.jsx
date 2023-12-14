@@ -2,20 +2,25 @@ import { UserContext } from "../../context/userContext";
 import { useContext, useEffect, useState, useRef } from "react";
 import API from "../../API/API"
 import "./Blog.css"
+import Titulo from "../../components/Titulo/Titulo"
+import Subtitulo from "../../components/Subtitulo/Subtitulo"
 
 
 
 const Blog = () => {
 
-  const { userData } = useContext(UserContext)
+  const { userData, user } = useContext(UserContext)
   const comentarioRef = useRef(null)
   const imgRef = useRef(null)
   const [publicaciones, setPublicaciones] = useState([])
   const [cargado, setCargado] = useState(false)
   const [allpost, setAllpost] = useState(false)
+  const [formulario, setFormulario] = useState(false)
+
 
   const postSubmit = async (ev) => {
 
+    ev.preventDefault()
 
     const body = new FormData()
     body.append("comentario", comentarioRef.current.value)
@@ -28,6 +33,8 @@ const Blog = () => {
     await API.post("/blogcom/", body, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }).then(() => { setAllpost(!allpost) })
+
+    setFormulario(false)
 
   }
 
@@ -52,32 +59,41 @@ const Blog = () => {
   }, [allpost])
 
   return (
-    <main>
+    <main className="main-blog">
 
-      <section className="seccion-form-post">
-        <form className="formulario-post" onSubmit={postSubmit}>
-          <textarea className="text-publicacion" type="text" ref={comentarioRef} placeholder="comentario" maxLength="400" />
-          <label htmlFor="imgpublicacion" className="label-inputfilepublicacion">
-            <input type="file" id="imgpublicacion" className="input-inputfilepublicacion" ref={imgRef} />subir archivo</label>
+      {formulario == true ?
+        <section className="seccion-form-post">
+          <form className="formulario-post" onSubmit={postSubmit}>
+            <textarea className="text-publicacion" type="text" ref={comentarioRef} placeholder="comentario" maxLength="400" />
+            <label htmlFor="imgpublicacion" className="label-inputfilepublicacion">
+              <input type="file" id="imgpublicacion" className="input-inputfilepublicacion" ref={imgRef} />subir archivo</label>
 
-          <button type="submit" className="enviar-comentario">enviar</button>
-        </form>
-      </section>
+            <button type="submit" className="enviar-comentario">Enviar</button>
+          </form>
+        </section> :
+        ""}
+      <Titulo texto={"Blog"} />
+      <Subtitulo subtitulo="Cuentanos aventuras experiencias de tus vacaciones, opiniones y recomendaciones sobre otros campings" />
+      <Subtitulo subtitulo="
+      Con ello ayudarás a otros usuarios"/>
+
       <section className="seccion-list-publicaciones">
+        <button onClick={() => setFormulario(true)} className="boton-comentar">Deja un comentario</button>
         {publicaciones.map((publicacion) => (
           <article className="publicacion-card" key={publicacion._id}>
-            {userData.data.rol == "admin" ?
+            {user == null ? "" : userData.data.rol == "admin" || userData.data._id == publicacion.userID ?
               <button className="eliminar-publicacion" onClick={() => handleDelete(publicacion._id)}>eliminar</button> :
               ""}
-            <section>
-              <img src={userData.data.avatar} alt="Imagen de perfil" />
-              <h3>{userData.data.username}</h3>
+            <section className="datos-usuario-publicacion">
+              <img className="avatar-publicacion" src={publicacion.userAvatar} alt="Imagen de perfil" />
+              <h3 className="usuario-publicacion">{publicacion.user}</h3>
             </section>
-            <img src={publicacion.img} alt="" />
-            <p>{publicacion.comentario}</p>
+            <img className="img-publicacion" src={publicacion.img} alt="" />
+            <p className="texto-publicacion">{publicacion.comentario}</p>
           </article>
         ))}
       </section>
+
 
 
     </main>

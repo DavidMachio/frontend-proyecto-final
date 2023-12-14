@@ -1,7 +1,7 @@
 .main-campingdetail {
   width: 100%;
   min-height: calc(100vh - 70px - 50px);
-  padding: 20px 10px;
+  padding: 20px 0px;
 }
 .campingdetail {
   display: flex;
@@ -244,10 +244,12 @@
   text-transform: uppercase;
 }
 .container-seccion-comentarios {
-  width: 100vw;
+  border-radius: 20px;
+  width: 100%;
   padding: 20px 20px;
   display: flex;
   overflow: scroll;
+  box-shadow: inset 0 0 20px black;
 }
 .container-comentarios {
   display: flex;

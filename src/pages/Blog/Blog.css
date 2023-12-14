@@ -1,3 +1,11 @@
+.main-blog {
+  min-height: calc(100vh - 70px -50px);
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .seccion-form-post {
   height: 400px;
   max-width: 350px;
@@ -53,4 +61,65 @@
   border-radius: 10px;
   height: 30px;
   width: 90%;
+}
+.eliminar-publicacion {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 30px;
+  width: 100px;
+  text-transform: uppercase;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+.eliminar-publicacion:hover {
+  scale: 105%;
+  background-color: red;
+}
+.seccion-list-publicaciones {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.boton-comentar {
+  height: 40px;
+  width: 200px;
+  text-transform: uppercase;
+  background-color: aqua;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.publicacion-card {
+  position: relative;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.datos-usuario-publicacion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.avatar-publicacion {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  padding: 2px;
+  border: 2px solid;
+  border-radius: 50%;
+}
+.img-publicacion {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  background-color: white;
+}
+.texto-publicacion {
+  min-height: 50px;
+  padding: 5px;
 }
