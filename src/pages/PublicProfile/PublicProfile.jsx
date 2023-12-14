@@ -32,11 +32,22 @@ const PublicProfile = () => {
   }, [])
 
   return (
-    <main className="perfilPublico">
+    <main className="main-perfilPublico">
 
       {cargado == true ?
         <>
-          {userPublic.bloqueado == true ? <h3>Usuario bloqueado</h3> :
+          {userPublic.bloqueado == true ?
+            <section className="pag-usuariobloqueado">
+              <img className="avatar-bloqueado" src={userPublic.avatar} alt="Foto de perfil del usuario" />
+              <h2>{userPublic.nombre}</h2>
+              <section className="mens-bloqueado">
+                <h3>Lo sentimos</h3>
+                <h3>Este usuario esta bloqueado</h3>
+              </section>
+            </section>
+
+
+            :
             <section className="profile-public">
               <section className="datos-public">
                 <img className="imgcover-public" src={userPublic.avatar} alt="Imagen de perfil" />

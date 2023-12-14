@@ -176,6 +176,11 @@
   width: 300px;
   height: auto;
 }
+.editusuariosgif {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 850px) {
   .main-editarusuarios {
     flex-direction: column;

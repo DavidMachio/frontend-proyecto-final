@@ -2,6 +2,7 @@ import "./Editarusuarios.css"
 import { useEffect, useState, useRef, useContext } from "react"
 import API from "../../API/API"
 import { UserContext } from "../../context/userContext"
+import { NavLink } from "react-router-dom"
 
 
 
@@ -59,7 +60,7 @@ const Editarusuarios = () => {
     }).catch((error) => {
     });
 
-    if( usuario._id == user.id ) {
+    if (usuario._id == user.id) {
       API.get(`/usuario/${user.id}`).then((res) => {
         saveUserData(res)
       })
@@ -108,14 +109,15 @@ const Editarusuarios = () => {
               <article key={usuario._id} className={`${usuario.bloqueado == false ? "card-usuario desbloqueado" : "card-usuario bloqueado"}`}>
                 <div className="img-username">
                   <div className="user-dates">
-                    <img src={usuario.avatar} alt="" />
-                    <div>
-
-                      {usuario.rol === "admin" ?
-                        <h3>{usuario.rol}</h3> :
-                        ""}
-                      <h2>{usuario.nombre}</h2>
-                    </div>
+                    <NavLink className="navpost" to={`/profile/public/${usuario._id}`}>
+                      <img src={usuario.avatar} alt="" />
+                      <div>
+                        {usuario.rol === "admin" ?
+                          <h3>{usuario.rol}</h3> :
+                          ""}
+                        <h2>{usuario.nombre}</h2>
+                      </div>
+                    </NavLink>
                   </div>
                   <div className="buttons-settings">
                     <button onClick={() => handleDelete(usuario._id)}>Eliminar</button>
@@ -130,7 +132,7 @@ const Editarusuarios = () => {
           </section>
         </section>
         :
-        <div className="loading">
+        <div className="loading editusuariosgif">
           <img className="gif" src="/gif_caravana.gif" />
         </div>
       }

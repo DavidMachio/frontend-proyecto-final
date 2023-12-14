@@ -1,4 +1,32 @@
-.perfilPublico {
+.pag-usuariobloqueado {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+}
+.avatar-bloqueado {
+  height: auto;
+  width: 40%;
+  border-radius: 50%;
+  box-shadow: 0 0 20px black;
+  filter: blur(8px);
+}
+.pag-usuariobloqueado h2 {
+  filter: blur(4px);
+}
+.mens-bloqueado {
+  position: absolute;
+  text-align: center;
+  font-size: 30px;
+  text-shadow: 0 0 20px black;
+}
+
+.main-perfilPublico {
   width: 100%;
   min-height: calc(100vh - 70px - 50px);
   display: flex;
@@ -80,5 +108,10 @@
   .container-fav-public {
     width: 90%;
     padding: 10px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .mens-bloqueado {
+    font-size: 15px;
   }
 }
