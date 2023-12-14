@@ -77,7 +77,7 @@ const Login = () => {
                 })
             }).catch((error) => {
                 setCargando(false)
-                alert("USUARIO NO VALIDO")
+                alert("Incorrect Password")
             });
         } else {
             API.post("/usuario", body, {
@@ -106,7 +106,6 @@ const Login = () => {
                     )
 
                     API.get(`/usuario/${res.data.id}`).then((res) => {
-                        console.log("llega aqui")
                         saveUserData(res)
                         navigate("/profile")
                     })
