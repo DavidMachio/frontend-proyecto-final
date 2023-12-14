@@ -45,7 +45,7 @@
   margin-right: 10px;
   margin-top: 10px;
 }
-.navlinkfav {
+.starfav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +58,7 @@
   transition: all 0.2s ease;
   filter: drop-shadow(0px 0px 5px #00000092);
 }
-.navlinkfav:hover {
+.starfav:hover {
   height: 53px;
   width: 53px;
 }
