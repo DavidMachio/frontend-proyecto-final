@@ -232,7 +232,7 @@ const CampingDetail = () => {
                           <NavLink className="navpost" to={`/profile/public/${com.userID}`}>
                             <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
                             <h4>{com.user}</h4></NavLink>
-                          {user.rol == "admin" ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
+                            {user == null ? "" : user.rol == "admin" || user.id == com.userID ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
                             ""}
                         </div>
                         <img className="foto-post" src={com.img} alt="" />

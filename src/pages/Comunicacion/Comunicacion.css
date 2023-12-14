@@ -159,6 +159,7 @@
   width: 100%;
   height: auto;
   transition: all 0.2s ease;
+  animation: slidein 1s ease
 }
 
 .escondido {
