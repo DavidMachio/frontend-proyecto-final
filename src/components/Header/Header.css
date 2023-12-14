@@ -24,6 +24,7 @@ header {
 }
 .contenedor-iconos {
   display: flex;
+  z-index: 230;
 }
 
 header a {
