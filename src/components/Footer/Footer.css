@@ -8,3 +8,14 @@ footer {
   align-items: center;
   padding: 10px;
 }
+
+
+.day .footerday {
+  background-color: var(--secondary);
+  transition: all 0.2s ease-in-out;
+}
+
+.night .footernight {
+  background-color: var(--primary);
+  transition: all 0.2s ease-in-out;
+}

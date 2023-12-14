@@ -9,9 +9,8 @@ import NotFound from './pages/NotFound/NotFound.jsx'
 import Accesibles from './pages/Accesibles/Accesibles.jsx'
 import Entornos from './pages/Entornos/Entornos.jsx'
 import Acuaticos from './pages/Acuaticos/Acuaticos.jsx'
-import Montaña from './pages/Montaña/Montaña.jsx'
-import Ciudad from "./pages/Ciudad/Ciudad.jsx"
-import Playa from "./pages/Playa/Playa.jsx"
+
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Login from './pages/Login/Login.jsx'
@@ -24,6 +23,7 @@ import Gracias from './pages/Gracias/Gracias.jsx'
 import Editarusuarios from './pages/Editarusuarios/Editarusuarios.jsx'
 import PublicProfile from './pages/PublicProfile/PublicProfile.jsx'
 import Comunicacion from './pages/Comunicacion/Comunicacion.jsx'
+import { IsAuth , Isadmin } from './components/IsAuth/IsAuth.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -37,13 +37,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/blog' element={<Blog />} />
             <Route path='/accesibles' element={<Accesibles />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/editarusuarios' element={<Editarusuarios />} />
-            <Route path='/comunicacion' element={<Comunicacion />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/editarusuarios' element={<Isadmin><Editarusuarios /></Isadmin>} />
+            <Route path='/comunicacion' element={<Isadmin><Comunicacion /></Isadmin>} />
+            <Route path='/profile' element={<IsAuth><Profile /></IsAuth> } />
             <Route path='/entornos' element={<Entornos />} />
-            <Route path='/montaña' element={<Montaña />} />
-            <Route path='/playa' element={<Playa />} />
-            <Route path='/ciudad' element={<Ciudad />} />
             <Route path='/acuaticos' element={<Acuaticos />} />
             <Route path='/provincias' element={<Provincias />} />
             <Route path='/prov/:nombre' element={<ProvinciaUnica />} />

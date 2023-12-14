@@ -18,6 +18,8 @@ const Comunicacion = () => {
   const [descripcion, setDescripcion] = useState(false)
   const [revisar, setRevisar] = useState(false)
   const [confirmar, setConfirmar] = useState(false)
+  const [dataDescription, setDataDescription] = useState()
+  const [sending, setSending] = useState(false)
 
   const showRevisar = () => {
     setRevisar(!revisar)
@@ -26,11 +28,13 @@ const Comunicacion = () => {
     setConfirmar(!confirmar)
   }
 
-  const showDescripcion = () => {
+  const showDescripcion = (data) => {
+    setDataDescription(data)
     setDescripcion(!descripcion)
   }
 
   const commentSubmit = async (ev) => {
+    setSending(true)
     ev.preventDefault()
 
     const body = new FormData()
@@ -46,6 +50,7 @@ const Comunicacion = () => {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
       .then(() => { setAllpost(!allpost) })
+      setSending(false)
   }
 
   const getData = () => {
@@ -70,6 +75,8 @@ const Comunicacion = () => {
   }
 
 
+
+
   useEffect(() => {
     getData()
   }, [allpost])
@@ -87,26 +94,33 @@ const Comunicacion = () => {
             <input type="file" id="imgtarea" className="input-inputfiletarea" ref={imgcommentRef} />subir archivo</label>
           <textarea type="text" ref={descripcionRef} placeholder="descripcion" maxLength="400" />
           <button type="submit" className="enviar-tarea">enviar</button>
+          {sending == true && <h3>Enviando ...</h3>}
         </form>
       </section>
       <section className="seccion-list-tareas">
+        {cargado==false ? <>
+        
+        </>
+        :
+        <>
         {tareas.length <= 0 ? <div className="loading">
-          hola
+          No hay tareas
         </div> :
           <>
+          
             {tareas.map((tarea) => (
 
               <article className="card-tarea" key={tarea.titulo}>
                 <section className={revisar == true ? " head-card-tarea revisar" : confirmar ? " head-card-tarea confirmar" : "head-card-tarea"}>
                   <section className="datos-usertarea">
                     <section className="userdates-tarea">
-                      <img src={userData.data.avatar} alt="Imagen de perfil" />
+                      <img src={tarea.imgusuario} alt="Imagen de perfil" />
 
                       <section>
                         <h2 className="user-tarea">{tarea.nombreusuario}</h2>
 
                         <section className="container-titulo-tarea">
-                          <button onClick={showDescripcion} className="boton-descripcion-tarea">⬇️</button>
+                          <button onClick={() => showDescripcion(tarea)} className="boton-descripcion-tarea">⬇️</button>
                           <h2 className="titulo-tarea">{tarea.titulo}</h2>
                         </section>
                       </section>
@@ -119,17 +133,22 @@ const Comunicacion = () => {
                     <button onClick={() => handleDelete(tarea._id)}>Eliminar</button>
                   </section>
                 </section>
-                <section className={descripcion == false ? "container-descripcion-tarea escondido" : "container-descripcion-tarea"}>
-                  <article className="datos-descripcion-tarea">
-                    <h2 className="descripcion-tarea">{tarea.descripcion}</h2>
-                    <img className="img-tarea" src={tarea.imgcomment} alt="" />
-                  </article>
-                </section>
+                
 
               </article>
             ))}
+            {descripcion == false ?  "" : <section className="container-descripcion-tarea">
+                  <article className="datos-descripcion-tarea">
+                    <h2 className="descripcion-tarea">{dataDescription.descripcion}</h2>
+                    <img className="img-tarea" src={dataDescription.imgcomment} alt="" />
+                  </article>
+                </section> 
+                }
+            
           </>
         }
+        </>}
+        
       </section>
 
 
