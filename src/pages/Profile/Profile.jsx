@@ -111,8 +111,7 @@ const Profile = () => {
               <article className="botones-administrar">
                 <h2>Panel de administrador</h2>
                 <NavLink to={"/editarusuarios"}><button className="botones-panel">Usuarios</button></NavLink>
-                <NavLink><button className="botones-panel">Campings</button></NavLink>
-                <NavLink><button className="botones-panel">Comunicación</button></NavLink>
+                <NavLink to="/comunicacion"><button className="botones-panel">Comunicación</button></NavLink>
                 <div className="cerrar-administrar" onClick={() => showPanelAdmin()}><img src="/close.png" alt="" /></div>
               </article>
             </section> :
@@ -124,7 +123,7 @@ const Profile = () => {
       <form onSubmit={aboutSubmit} className={aboutForm == false ? "aboutform-inactive" : "aboutform-active"}>
         <div className="cerrarabout" onClick={() => setAboutForm(false)}><img src="/close.png" alt="" /></div>
         <h2>Solo existe una primera impresión</h2>
-        <textarea className="abouttextarea" type="text" placeholder="about you" ref={aboutRef} maxLength="150" required />
+        <textarea className="abouttextarea" type="text" placeholder="about you" ref={aboutRef} maxLength="500" required />
         <button type="submit" className="boton-enviar" onClick={() => setAboutForm(false)}>enviar</button>
       </form>
       <article className="about">

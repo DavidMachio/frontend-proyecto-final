@@ -4,10 +4,9 @@ import "./CardCamping.css"
 import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../context/userContext";
 import API from "../../API/API";
-import BannerSuscribir from "../BannerSuscribir/BannerSuscribir";
 import BannerFavoritos from "../BannerFavoritos/BannerFavoritos";
 
-const CardCamping = ({ data, entorno }) => {
+const CardCamping = ({ data, entorno, staroff }) => {
 
   const [star, setStar] = useState(false)
   const { user, userData, saveUserData } = useContext(UserContext)
@@ -88,9 +87,10 @@ const CardCamping = ({ data, entorno }) => {
         </section>
         : ""}
 
+      {staroff == false ? "" : <article className="starfav" onClick={user !== null && user.bloqueado == true ? showUsuarioBloqueado : user !== null ? (star == false ? addFavorito : removeFavorito) : showAddFav} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
+      </article>}
 
-      <NavLink className="navlinkfav" onClick={user !== null && user.bloqueado == true ? showUsuarioBloqueado : user !== null ? (star == false ? addFavorito : removeFavorito) : showAddFav} ><img className="cardcamping-favoritos" src={star == false ? "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701882236/estrellagris_e7wjo4.png" : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701213682/favoritos_jhqlvk.png"} alt="icono favoritos" />
-      </NavLink>
+
       <NavLink to={`/campings/name/${data.nombre}`}>
         <section className="cardcamping-header">
           <section className="cardcamping-text">

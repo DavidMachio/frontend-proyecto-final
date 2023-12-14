@@ -7,7 +7,6 @@ import Contacto from './pages/Contacto/Contacto.jsx'
 import Blog from './pages/Blog/Blog.jsx'
 import NotFound from './pages/NotFound/NotFound.jsx'
 import Accesibles from './pages/Accesibles/Accesibles.jsx'
-import TodosAccesibles from './pages/TodosAccesibles/TodosAccesibles.jsx'
 import Entornos from './pages/Entornos/Entornos.jsx'
 import Acuaticos from './pages/Acuaticos/Acuaticos.jsx'
 import Montaña from './pages/Montaña/Montaña.jsx'
@@ -24,6 +23,7 @@ import ProvinciaUnica from './pages/ProvinciaUnica/ProvinciaUnica.jsx'
 import Gracias from './pages/Gracias/Gracias.jsx'
 import Editarusuarios from './pages/Editarusuarios/Editarusuarios.jsx'
 import PublicProfile from './pages/PublicProfile/PublicProfile.jsx'
+import Comunicacion from './pages/Comunicacion/Comunicacion.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -38,6 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/accesibles' element={<Accesibles />} />
             <Route path='/login' element={<Login />} />
             <Route path='/editarusuarios' element={<Editarusuarios />} />
+            <Route path='/comunicacion' element={<Comunicacion />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/entornos' element={<Entornos />} />
             <Route path='/montaña' element={<Montaña />} />
