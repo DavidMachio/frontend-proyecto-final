@@ -1,0 +1,28 @@
+.main-accesibles {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+.cargandocampings {
+  text-align: center;
+}
+.container-cardcamping {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+.container-todos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.todos {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: var(--parrafo);
+  margin: 10px 0;
+}

@@ -1,69 +1,9 @@
-.paid {
-  text-align: center;
-  font-size: 50px;
-  text-transform: uppercase;
-  padding: 40px;
-}
-.component {
-  display: flex;
-  width: 100vw;
-  overflow: scroll;
-  gap: 30px;
-  padding: 0 30px;
-}
 .seleccion {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: auto;
+  height: calc(100vh - 70px);
+  width: auto;
 }
-.seleccion-cover {
-  width: 70vw;
-  height: 300px;
-  border-radius: 20px;
-  object-fit: cover;
-}
-.seleccion-text {
+.carrousel {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.seleccion-text h2 {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 5vw;
-  text-transform: uppercase;
-}
-.seleccion-text h3 {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-.seleccion-info {
-  background-color: rgba(0, 0, 0, 0.574);
-  border-radius: 20px;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px 10px;
-  width: 70%;
-  height: 200px;
-}
-.light {
-  height: 50px;
-  width: 150px;
-  border: 1px solid;
-  border-radius: 10px;
-  background-color: transparent;
-  color: var(--secondary);
-  text-transform: uppercase;
+  padding: 0 10px;
 }

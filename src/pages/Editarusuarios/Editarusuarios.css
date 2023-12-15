@@ -1,0 +1,217 @@
+.main-editarusuarios {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(100vh - 70px - 50px);
+  width: 100%;
+}
+.titulousuarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.container-cardsusuarios {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  min-height: calc(100vh - 70px - 50px);
+}
+.cards-usuarios {
+  color: var(--primary);
+  height: 444px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 35px;
+  padding: 10px;
+  position: relative;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.card-usuario {
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.542);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  animation: slidein 1s ease;
+}
+.cards-usuarios h3 {
+  font-weight: 300;
+}
+.cards-usuarios h3 span {
+  font-weight: 500;
+}
+.bloqueado {
+  background-color: red;
+}
+.desbloqueado {
+  background-color: var(--secondary);
+}
+
+.user-dates {
+  display: flex;
+  align-items: end;
+  gap: 15px;
+}
+.user-dates h3 {
+  text-transform: capitalize;
+}
+.img-username {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+}
+.buttons-settings {
+  border-radius: 10px;
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+.buttons-settings button {
+  background-color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  text-transform: uppercase;
+}
+.buttons-settings button:hover {
+  filter: invert(1);
+}
+.img-username img {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.542);
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.formulario-crear {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  background-color: white;
+  min-height: calc(100vh - 70px - 50px);
+}
+.formulario-crear form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.formulario-crear input {
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 18px;
+  width: 300px;
+}
+.formulario-crear button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  padding: 5px;
+  font-size: 18px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 300px;
+}
+.formulario-crear button:hover {
+  filter: invert(1);
+}
+.crear-avatar {
+  display: none;
+}
+.subir-avatar {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.formulario-crear {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container-gif {
+  color: var(--primary);
+  height: 70vh;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 20px;
+  padding: 40px 70px;
+}
+.gif {
+  width: 300px;
+  height: auto;
+}
+.editusuariosgif {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 850px) {
+  .main-editarusuarios {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .container-cardsusuarios {
+    width: 90%;
+  }
+  .formulario-crear {
+    width: 100%;
+  }
+  .cards-usuarios {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .user-dates {
+    flex-direction: column;
+    align-items: center;
+  }
+  .user-dates img {
+    height: 50px;
+    width: 50px;
+  }
+  .user-dates h2 {
+    font-size: 18px;
+  }
+  .user-id {
+    font-size: 14px;
+  }
+  .user-id span {
+    display: none;
+  }
+}

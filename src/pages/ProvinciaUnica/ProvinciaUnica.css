@@ -1,0 +1,16 @@
+.main-provinciaunica {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.container-provinciaunica {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.header-provinciaunica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -5,45 +5,61 @@ import { links } from "../../data/navegador";
 import { Fade as Hamburger } from 'hamburger-react'
 import "@theme-toggles/react/css/Classic.css"
 import { Classic } from "@theme-toggles/react"
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext"
 
+const Header = ({ action }) => {
 
-const Header = () => {
+  const { user, userData } = useContext(UserContext)
 
-  const logo = "https://images.vexels.com/media/users/3/129716/isolated/preview/fac546f594872b2ec3959892f2067dc9-insignia-de-camping-2.png"
+  const logo = "https://static.vecteezy.com/system/resources/previews/024/725/026/non_2x/outdoor-camping-sticker-minimalist-outdoor-camping-large-sticker-ai-generated-free-png.png"
   const logoalt = "icono de la app"
 
 
   const [isOpen, setOpen] = useState(false)
   const [menu, setMenu] = useState(false)
+
   const toggleMenu = () => {
     setMenu(!menu)
   }
-  const [isToggled, setToggle] = useState(false)
+
+  const [isToggled, setToggle] = useState(true)
+
+  const MenuSelected = () => {
+    setMenu(false)
+    setOpen(false)
+  }
 
   return (
-    <header>
-      <img
-        src={logo} alt={logoalt} className="header-logotipo" />
+    <header className={`${isToggled == true ? "headerDay" : "headerNight"}`} >
+      <NavLink to={"/"} className="contenedor-iconos">
+        <img src={logo} alt={logoalt} className={`header-logotipo `} />
+      </NavLink>
 
       <nav className={`header-nav ${menu ? `Active` : ''}`}>
 
         <ul className="header-ul">
           {links.map((link) => <li key={link.name}>
-            <NavLink to={link.link}>{link.name}</NavLink>
+            <div onClick={MenuSelected}><NavLink to={link.link}>{link.name}</NavLink></div>
           </li>)}
         </ul>
 
 
       </nav>
-      <div onClick={toggleMenu} className="burguer"><Hamburger className="botonburguer" toggled={isOpen} toggle={setOpen} size={20} direction="left" duration={0.4} distance="md" easing="ease-in-out" rounded label="Show menu" hideOutline={true} />
+      <div className="burguer"><div className="box" onClick={toggleMenu}><Hamburger className="botonburguer" toggled={isOpen} toggle={setOpen} size={20} direction="left"duration={0.4} distance="md" easing="ease-in-out" rounded label="Show menu" hideOutline={true} /></div>
       </div>
 
       <div className="log-sun">
-        <NavLink ><img className="profile" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700137175/profile_oqmxbe.jpg" alt="" /></NavLink>
-        <Classic toggled={isToggled} toggle={setToggle} className="sol" />
+        <NavLink to={user == null ? "/login" : "/profile"} className="contenedor-iconos"><img className={`profile profileDay`} src={userData !== null ? userData.data.avatar : "https://res.cloudinary.com/dt9uzksq0/image/upload/v1701970077/profiledefault_joguzg.jpg"} alt="" /></NavLink>
+        <div onClick={action} ><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol  ${isToggled == true ? "solDay" : "solNight"}`} /></div>
       </div>
 
     </header>
   );
 };
 export default Header;
+
+//*${localData == "light" ? "" : "header-logotipoNight"}
+
+
+//<div className="click" onClick={setTheme}><Classic toggled={isToggled} toggle={setToggle} reversed className={`sol ${localData == "light" ? "solDay" : "solNight"}`} /></div>

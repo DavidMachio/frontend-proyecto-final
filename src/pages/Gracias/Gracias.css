@@ -1,0 +1,35 @@
+.main-gracias {
+  padding: 40px 40px;
+  width: 100%;
+  background-image: url("https://res.cloudinary.com/dt9uzksq0/image/upload/v1701623016/baikang-yuan-VDYAsdbHVhc-unsplash_sxxeft.jpg");
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  color: white;
+  text-align: center;
+}
+.main-gracias img {
+  height: 100px;
+  width: auto;
+}
+.main-gracias h3 {
+  font-size: 20px;
+  font-weight: 300;
+  text-shadow: 0 0 30px black;
+}
+.main-gracias h2 {
+  font-size: 60px;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px black;
+}
+@media (max-width: 800px) {
+  .main-gracias h3 {
+    font-size: 15px;
+  }
+  .main-gracias h2 {
+    font-size: 35px;
+  }
+}

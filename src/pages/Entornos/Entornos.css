@@ -1,0 +1,25 @@
+.main-entornos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 10px 20px 10px;
+}
+.entorno-carrousel {
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  gap: 20px;
+}
+.article-cardtipo {
+  width: 500px;
+}
+
+@media screen and (max-width: 650px) {
+  .entorno-carrousel {
+    flex-direction: column;
+    align-items: center;
+  }
+  .article-cardtipo {
+    width: 100%;
+  }
+}

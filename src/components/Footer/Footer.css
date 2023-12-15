@@ -1,0 +1,21 @@
+footer {
+  font-family: var(--parrafo);
+  box-shadow: 0 -4px 12px black;
+  height: 50px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: sticky;
+}
+
+.day .footerday {
+  background-color: var(--secondary);
+  transition: all 0.2s ease-in-out;
+}
+
+.night .footernight {
+  background-color: var(--primary);
+  transition: all 0.2s ease-in-out;
+}

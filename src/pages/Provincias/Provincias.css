@@ -1,0 +1,71 @@
+.main-provincia {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-provincia input {
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  text-align: center;
+  margin: 10px 0;
+  align-self: center;
+  box-shadow: 0 0 10px var(--shadow);
+  animation: 1.5s slidein ease;
+}
+.section-provincia {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+.cards-provincia {
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 20px;
+  animation: 1.5s slidein ease;
+}
+.foto-provincia {
+  width: 100%;
+  height: 100%;
+}
+.nombre-provincia {
+  font-size: 24px;
+  color: white;
+  text-shadow: 0 0 10px black;
+  height: 50px;
+  width: auto;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background: rgba(47, 47, 47, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px var(--shadow);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.682);
+}
+
+@media (min-width: 400px) {
+  .section-provincia {
+    padding: 10px;
+  }
+  .cards-provincia {
+    height: 200px;
+    border-radius: 20px;
+  }
+  .foto-provincia {
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}

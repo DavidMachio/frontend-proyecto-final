@@ -1,0 +1,76 @@
+.card-category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  animation: 1.5s slidein ease;
+  margin: 20px 0;
+  flex-grow: 1;
+}
+.card-category {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: auto;
+}
+.card-category-cover {
+  width: 90%;
+  height: 300px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 20px var(--shadow);
+}
+.card-category-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.card-category-name {
+  color: white;
+  text-shadow: 0 0 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  font-size: 250%;
+  text-transform: uppercase;
+}
+.card-category-city {
+  color: white;
+  text-shadow: 0 0 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.card-category-info {
+  /* From https://css.glass */
+  background: rgba(47, 47, 47, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px var(--shadow);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.682);
+  border-radius: 20px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px;
+  width: 85%;
+  height: auto;
+  max-height: 300px;
+}
+@media (max-width: 600px) {
+  .card-category-city {
+    display: none;
+  }
+  .enlace {
+    scale: 70%;
+  }
+}

@@ -1,0 +1,56 @@
+.container-bannerfavorito {
+  height: 300px;
+  max-width: 400px;
+  z-index: 100;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.906);
+  box-shadow: 0px 0px 500px black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+  animation: popup 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  color: white;
+}
+.blog {
+  filter: invert(1);
+}
+
+.texttitulofavorito,
+.textmensajefavorito,
+.textsegundomensajefavorito {
+  color: white;
+}
+.imgBannerfavorito {
+  height: 50px;
+  width: auto;
+}
+.linkto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-family: var(--title);
+  color: rgb(0, 0, 0);
+  width: auto;
+  padding: 5px;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+}
+.cerrarbanner img {
+  filter: invert(1);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 30px;
+  width: auto;
+}

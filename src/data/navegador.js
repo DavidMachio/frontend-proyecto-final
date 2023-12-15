@@ -4,8 +4,8 @@ export const links = [
     link: "/",
   },
   {
-    name: "Campings",
-    link: "/campings",
+    name: "Categorias",
+    link: "/categorias",
   },
   {
     name: "Blog",
@@ -14,9 +14,5 @@ export const links = [
   {
     name: "Contacto",
     link: "/contacto",
-  },
-  {
-    name: "Cuenta",
-    link: "/cuenta",
   },
 ];
