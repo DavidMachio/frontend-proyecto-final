@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  animation: 1.5s slidein ease;
 }
 .video {
   height: auto;

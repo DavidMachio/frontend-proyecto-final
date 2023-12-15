@@ -16,19 +16,8 @@ const Comunicacion = () => {
   const [tareas, setTareas] = useState([])
   const [cargado, setCargado] = useState(false)
   const [descripcion, setDescripcion] = useState(false)
-  const [revisar, setRevisar] = useState(false)
-  const [confirmar, setConfirmar] = useState(false)
   const [dataDescription, setDataDescription] = useState()
   const [sending, setSending] = useState(false)
-
-  const showRevisar = (_id) => {
-    setRevisar(!revisar)
-    setConfirmar(false)
-  }
-  const showConfirmar = (_id) => {
-    setConfirmar(!confirmar)
-    setRevisar(false)
-  }
 
   const showDescripcion = (data) => {
     setDataDescription(data)
@@ -36,6 +25,7 @@ const Comunicacion = () => {
   }
 
   const commentSubmit = async (ev) => {
+    ev.preventDefault();
     setSending(true)
 
     const body = new FormData()
@@ -54,9 +44,9 @@ const Comunicacion = () => {
     setSending(false)
   }
 
-  const getData = () => {
+  const getData = async () => {
     try {
-      API.get(`/todolist/`).then((res) => {
+      await API.get(`/todolist/`).then((res) => {
         setTareas(res.data.reverse())
         setCargado(true)
       })
@@ -69,10 +59,6 @@ const Comunicacion = () => {
     await API.delete(`/todolist/${id}`).then(() => { setAllpost(!allpost) })
 
 
-  }
-
-  const handleUpdate = async (id) => {
-    await API.patch(`/todolist/${id}`).then(() => { setAllpost(!allpost) })
   }
 
 
@@ -112,7 +98,7 @@ const Comunicacion = () => {
                 {tareas.map((tarea) => (
 
                   <article className="card-tarea" key={tarea._id}>
-                    <section className={revisar == true ? " head-card-tarea revisar" : confirmar ? " head-card-tarea confirmar" : "head-card-tarea"}>
+                    <section className="head-card-tarea">
                       <section className="datos-usertarea">
                         <section className="userdates-tarea">
                           <img src={tarea.imgusuario} alt="Imagen de perfil" />

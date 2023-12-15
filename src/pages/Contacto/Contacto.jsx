@@ -14,10 +14,10 @@ const Contacto = () => {
           <input type="email" name="email" placeholder="Email" />
           <input type="text" name="Asunto" placeholder="Asunto" />
           <textarea name="Comentario" placeholder="Cuentanos algo..."></textarea>
-          <input type="submit" value="Enviar" className="enviar" onClick={() => setSend(true)}/>
+          <input type="submit" value="Enviar" className="enviar" onClick={() => setSend(true)} />
           <input type="hidden" name="_next" value="http://localhost:5173/gracias" />
           <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_autoresponse" value="Tu mensaje ha sido recibido correctamente, muchas gracias por contactar con nosotros "></input>
+          <input type="hidden" name="_autoresponse" value="Tu mensaje ha sido recibido correctamente, muchas gracias por contactar con nosotros. Un saludo de parte de todo el equipo de Campcesible"></input>
         </form>
         {send == true && <h3>Enviando ....</h3>}
 
