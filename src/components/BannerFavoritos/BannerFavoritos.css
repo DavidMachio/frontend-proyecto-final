@@ -20,6 +20,9 @@
   animation: popup 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   color: white;
 }
+.blog {
+  filter: invert(1);
+}
 
 .texttitulofavorito,
 .textmensajefavorito,

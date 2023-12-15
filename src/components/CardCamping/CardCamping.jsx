@@ -116,7 +116,7 @@ const CardCamping = ({ data, entorno, staroff }) => {
               <h6>{data.entorno}</h6></li> : ""}
             {data.entorno == "playa" ? <li className="icono-entorno"><img className=" ico-acc-night" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700939449/playa_p2lsxl.png" alt="Icono playa" />
               <h6>{data.entorno}</h6></li> : ""}
-            {data.entorno == "ciudad" ? <li className="icono-entorno"><img className=" ico-acc-night" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700939439/ciudad_ssg5kl.png" alt="Icono montaña" />
+            {data.entorno == "ciudad" ? <li className="icono-entorno"><img className=" ico-acc-night" src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1700939439/ciudad_ssg5kl.png" alt="Icono ciudad" />
               <h6>{data.entorno}</h6></li> : ""}
           </>}
         </ul>

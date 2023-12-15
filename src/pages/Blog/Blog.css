@@ -7,10 +7,10 @@
   align-items: center;
 }
 .seccion-form-post {
-  height: 400px;
+  height: 500px;
   max-width: 350px;
-  color: rgb(16, 16, 16);
-  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  background-color: rgb(32, 32, 32);
   box-shadow: 0 0 20px black;
   border-radius: 20px;
   display: flex;
@@ -23,8 +23,10 @@
   top: 0;
   bottom: 0;
   margin: auto;
+  animation: popup 0.3s ease;
 }
 .formulario-post {
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +91,6 @@
   height: 40px;
   width: 200px;
   text-transform: uppercase;
-  background-color: aqua;
   border: 1px solid;
   border-radius: 10px;
 }

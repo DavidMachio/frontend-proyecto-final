@@ -211,7 +211,7 @@ const CampingDetail = () => {
                         </section>
                         <section className="container-input">
                           <label htmlFor="imgcomment" className="label-inputfile">
-                            <img src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1702154458/placeholder-image_p1zmh1.jpg" alt="" />
+                            <img src="https://res.cloudinary.com/dt9uzksq0/image/upload/v1702154458/placeholder-image_p1zmh1.jpg" alt="foto placeholder" />
                             <input type="file" id="imgcomment" className="input-inputfile" ref={comimgRef} />
                           </label>
                         </section>
@@ -236,7 +236,7 @@ const CampingDetail = () => {
                             {user == null ? "" : user.rol == "admin" || user.id == com.userID ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
                               ""}
                           </div>
-                          <img className="foto-post" src={com.img} alt="" />
+                          <img className="foto-post" src={com.img} alt="Foto del usuario" />
                           <p className="text-post">{com.comentario}</p>
                         </article>
                       ))}

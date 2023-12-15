@@ -8,7 +8,7 @@ const BannerSuscribir = ({ funcion, titulo, mensaje, imagen, segundomensaje, lin
         <div className="cerrarbanner" onClick={funcion}><img src="/close.png" alt="" /></div>
         <h2 className="texttitulo">{titulo}</h2>
         <h3 className="textmensaje">{mensaje}</h3>
-        <img className="imgBanner" src={imagen} alt="" />
+        <img className="imgBanner" src={imagen} alt="Caravana" />
         <h4 className="textsegundomensaje">{segundomensaje}</h4>
         <NavLink className="linkto" to={link}>{accion}</NavLink>
       </article>

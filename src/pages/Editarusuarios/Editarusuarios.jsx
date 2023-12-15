@@ -110,7 +110,7 @@ const Editarusuarios = () => {
                 <div className="img-username">
                   <div className="user-dates">
                     <NavLink className="navpost" to={`/profile/public/${usuario._id}`}>
-                      <img src={usuario.avatar} alt="" />
+                      <img src={usuario.avatar} alt="Foto de perfil" />
                       <div>
                         {usuario.rol === "admin" ?
                           <h3>{usuario.rol}</h3> :

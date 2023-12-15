@@ -126,7 +126,7 @@ const Comunicacion = () => {
 
                   <article className="datos-descripcion-tarea">
                     <h2 className="descripcion-tarea">{dataDescription.descripcion}</h2>
-                    <img className="img-tarea" src={dataDescription.imgcomment} alt="" />
+                    <img className="img-tarea" src={dataDescription.imgcomment} alt="Foto de ejemplo" />
                   </article>
                 </section>
                 }

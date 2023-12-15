@@ -70,11 +70,13 @@ const Blog = () => {
       {formulario == true ?
         <section className="seccion-form-post">
           <form className="formulario-post" onSubmit={postSubmit}>
+            <div className="cerrarbannerblog" onClick={() => setFormulario(false)}><img src="/close.png" alt="" /></div>
             <textarea className="text-publicacion" type="text" ref={comentarioRef} placeholder="comentario" maxLength="400" />
             <label htmlFor="imgpublicacion" className="label-inputfilepublicacion">
               <input type="file" id="imgpublicacion" className="input-inputfilepublicacion" ref={imgRef} />subir archivo</label>
 
             <button type="submit" className="enviar-comentario">Enviar</button>
+
           </form>
         </section> :
         ""}

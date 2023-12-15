@@ -8,7 +8,7 @@ const BannerFavoritos = ({ funcion, titulo, mensaje, imagen, segundomensaje, lin
         <div className="cerrarbanner" onClick={funcion}><img src="/close.png" alt="" /></div>
         <h2 className="texttitulofavorito">{titulo}</h2>
         <h3 className="textmensajefavorito">{mensaje}</h3>
-        <img className="imgBannerfavorito" src={imagen} alt="" />
+        <img className="imgBannerfavorito" src={imagen} alt="Estrella" />
         <h4 className="textsegundomensajefavorito">{segundomensaje}</h4>
         <NavLink className="linkto" to={link}>{accion}</NavLink>
       </article>

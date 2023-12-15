@@ -17,15 +17,8 @@
   border-radius: 10px;
   margin: 20px 0;
   transition: all 0.2s;
-}
-.enlaceday {
-  color: var(--primary);
-  background-color: var(--buttonday);
-}
-
-.enlacenight {
-  background-color: var(--buttonnight);
-  color: var(--secondary);
+  background-color: var(--secondary);
+  border: 1px solid;
 }
 @media (max-width: 600px) {
   .enlace {

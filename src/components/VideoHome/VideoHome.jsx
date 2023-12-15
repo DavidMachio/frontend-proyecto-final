@@ -10,7 +10,7 @@ const VideoHome = () => {
         <div className="title-container">
           <h1 className="title">Campcesible</h1>
           <h2 className="subtitle">Living the best experience</h2>
-          <Enlace word="Discover" url="/categorias" />
+          <Enlace word="Descubrir" url="/categorias" />
         </div>
       </article>
 

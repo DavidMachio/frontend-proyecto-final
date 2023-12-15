@@ -5,7 +5,7 @@ const CardCategory = ({ imagen, nombre, ciudad, link, word, }) => {
   return (
     <article className="card-category-container">
       <section className="card-category">
-        <img className="card-category-cover" src={imagen} alt="" />
+        <img className="card-category-cover" src={imagen} alt="imagen de categoria de camping" />
         <div className="card-category-info">
           <div className="card-category-text">
             <h2 className="card-category-name">{nombre}</h2>
