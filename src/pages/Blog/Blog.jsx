@@ -4,6 +4,7 @@ import API from "../../API/API"
 import "./Blog.css"
 import Titulo from "../../components/Titulo/Titulo"
 import Subtitulo from "../../components/Subtitulo/Subtitulo"
+import BannerSuscribir from "../../components/BannerSuscribir/BannerSuscribir";
 
 
 
@@ -16,6 +17,7 @@ const Blog = () => {
   const [cargado, setCargado] = useState(false)
   const [allpost, setAllpost] = useState(false)
   const [formulario, setFormulario] = useState(false)
+  const [publicar, setPublicar] = useState(false)
 
 
   const postSubmit = async (ev) => {
@@ -54,6 +56,10 @@ const Blog = () => {
     await API.delete(`/blogcom/${id}`).then(() => { setAllpost(!allpost) })
   }
 
+  const showPublicar = () => {
+    setPublicar(!publicar)
+  }
+
   useEffect(() => {
     getData()
   }, [allpost])
@@ -77,8 +83,15 @@ const Blog = () => {
       <Subtitulo subtitulo="
       Con ello ayudarás a otros usuarios"/>
 
+      {publicar == true ? <BannerSuscribir titulo={"Uppsss..."} funcion={() => showPublicar(false)} imagen={"/gif_caravana.gif"} segundomensaje={"Suscribete para poder participar en el blog"} link={"/login"} accion={"Suscribete"} /> : ""}
+
+
+
+
+
       <section className="seccion-list-publicaciones">
-        <button onClick={() => setFormulario(true)} className="boton-comentar">Deja un comentario</button>
+        <button onClick={user !== null ? () => setFormulario(true) :
+          () => showPublicar(true)} className="boton-comentar">Deja un comentario</button>
         {publicaciones.map((publicacion) => (
           <article className="publicacion-card" key={publicacion._id}>
             {user == null ? "" : userData.data.rol == "admin" || userData.data._id == publicacion.userID ?

@@ -189,17 +189,17 @@ const CampingDetail = () => {
                   <h2>Danos tu opinión sobre este camping</h2>}
                 <button onClick={user !== null && user.bloqueado == true ? showUsuarioBloqueado : user !== null ? showComentar :
                   showSuscribirse} className="agregar-comentario">Comentar</button>
-                <section>
-                  {suscribirse == true ?
-                    <BannerSuscribir funcion={() => setSuscribirse(false)} titulo={"¿Quieres dejar tu comentario?"} mensaje={"Tus opiniones son importantes"} imagen={"/gif_caravana.gif"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
-                    : ""}
-                </section>
-                <section>
-                  {usuarioBloqueado == true ?
-                    <BannerSuscribir funcion={() => setUsuarioBloqueado(false)} titulo={"Upppsss..."} mensaje={"Tu cuenta está bloqueada"} imagen={"/gif_caravana.gif"} segundomensaje={"contacta con nosotros para más información"} link={"/contacto"} accion={"Contactar"} />
-                    :
-                    ""}
-                </section>
+
+                {suscribirse == true ?
+                  <BannerSuscribir funcion={() => setSuscribirse(false)} titulo={"¿Quieres dejar tu comentario?"} mensaje={"Tus opiniones son importantes"} imagen={"/gif_caravana.gif"} segundomensaje={"Ingresa a tu cuenta o create una"} link={"/login"} accion={"Entrar"} />
+                  : ""}
+
+
+                {usuarioBloqueado == true ?
+                  <BannerSuscribir funcion={() => setUsuarioBloqueado(false)} titulo={"Upppsss..."} mensaje={"Tu cuenta está bloqueada"} imagen={"/gif_caravana.gif"} segundomensaje={"contacta con nosotros para más información"} link={"/contacto"} accion={"Contactar"} />
+                  :
+                  ""}
+
                 <section>
                   {comentar == true ?
                     <section className="container-formcomentario">
@@ -224,23 +224,24 @@ const CampingDetail = () => {
                     </section> :
                     ""}
                 </section>
-                <section className="container-seccion-comentarios">
-                  <section className="container-comentarios">
-                    {newComentarios.map((com) => (
-                      <article className="card-post" key={com._id}>
-                        <div className="head-post">
-                          <NavLink className="navpost" to={`/profile/public/${com.userID}`}>
-                            <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
-                            <h4>{com.user}</h4></NavLink>
+                {newComentarios.length >= 1 ?
+                  <section className="container-seccion-comentarios">
+                    <section className="container-comentarios">
+                      {newComentarios.map((com) => (
+                        <article className="card-post" key={com._id}>
+                          <div className="head-post">
+                            <NavLink className="navpost" to={`/profile/public/${com.userID}`}>
+                              <img className="avatar-profile-post" src={com.userAvatar} alt="profile picture" />
+                              <h4>{com.user}</h4></NavLink>
                             {user == null ? "" : user.rol == "admin" || user.id == com.userID ? <button onClick={() => handleDelete(com._id)}>Eliminar</button> :
-                            ""}
-                        </div>
-                        <img className="foto-post" src={com.img} alt="" />
-                        <p className="text-post">{com.comentario}</p>
-                      </article>
-                    ))}
-                  </section>
-                </section>
+                              ""}
+                          </div>
+                          <img className="foto-post" src={com.img} alt="" />
+                          <p className="text-post">{com.comentario}</p>
+                        </article>
+                      ))}
+                    </section>
+                  </section> : ""}
               </section>
             ) : ""}
             {seccion == "Contacto" ? (
