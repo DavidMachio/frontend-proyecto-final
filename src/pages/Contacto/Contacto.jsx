@@ -15,7 +15,7 @@ const Contacto = () => {
           <input type="text" name="Asunto" placeholder="Asunto" />
           <textarea name="Comentario" placeholder="Cuentanos algo..."></textarea>
           <input type="submit" value="Enviar" className="enviar" onClick={() => setSend(true)} />
-          <input type="hidden" name="_next" value="https://campcesible.vercel.app/gracias" />
+          <input type="hidden" name="_next" value="https://campcesible.vercel.app/entornos" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_autoresponse" value="Tu mensaje ha sido recibido correctamente, muchas gracias por contactar con nosotros. Un saludo de parte de todo el equipo de Campcesible"></input>
         </form>
