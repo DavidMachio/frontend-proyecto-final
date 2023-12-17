@@ -9,7 +9,7 @@ const Contacto = () => {
     <main className="main-contacto">
       <section className="form-container-contacto">
         <h2>Contáctanos</h2>
-        <form className="form-contacto" action="https://formsubmit.co/paginawebcampings@gmail.com" method="POST">
+        <form id="formulario-de-contacto" className="form-contacto" action="https://formsubmit.co/paginawebcampings@gmail.com" method="POST">
           <input type="text" name="Nombre" placeholder="Nombre" />
           <input type="email" name="email" placeholder="Email" />
           <input type="text" name="Asunto" placeholder="Asunto" />
